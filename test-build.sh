@@ -1,31 +1,7 @@
 #!/bin/bash
 
-# Exit on any error
-set -e
-
-# Load environment variables
-if [ ! -f .env ]; then
-    echo "Error: .env file not found"
-    exit 1
-fi
-source .env
-
-if [ -z "$PROJECT_ID" ]; then
-    echo "Error: PROJECT_ID not set in .env file"
-    exit 1
-fi
-
-# Set GCP project
-echo "Setting GCP project to: ${PROJECT_ID}"
-gcloud config set project ${PROJECT_ID}
-
-# Temporarily set quota project for this script
-export GOOGLE_CLOUD_QUOTA_PROJECT=${PROJECT_ID}
-
-echo "Starting deployment..."
-
-# Build step: Copy shared privacy content into each site
-echo "Building sites with shared privacy content..."
+# Test script to verify the build process works correctly
+echo "Testing build process..."
 
 # Create build directories
 mkdir -p build/elyx-life
@@ -67,34 +43,44 @@ if [ -f shared/privacy-statement.html ]; then
     rm -f build/elyx-life/privacy.html.bak build/elyx-health/privacy.html.bak
     
     echo "Privacy content successfully injected into both sites"
+    
+    # Verify the content was injected
+    echo ""
+    echo "Verifying build results..."
+    echo "elyx-life privacy.html size: $(wc -c < build/elyx-life/privacy.html) bytes"
+    echo "elyx-health privacy.html size: $(wc -c < build/elyx-health/privacy.html) bytes"
+    echo "shared privacy-statement.html size: $(wc -c < shared/privacy-statement.html) bytes"
+    
+    # Check if privacy content is present
+    if grep -q "Elyx - Data Privacy and Security Policy" build/elyx-life/privacy.html; then
+        echo "✅ Privacy content found in elyx-life/privacy.html"
+    else
+        echo "❌ Privacy content NOT found in elyx-life/privacy.html"
+    fi
+    
+    if grep -q "Elyx - Data Privacy and Security Policy" build/elyx-health/privacy.html; then
+        echo "✅ Privacy content found in elyx-health/privacy.html"
+    else
+        echo "❌ Privacy content NOT found in elyx-health/privacy.html"
+    fi
+    
+    # Check if JavaScript was removed
+    if grep -q "fetch(" build/elyx-life/privacy.html; then
+        echo "❌ JavaScript fetch code still present in elyx-life/privacy.html"
+    else
+        echo "✅ JavaScript fetch code removed from elyx-life/privacy.html"
+    fi
+    
+    if grep -q "fetch(" build/elyx-health/privacy.html; then
+        echo "❌ JavaScript fetch code still present in elyx-health/privacy.html"
+    else
+        echo "✅ JavaScript fetch code removed from elyx-health/privacy.html"
+    fi
+    
 else
     echo "Warning: shared/privacy-statement.html not found"
 fi
 
-# Deploy elyx.life
-echo "Deploying to elyx.life..."
-gcloud storage rsync -r \
-  --cache-control="public, max-age=31536000" \
-  --exclude=".*" \
-  --exclude="*.DS_Store" \
-  --exclude="__MACOSX" \
-  --exclude="Thumbs.db" \
-  --exclude="desktop.ini" \
-  build/elyx-life gs://elyx.life
-
-# Deploy elyx.health
-echo "Deploying to elyx.health..."
-gcloud storage rsync -r \
-  --cache-control="public, max-age=31536000" \
-  --exclude=".*" \
-  --exclude="*.DS_Store" \
-  --exclude="__MACOSX" \
-  --exclude="Thumbs.db" \
-  --exclude="desktop.ini" \
-  build/elyx-health gs://elyx.health
-
-# Clean up build directory
-echo "Cleaning up build directory..."
-rm -rf build
-
-echo "Deployment completed successfully!" 
+echo ""
+echo "Build test completed! Check the build/ directory for results."
+echo "To clean up, run: rm -rf build/" 
