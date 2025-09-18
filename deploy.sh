@@ -37,39 +37,51 @@ cp -r elyx-life/* build/elyx-life/
 # Copy elyx-health content to build directory  
 cp -r elyx-health/* build/elyx-health/
 
-# Copy shared privacy content into each site's privacy.html
-if [ -f shared/privacy-statement.html ]; then
-    echo "Injecting shared privacy content..."
+# Define shared content files to inject
+# Format: "shared_file:target_file:content_id:description"
+SHARED_CONTENT=(
+    "shared/privacy-statement.html:privacy.html:privacy-content:privacy content"
+    "shared/support-content.html:support.html:support-content:support content"
+)
+
+# Function to inject shared content into a site
+inject_shared_content() {
+    local shared_file="$1"
+    local target_file="$2"
+    local content_id="$3"
+    local description="$4"
+    local site="$5"
     
-    # For elyx-life
-    sed -i.bak '/<div class="content" id="privacy-content">/,/<\/div>/c\
-      <div class="content" id="privacy-content">\
-        <!-- Privacy content injected during build -->\
-      </div>' build/elyx-life/privacy.html
+    if [ -f "$shared_file" ]; then
+        echo "Injecting shared $description into $site/$target_file..."
+        
+        # Reset the content div to placeholder
+        sed -i.bak "/<div class=\"content\" id=\"$content_id\">/,/<\/div>/c\\
+      <div class=\"content\" id=\"$content_id\">\\
+        <!-- $description injected during build -->\\
+      </div>" "build/$site/$target_file"
+        
+        # Insert the shared content
+        awk "/<!-- $description injected during build -->/ { system(\"cat $shared_file\"); next } 1" "build/$site/$target_file" > "build/$site/$target_file.tmp" && mv "build/$site/$target_file.tmp" "build/$site/$target_file"
+        
+        # Clean up backup file
+        rm -f "build/$site/$target_file.bak"
+        
+        echo "$description successfully injected into $site"
+    else
+        echo "Warning: $shared_file not found"
+    fi
+}
+
+# Inject all shared content
+echo "Injecting shared content into both sites..."
+for content_config in "${SHARED_CONTENT[@]}"; do
+    IFS=':' read -r shared_file target_file content_id description <<< "$content_config"
     
-    # Insert the shared content into elyx-life
-    awk '/<!-- Privacy content injected during build -->/ { system("cat shared/privacy-statement.html"); next } 1' build/elyx-life/privacy.html > build/elyx-life/privacy.html.tmp && mv build/elyx-life/privacy.html.tmp build/elyx-life/privacy.html
-    
-    # For elyx-health
-    sed -i.bak '/<div class="content" id="privacy-content">/,/<\/div>/c\
-      <div class="content" id="privacy-content">\
-        <!-- Privacy content injected during build -->\
-      </div>' build/elyx-health/privacy.html
-    
-    # Insert the shared content into elyx-health
-    awk '/<!-- Privacy content injected during build -->/ { system("cat shared/privacy-statement.html"); next } 1' build/elyx-health/privacy.html > build/elyx-health/privacy.html.tmp && mv build/elyx-health/privacy.html.tmp build/elyx-health/privacy.html
-    
-    # Remove the JavaScript fetch code from both files
-    sed -i.bak '/<script>/,/<\/script>/d' build/elyx-life/privacy.html
-    sed -i.bak '/<script>/,/<\/script>/d' build/elyx-health/privacy.html
-    
-    # Clean up backup files
-    rm -f build/elyx-life/privacy.html.bak build/elyx-health/privacy.html.bak
-    
-    echo "Privacy content successfully injected into both sites"
-else
-    echo "Warning: shared/privacy-statement.html not found"
-fi
+    # Inject into both sites
+    inject_shared_content "$shared_file" "$target_file" "$content_id" "$description" "elyx-life"
+    inject_shared_content "$shared_file" "$target_file" "$content_id" "$description" "elyx-health"
+done
 
 # Deploy elyx.life
 echo "Deploying to elyx.life..."
