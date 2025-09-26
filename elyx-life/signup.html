@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Join Elyx - The Healthcare You Deserve</title>
+    <link rel="icon" type="image/png" href="./favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="./favicon/favicon.svg" />
+    <link rel="shortcut icon" href="./favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="./favicon/site.webmanifest" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Forum&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Work Sans', sans-serif;
+        background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+        color: #d4af37;
+        min-height: 100vh;
+        overflow-x: hidden;
+        position: relative;
+      }
+
+      /* Premium gold gradient overlay */
+      body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, 
+          rgba(212, 175, 55, 0.05) 0%, 
+          rgba(255, 215, 0, 0.08) 25%, 
+          rgba(212, 175, 55, 0.05) 50%, 
+          rgba(255, 215, 0, 0.08) 75%, 
+          rgba(212, 175, 55, 0.05) 100%);
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .hero-section {
+        position: relative;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #c6af89 0%, #b89a6b 50%, #c6af89 100%);
+        z-index: 2;
+        padding: 20px 0;
+      }
+
+
+      .hero-content {
+        text-align: center;
+        z-index: 4;
+        max-width: 1200px;
+        padding: 0 20px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 60px;
+        width: 100%;
+      }
+
+      .hero-left {
+        flex: 1;
+        max-width: 500px;
+      }
+
+      .hero-right {
+        flex: 1;
+        max-width: 450px;
+      }
+
+      .logo {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto 20px;
+        display: block;
+        filter: drop-shadow(0 8px 32px rgba(198, 175, 137, 0.8)) drop-shadow(0 0 20px rgba(255, 255, 255, 0.3));
+        animation: logoGlow 3s ease-in-out infinite alternate;
+        position: relative;
+        z-index: 5;
+      }
+
+      @keyframes logoGlow {
+        0% { filter: drop-shadow(0 8px 32px rgba(212, 175, 55, 0.4)); }
+        100% { filter: drop-shadow(0 8px 32px rgba(255, 215, 0, 0.6)); }
+      }
+
+      .hero-title {
+        font-family: 'Forum', serif;
+        font-size: 3rem;
+        font-weight: 400;
+        margin-bottom: 15px;
+        background: linear-gradient(135deg, #d4af37 0%, #ffd700 50%, #b8860b 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-shadow: 0 4px 8px rgba(255, 255, 255, 0.3), 0 0 20px rgba(212, 175, 55, 0.4);
+        letter-spacing: 2px;
+        animation: titleShimmer 4s ease-in-out infinite;
+        position: relative;
+        z-index: 5;
+      }
+
+      @keyframes titleShimmer {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+      }
+
+      .hero-subtitle {
+        font-size: 1.2rem;
+        margin-bottom: 0;
+        color: #f5f5f5;
+        font-weight: 300;
+        line-height: 1.6;
+        text-shadow: 0 2px 4px rgba(255, 255, 255, 0.2), 0 0 10px rgba(212, 175, 55, 0.3);
+        position: relative;
+        z-index: 5;
+      }
+
+      .signup-section {
+        background: linear-gradient(145deg, 
+          rgba(255, 255, 255, 0.1) 0%, 
+          rgba(255, 255, 255, 0.05) 100%);
+        backdrop-filter: blur(30px);
+        border: 2px solid rgba(212, 175, 55, 0.3);
+        border-radius: 20px;
+        padding: 30px;
+        max-width: 100%;
+        margin: 0;
+        box-shadow: 
+          0 25px 50px rgba(0, 0, 0, 0.3),
+          0 0 0 1px rgba(212, 175, 55, 0.1),
+          inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .signup-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, 
+          transparent, 
+          rgba(212, 175, 55, 0.1), 
+          transparent);
+        animation: shimmer 3s infinite;
+      }
+
+      @keyframes shimmer {
+        0% { left: -100%; }
+        100% { left: 100%; }
+      }
+
+      .form-title {
+        font-family: 'Forum', serif;
+        font-size: 1.8rem;
+        text-align: center;
+        margin-bottom: 25px;
+        background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        letter-spacing: 1px;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+        position: relative;
+      }
+
+      .form-label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+        color: #d4af37;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .form-input {
+        width: 100%;
+        padding: 12px 16px;
+        border: 2px solid rgba(212, 175, 55, 0.3);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.05);
+        color: #f5f5f5;
+        font-size: 0.95rem;
+        transition: all 0.4s ease;
+        backdrop-filter: blur(10px);
+        position: relative;
+      }
+
+      .form-input:focus {
+        outline: none;
+        border-color: #d4af37;
+        background: rgba(255, 255, 255, 0.1);
+        box-shadow: 
+          0 0 25px rgba(212, 175, 55, 0.4),
+          inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        transform: translateY(-2px);
+      }
+
+      .form-input::placeholder {
+        color: rgba(245, 245, 245, 0.6);
+        font-style: italic;
+      }
+
+      .required {
+        color: #ffd700;
+      }
+
+      .submit-btn {
+        width: 100%;
+        padding: 14px;
+        background: linear-gradient(135deg, #d4af37 0%, #ffd700 50%, #b8860b 100%);
+        border: none;
+        border-radius: 12px;
+        color: #1a1a1a;
+        font-size: 1rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.4s ease;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-top: 15px;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+      }
+
+      .submit-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, 
+          transparent, 
+          rgba(255, 255, 255, 0.3), 
+          transparent);
+        transition: left 0.5s;
+      }
+
+      .submit-btn:hover {
+        background: linear-gradient(135deg, #ffd700 0%, #d4af37 50%, #ffd700 100%);
+        transform: translateY(-3px);
+        box-shadow: 0 15px 35px rgba(212, 175, 55, 0.5);
+      }
+
+      .submit-btn:hover::before {
+        left: 100%;
+      }
+
+      .submit-btn:active {
+        transform: translateY(-1px);
+      }
+
+      .privacy-note {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 0.8rem;
+        color: rgba(245, 245, 245, 0.8);
+        line-height: 1.5;
+      }
+
+      .privacy-note a {
+        color: #d4af37;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .privacy-note a:hover {
+        color: #ffd700;
+        text-decoration: underline;
+      }
+
+
+      .floating-elements {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      .floating-element {
+        position: absolute;
+        background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+        border-radius: 50%;
+        animation: float 8s ease-in-out infinite;
+      }
+
+      .floating-element:nth-child(1) {
+        width: 100px;
+        height: 100px;
+        top: 15%;
+        left: 8%;
+        animation-delay: 0s;
+      }
+
+      .floating-element:nth-child(2) {
+        width: 150px;
+        height: 150px;
+        top: 55%;
+        right: 12%;
+        animation-delay: 3s;
+      }
+
+      .floating-element:nth-child(3) {
+        width: 80px;
+        height: 80px;
+        bottom: 25%;
+        left: 15%;
+        animation-delay: 6s;
+      }
+
+      .floating-element:nth-child(4) {
+        width: 120px;
+        height: 120px;
+        top: 30%;
+        right: 25%;
+        animation-delay: 1.5s;
+      }
+
+      @keyframes float {
+        0%, 100% { 
+          transform: translateY(0px) rotate(0deg) scale(1); 
+          opacity: 0.3;
+        }
+        50% { 
+          transform: translateY(-30px) rotate(180deg) scale(1.1); 
+          opacity: 0.6;
+        }
+      }
+
+      /* Premium scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #1a1a1a;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: linear-gradient(135deg, #d4af37, #ffd700);
+        border-radius: 4px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(135deg, #ffd700, #d4af37);
+      }
+
+      /* Tablet and smaller desktop */
+      @media (max-width: 1024px) {
+        .hero-content {
+          flex-direction: column;
+          gap: 40px;
+        }
+
+        .hero-left, .hero-right {
+          max-width: 100%;
+        }
+
+        .hero-title {
+          font-size: 2.8rem;
+        }
+        
+        .signup-section {
+          padding: 30px;
+        }
+
+        .logo {
+          width: 90px;
+          height: 90px;
+        }
+      }
+
+      /* Mobile landscape and small tablets */
+      @media (max-width: 768px) {
+        .hero-section {
+          padding: 20px;
+          min-height: 100vh;
+        }
+
+        .hero-content {
+          max-width: 100%;
+        }
+
+        .hero-title {
+          font-size: 2.8rem;
+          margin-bottom: 20px;
+        }
+
+        .hero-subtitle {
+          font-size: 1.3rem;
+          margin-bottom: 35px;
+          padding: 0 10px;
+        }
+
+        .logo {
+          width: 110px;
+          height: 110px;
+          margin-bottom: 25px;
+        }
+
+        .signup-section {
+          padding: 35px 30px;
+          margin: 0 20px;
+          max-width: 100%;
+        }
+
+        .form-title {
+          font-size: 2rem;
+          margin-bottom: 30px;
+        }
+
+        .form-input {
+          padding: 14px 18px;
+          font-size: 16px; /* Prevents zoom on iOS */
+        }
+
+        .submit-btn {
+          padding: 16px;
+          font-size: 1rem;
+        }
+
+
+        .floating-element {
+          display: none; /* Hide on mobile for better performance */
+        }
+      }
+
+      /* Mobile portrait */
+      @media (max-width: 480px) {
+        .hero-section {
+          padding: 15px;
+        }
+
+        .hero-title {
+          font-size: 2.4rem;
+          line-height: 1.2;
+        }
+
+        .hero-subtitle {
+          font-size: 1.2rem;
+          margin-bottom: 30px;
+        }
+
+        .logo {
+          width: 100px;
+          height: 100px;
+          margin-bottom: 20px;
+        }
+
+        .signup-section {
+          padding: 30px 25px;
+          margin: 0 15px;
+          border-radius: 20px;
+        }
+
+        .form-title {
+          font-size: 1.8rem;
+          margin-bottom: 25px;
+        }
+
+        .form-group {
+          margin-bottom: 25px;
+        }
+
+        .form-label {
+          font-size: 0.9rem;
+        }
+
+        .form-input {
+          padding: 16px 18px;
+          border-radius: 12px;
+        }
+
+        .submit-btn {
+          padding: 16px;
+          border-radius: 12px;
+          font-size: 0.95rem;
+        }
+
+        .privacy-note {
+          font-size: 0.85rem;
+          margin-top: 25px;
+        }
+
+      }
+
+      /* Very small screens */
+      @media (max-width: 360px) {
+        .hero-title {
+          font-size: 2rem;
+        }
+
+        .hero-subtitle {
+          font-size: 1.1rem;
+        }
+
+        .signup-section {
+          padding: 25px 20px;
+          margin: 0 10px;
+        }
+
+        .form-title {
+          font-size: 1.6rem;
+        }
+      }
+
+      /* Landscape orientation on mobile */
+      @media (max-height: 500px) and (orientation: landscape) {
+        .hero-section {
+          padding: 10px;
+        }
+
+        .hero-title {
+          font-size: 2.2rem;
+          margin-bottom: 15px;
+        }
+
+        .hero-subtitle {
+          font-size: 1.1rem;
+          margin-bottom: 25px;
+        }
+
+        .logo {
+          width: 90px;
+          height: 90px;
+          margin-bottom: 15px;
+        }
+
+        .signup-section {
+          padding: 25px;
+          margin: 0 15px;
+        }
+
+        .form-title {
+          font-size: 1.7rem;
+          margin-bottom: 20px;
+        }
+
+        .form-group {
+          margin-bottom: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="floating-elements">
+      <div class="floating-element"></div>
+      <div class="floating-element"></div>
+      <div class="floating-element"></div>
+      <div class="floating-element"></div>
+    </div>
+
+
+    <div class="hero-section">
+      <div class="hero-content">
+        <div class="hero-left">
+          <img src="./images/logo-gold-512.png" alt="Elyx" class="logo" />
+          <h1 class="hero-title">Join Elyx</h1>
+          <p class="hero-subtitle">Experience the future of personalized healthcare. Join our exclusive community of individuals who demand nothing but the best medical care and lifestyle optimization.</p>
+        </div>
+        
+        <div class="hero-right">
+          <div class="signup-section">
+            <h2 class="form-title">Reserve Your Place</h2>
+            <form id="signupForm" action="#" method="POST">
+              <div class="form-group">
+                <label for="fullName" class="form-label">Full Name <span class="required">*</span></label>
+                <input type="text" id="fullName" name="fullName" class="form-input" placeholder="Enter your full name" required>
+              </div>
+
+              <div class="form-group">
+                <label for="email" class="form-label">Email Address <span class="required">*</span></label>
+                <input type="email" id="email" name="email" class="form-input" placeholder="your.email@example.com" required>
+              </div>
+
+              <div class="form-group">
+                <label for="contactNumber" class="form-label">Contact Number <span class="required">*</span></label>
+                <input type="tel" id="contactNumber" name="contactNumber" class="form-input" placeholder="+65 1234 5678" required>
+              </div>
+
+              <div class="form-group">
+                <label for="homeCity" class="form-label">Home City <span class="required">*</span></label>
+                <input type="text" id="homeCity" name="homeCity" class="form-input" placeholder="Singapore" required>
+              </div>
+
+              <button type="submit" class="submit-btn">Join the Waitlist</button>
+            </form>
+
+            <div class="privacy-note">
+              By submitting this form, you agree to our <a href="./privacy.html">Privacy Policy</a>. 
+              We respect your privacy and will never share your information with third parties.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.getElementById('signupForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form data
+        const formData = new FormData(this);
+        const data = Object.fromEntries(formData);
+        
+        // Simple validation
+        if (!data.fullName || !data.email || !data.contactNumber || !data.homeCity) {
+          alert('Please fill in all required fields.');
+          return;
+        }
+        
+        // Email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(data.email)) {
+          alert('Please enter a valid email address.');
+          return;
+        }
+        
+        // Here you would typically send the data to your server
+        console.log('Form submitted:', data);
+        
+        // Show success message
+        alert('Thank you for your interest! We will contact you soon to discuss your membership.');
+        
+        // Reset form
+        this.reset();
+      });
+
+      // Add floating animation to form inputs on focus
+      document.querySelectorAll('.form-input').forEach(input => {
+        input.addEventListener('focus', function() {
+          this.parentElement.style.transform = 'translateY(-3px)';
+          this.parentElement.style.transition = 'transform 0.3s ease';
+        });
+        
+        input.addEventListener('blur', function() {
+          this.parentElement.style.transform = 'translateY(0)';
+        });
+      });
+
+      // Add premium loading animation
+      document.querySelector('.submit-btn').addEventListener('click', function() {
+        const originalText = this.textContent;
+        this.textContent = 'Processing...';
+        this.style.background = 'linear-gradient(135deg, #b8860b 0%, #d4af37 50%, #b8860b 100%)';
+        
+        setTimeout(() => {
+          this.textContent = originalText;
+          this.style.background = 'linear-gradient(135deg, #d4af37 0%, #ffd700 50%, #b8860b 100%)';
+        }, 2000);
+      });
+    </script>
+  </body>
+</html>
