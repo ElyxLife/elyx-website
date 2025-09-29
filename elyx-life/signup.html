@@ -591,29 +591,32 @@
         <div class="hero-right">
           <div class="signup-section">
             <h2 class="form-title">Reserve Your Place</h2>
-            <form id="signupForm" action="#" method="POST">
+            <form id="signupForm" action="https://docs.google.com/forms/d/e/1FAIpQLSdpyaQmmXPNhGWzO4gyPYix_Aum38ZIcqpaOL12Q8ebUxxxZQ/formResponse" method="POST" target="hidden_iframe">
               <div class="form-group">
                 <label for="fullName" class="form-label">Full Name <span class="required">*</span></label>
-                <input type="text" id="fullName" name="fullName" class="form-input" placeholder="Enter your full name" required>
+                <input type="text" id="fullName" name="entry.1947395095" class="form-input" placeholder="Enter your full name" required>
               </div>
 
               <div class="form-group">
                 <label for="email" class="form-label">Email Address <span class="required">*</span></label>
-                <input type="email" id="email" name="email" class="form-input" placeholder="your.email@example.com" required>
+                <input type="email" id="email" name="entry.534499280" class="form-input" placeholder="your.email@example.com" required>
               </div>
 
               <div class="form-group">
                 <label for="contactNumber" class="form-label">Contact Number <span class="required">*</span></label>
-                <input type="tel" id="contactNumber" name="contactNumber" class="form-input" placeholder="+65 1234 5678" required>
+                <input type="tel" id="contactNumber" name="entry.362866097" class="form-input" placeholder="+65 1234 5678" required>
               </div>
 
               <div class="form-group">
                 <label for="homeCity" class="form-label">Home City <span class="required">*</span></label>
-                <input type="text" id="homeCity" name="homeCity" class="form-input" placeholder="Singapore" required>
+                <input type="text" id="homeCity" name="entry.766414265" class="form-input" placeholder="Singapore" required>
               </div>
 
               <button type="submit" class="submit-btn">Join the Waitlist</button>
             </form>
+            
+            <!-- Hidden iframe to handle form submission -->
+            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
 
             <div class="privacy-note">
               By submitting this form, you agree to our <a href="./privacy.html">Privacy Policy</a>.
@@ -625,33 +628,31 @@
 
     <script>
       document.getElementById('signupForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Get form data
+        // Get form data for validation
         const formData = new FormData(this);
         const data = Object.fromEntries(formData);
         
         // Simple validation
-        if (!data.fullName || !data.email || !data.contactNumber || !data.homeCity) {
+        if (!data['entry.1947395095'] || !data['entry.534499280'] || !data['entry.362866097'] || !data['entry.766414265']) {
+          e.preventDefault();
           alert('Please fill in all required fields.');
           return;
         }
         
         // Email validation
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(data.email)) {
+        if (!emailRegex.test(data['entry.534499280'])) {
+          e.preventDefault();
           alert('Please enter a valid email address.');
           return;
         }
         
-        // Here you would typically send the data to your server
-        console.log('Form submitted:', data);
-        
-        // Show success message
-        alert('Thank you for your interest! We will contact you soon to discuss your membership.');
-        
-        // Reset form
-        this.reset();
+        // If validation passes, let the form submit to Google Forms
+        // Show success message after a short delay
+        setTimeout(function() {
+          alert('Thank you for your interest! We will contact you soon to discuss your membership.');
+          document.getElementById('signupForm').reset();
+        }, 1000);
       });
 
       // Add floating animation to form inputs on focus
