@@ -93,4 +93,10 @@ gcloud storage rsync -r \
 echo "Cleaning up build directory..."
 rm -rf build
 
+# Invalidate Cloud CDN cache for elyx.health
+echo "Invalidating Cloud CDN cache for elyx.health..."
+gcloud compute url-maps invalidate-cdn-cache lb-elyx \
+  --path="/*" \
+  --project=${PROJECT_ID} || echo "Warning: Cache invalidation failed or not needed"
+
 echo "Deployment completed successfully!"
