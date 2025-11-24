@@ -24,15 +24,11 @@ export GOOGLE_CLOUD_QUOTA_PROJECT=${PROJECT_ID}
 
 echo "Starting deployment..."
 
-# Build step: Copy shared privacy content into each site
-echo "Building sites with shared privacy content..."
+# Build step: Copy shared privacy content into elyx-health
+echo "Building elyx-health with shared privacy content..."
 
-# Create build directories
-mkdir -p build/elyx-life
+# Create build directory
 mkdir -p build/elyx-health
-
-# Copy elyx-life content to build directory
-cp -r elyx-life/* build/elyx-life/
 
 # Copy elyx-health content to build directory  
 cp -r elyx-health/* build/elyx-health/
@@ -73,26 +69,14 @@ inject_shared_content() {
     fi
 }
 
-# Inject all shared content
-echo "Injecting shared content into both sites..."
+# Inject all shared content into elyx-health
+echo "Injecting shared content into elyx-health..."
 for content_config in "${SHARED_CONTENT[@]}"; do
     IFS=':' read -r shared_file target_file content_id description <<< "$content_config"
     
-    # Inject into both sites
-    inject_shared_content "$shared_file" "$target_file" "$content_id" "$description" "elyx-life"
+    # Inject into elyx-health only
     inject_shared_content "$shared_file" "$target_file" "$content_id" "$description" "elyx-health"
 done
-
-# Deploy elyx.life
-echo "Deploying to elyx.life..."
-gcloud storage rsync -r \
-  --cache-control="public, max-age=31536000" \
-  --exclude=".*" \
-  --exclude="*.DS_Store" \
-  --exclude="__MACOSX" \
-  --exclude="Thumbs.db" \
-  --exclude="desktop.ini" \
-  build/elyx-life gs://elyx.life
 
 # Deploy elyx.health
 echo "Deploying to elyx.health..."
@@ -109,4 +93,4 @@ gcloud storage rsync -r \
 echo "Cleaning up build directory..."
 rm -rf build
 
-echo "Deployment completed successfully!" 
+echo "Deployment completed successfully!"
