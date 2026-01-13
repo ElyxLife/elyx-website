@@ -1,0 +1,351 @@
+// Navigation
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(201, 169, 97, 0.1);
+
+  .nav-container {
+    max-width: $breakpoint-xl;
+    margin: 0 auto;
+    padding: $spacing-md $spacing-lg;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-brand {
+    font-size: $font-size-xl;
+    font-weight: 700;
+    color: $color-primary;
+    letter-spacing: -0.02em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: $spacing-lg;
+    align-items: center;
+
+    a {
+      color: $color-text-secondary;
+      transition: $transition-base;
+      font-size: $font-size-base;
+
+      &:hover {
+        color: $color-primary;
+      }
+
+      &.active {
+        color: $color-text-primary;
+      }
+    }
+  }
+}
+
+// Hero section
+.hero {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: $spacing-2xl $spacing-lg;
+  margin-top: 80px;
+
+  .hero-content {
+    max-width: $breakpoint-lg;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: $font-size-4xl;
+    line-height: $line-height-tight;
+    font-weight: 700;
+    margin-bottom: $spacing-md;
+    letter-spacing: -0.03em;
+
+    em {
+      font-style: italic;
+      color: $color-primary;
+    }
+  }
+
+  .hero-subtitle {
+    font-size: $font-size-xl;
+    color: $color-text-secondary;
+    margin-bottom: $spacing-xl;
+    line-height: 1.5;
+  }
+
+  .hero-accent {
+    display: inline-block;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, $color-primary 0%, $color-primary-light 100%);
+    }
+  }
+}
+
+// Button component
+.btn {
+  display: inline-block;
+  padding: $spacing-sm $spacing-lg;
+  border-radius: $radius-md;
+  font-weight: 600;
+  transition: $transition-base;
+  cursor: pointer;
+  border: none;
+  font-size: $font-size-base;
+
+  &.btn-primary {
+    background: linear-gradient(135deg, $color-primary 0%, $color-primary-dark 100%);
+    color: $color-bg-dark;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(201, 169, 97, 0.3);
+    }
+  }
+
+  &.btn-secondary {
+    background: transparent;
+    border: 2px solid $color-primary;
+    color: $color-primary;
+
+    &:hover {
+      background: $color-primary;
+      color: $color-bg-dark;
+    }
+  }
+
+  &.btn-lg {
+    padding: $spacing-md $spacing-xl;
+    font-size: $font-size-lg;
+  }
+}
+
+// Section container
+.section {
+  padding: $spacing-2xl $spacing-lg;
+  max-width: $breakpoint-xl;
+  margin: 0 auto;
+
+  &.section-dark {
+    background-color: $color-bg-section;
+  }
+
+  .section-header {
+    margin-bottom: $spacing-xl;
+    text-align: center;
+
+    h2 {
+      font-size: $font-size-3xl;
+      font-weight: 700;
+      margin-bottom: $spacing-md;
+      letter-spacing: -0.02em;
+    }
+
+    p {
+      font-size: $font-size-lg;
+      color: $color-text-secondary;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+  }
+}
+
+// Grid layouts
+.grid {
+  display: grid;
+  gap: $spacing-lg;
+
+  &.grid-2 {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+
+  &.grid-3 {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
+// Card component
+.card {
+  background: $color-bg-section;
+  border: 1px solid rgba(201, 169, 97, 0.1);
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  transition: $transition-base;
+
+  &:hover {
+    border-color: rgba(201, 169, 97, 0.3);
+    transform: translateY(-4px);
+  }
+
+  .card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: $radius-md;
+    background: linear-gradient(135deg, $color-primary 0%, $color-primary-dark 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: $spacing-md;
+    font-size: $font-size-xl;
+  }
+
+  h3 {
+    font-size: $font-size-xl;
+    margin-bottom: $spacing-sm;
+    font-weight: 600;
+  }
+
+  p {
+    color: $color-text-secondary;
+    line-height: 1.7;
+  }
+}
+
+// Code block
+.code-block {
+  background: $color-bg-darker;
+  border: 1px solid rgba(201, 169, 97, 0.1);
+  border-radius: $radius-md;
+  padding: $spacing-md;
+  font-family: $font-mono;
+  font-size: 14px;
+  overflow-x: auto;
+  margin: $spacing-md 0;
+
+  .command {
+    color: $color-accent-green;
+
+    &::before {
+      content: '$ ';
+      color: $color-text-muted;
+    }
+  }
+}
+
+// Footer
+.footer {
+  background: $color-bg-darker;
+  border-top: 1px solid rgba(201, 169, 97, 0.1);
+  padding: $spacing-xl $spacing-lg;
+
+  .footer-content {
+    max-width: $breakpoint-xl;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: $spacing-lg;
+  }
+
+  .footer-section {
+    h4 {
+      color: $color-primary;
+      margin-bottom: $spacing-md;
+      font-size: $font-size-lg;
+    }
+
+    ul li {
+      margin-bottom: $spacing-xs;
+
+      a {
+        color: $color-text-secondary;
+        transition: $transition-base;
+
+        &:hover {
+          color: $color-primary;
+        }
+      }
+    }
+  }
+
+  .footer-bottom {
+    max-width: $breakpoint-xl;
+    margin: $spacing-lg auto 0;
+    padding-top: $spacing-lg;
+    border-top: 1px solid rgba(201, 169, 97, 0.1);
+    text-align: center;
+    color: $color-text-muted;
+    font-size: 14px;
+  }
+}
+
+// Job listing
+.job-card {
+  background: $color-bg-section;
+  border-left: 4px solid $color-primary;
+  padding: $spacing-lg;
+  margin-bottom: $spacing-lg;
+  border-radius: $radius-md;
+
+  .job-header {
+    margin-bottom: $spacing-md;
+
+    h3 {
+      font-size: $font-size-2xl;
+      margin-bottom: $spacing-xs;
+    }
+
+    .job-meta {
+      display: flex;
+      gap: $spacing-md;
+      color: $color-text-muted;
+      font-size: 14px;
+    }
+  }
+
+  .job-description {
+    margin-bottom: $spacing-md;
+    color: $color-text-secondary;
+    line-height: 1.7;
+
+    ul {
+      list-style: disc;
+      margin-left: $spacing-md;
+      margin-top: $spacing-sm;
+
+      li {
+        margin-bottom: $spacing-xs;
+      }
+    }
+
+    h4 {
+      color: $color-primary;
+      margin-top: $spacing-md;
+      margin-bottom: $spacing-sm;
+      font-size: $font-size-lg;
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: $breakpoint-md) {
+  .hero h1 {
+    font-size: $font-size-3xl;
+  }
+
+  .section {
+    padding: $spacing-xl $spacing-md;
+  }
+
+  .nav .nav-links {
+    gap: $spacing-md;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

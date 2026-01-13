@@ -1,0 +1,19 @@
+---
+layout: default
+---
+
+<article class="section" style="padding-top: 150px;">
+  <div style="max-width: 800px; margin: 0 auto;">
+    <header style="margin-bottom: 48px; text-align: center;">
+      <h1 style="font-size: 48px; margin-bottom: 16px; line-height: 1.2;">{{ page.title }}</h1>
+      <div style="color: #808080; font-size: 16px;">
+        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
+        {% if page.author %} • {{ page.author }}{% endif %}
+      </div>
+    </header>
+
+    <div style="line-height: 1.8; color: #B8B8B8;">
+      {{ content }}
+    </div>
+  </div>
+</article>

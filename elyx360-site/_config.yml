@@ -1,0 +1,41 @@
+# Site settings
+title: Elyx 360
+email: careers@elyx.life
+description: >-
+  The technology engine behind Elyx. We're building AI-powered healthcare
+  automation to maximize human healthspan.
+baseurl: ""
+url: "https://careers.elyx.life"
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+
+# Collections
+collections:
+  team:
+    output: true
+    permalink: /team/:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+  - scope:
+      path: ""
+      type: "team"
+    values:
+      layout: "team-member"

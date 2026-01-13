@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.elyx.life)",
+      "WebFetch(domain:supabase.com)",
+      "Bash(bundle install:*)",
+      "Bash(bundle config:*)",
+      "Bash(bundle exec jekyll:*)",
+      "Bash(chmod:*)",
+      "Bash(tree:*)"
+    ]
+  }
+}
