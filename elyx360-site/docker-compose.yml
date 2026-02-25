@@ -3,7 +3,7 @@ version: '3'
 services:
   jekyll:
     image: jekyll/jekyll:4
-    platform: linux/arm64  # For Apple Silicon (M1/M2/M3)
+    platform: linux/amd64  # Using Rosetta emulation on Apple Silicon
     command: jekyll serve --watch --force_polling --livereload
     ports:
       - "4000:4000"

@@ -1,0 +1,16 @@
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+    volumes:
+      - ../..:/workspace:cached
+      - bundle-cache:/usr/local/bundle
+      - claude-data:/home/vscode/.claude
+      - ${HOME}/.ssh/config:/home/vscode/.ssh/config:ro
+    command: sleep infinity
+    user: vscode
+
+volumes:
+  bundle-cache:
+  claude-data:
