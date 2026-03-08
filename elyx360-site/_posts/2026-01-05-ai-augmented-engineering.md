@@ -4,6 +4,7 @@ title: "AI-Augmented Engineering: How We 10x'd Our Development Velocity"
 date: 2026-01-05
 author: "Engineering Team"
 category: "AI & Development"
+sitemap: false
 excerpt: "Moving from AI autocomplete to AI co-pilots fundamentally changed how we build software. Here's what we learned."
 ---
 

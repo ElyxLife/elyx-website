@@ -4,6 +4,7 @@ title: "Building AI-First Healthcare Infrastructure: Lessons from the Trenches"
 date: 2026-01-10
 author: "Engineering Team"
 category: "Infrastructure"
+sitemap: false
 excerpt: "How we built a HIPAA-compliant, AI-powered healthcare platform that ships features at startup velocity while maintaining medical-grade precision."
 ---
 

@@ -4,6 +4,7 @@ title: "Why Healthcare is the Ultimate AI Challenge"
 date: 2025-12-28
 author: "Engineering Team"
 category: "Healthcare & AI"
+sitemap: false
 excerpt: "Healthcare isn't just hard because of regulation—it's hard because human health is the most complex optimization problem in the world."
 ---
 
