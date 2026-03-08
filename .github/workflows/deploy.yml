@@ -3,6 +3,8 @@ name: Build & Deploy to S3
 on:
   push:
     branches: [main]
+    paths:
+      - 'elyx360-site/**'
   workflow_dispatch:
 
 permissions:
@@ -13,6 +15,10 @@ env:
   AWS_REGION: us-east-1
   S3_BUCKET: 360-elyx-life-static
   CLOUDFRONT_DIST_ID: E3FDAE39VEYN3X
+
+defaults:
+  run:
+    working-directory: elyx360-site
 
 jobs:
   deploy:
@@ -26,6 +32,7 @@ jobs:
         with:
           ruby-version: '3.3'
           bundler-cache: true
+          working-directory: elyx360-site
 
       - name: Build Jekyll site
         run: JEKYLL_ENV=production bundle exec jekyll build
