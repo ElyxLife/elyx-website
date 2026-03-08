@@ -5,7 +5,8 @@ description: Elyx360 is the technology platform enabling concierge health plan c
 ---
 
 <!-- Hero Section -->
-<section class="hero">
+<section class="hero hero-with-bg">
+  <div class="hero-bg" style="background-image: url('{{ site.baseurl }}/assets/images/main-hero.png');"></div>
   <div class="hero-content">
     <p class="hero-eyebrow">Elyx360</p>
     <h1>
@@ -86,7 +87,7 @@ description: Elyx360 is the technology platform enabling concierge health plan c
 
 
 <!-- 7 Pillars Section -->
-<section class="section" id="pillars">
+<section class="section section-with-bg" id="pillars" style="background-image: url('{{ site.baseurl }}/assets/images/hexagon-grid.png');">
   <div class="section-header">
     <h2>The 7 Pillars of the Elyx Experience</h2>
     <p>
@@ -149,7 +150,7 @@ description: Elyx360 is the technology platform enabling concierge health plan c
 </section>
 
 <!-- Compounding Knowledge Section -->
-<section class="section section-dark-full">
+<section class="section section-dark-full section-with-bg" style="background-image: url('{{ site.baseurl }}/assets/images/data-flow.png');">
   <div class="section-inner">
     <div class="section-header">
       <h2>Compounding Knowledge → Scalable Intelligence</h2>
@@ -161,19 +162,47 @@ description: Elyx360 is the technology platform enabling concierge health plan c
 
     <div class="knowledge-flow">
       <div class="knowledge-step">
-        <div class="knowledge-icon">◎</div>
+        <div class="knowledge-icon">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="1.5" opacity="0.3"/>
+            <circle cx="20" cy="20" r="12" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+            <circle cx="20" cy="20" r="6" stroke="currentColor" stroke-width="1.5" opacity="0.8"/>
+            <circle cx="20" cy="20" r="2" fill="currentColor"/>
+          </svg>
+        </div>
         <h4>Every Interaction Captured</h4>
         <p>Decisions, actions, and outcomes are documented as part of the workflow — not as an afterthought.</p>
       </div>
       <div class="knowledge-arrow">→</div>
       <div class="knowledge-step">
-        <div class="knowledge-icon">◎</div>
+        <div class="knowledge-icon">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="20" cy="20" r="4" fill="currentColor"/>
+            <circle cx="20" cy="8" r="2.5" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="20" cy="32" r="2.5" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="8" cy="14" r="2.5" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="32" cy="14" r="2.5" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="8" cy="26" r="2.5" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="32" cy="26" r="2.5" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="20" y1="10.5" x2="20" y2="16" stroke="currentColor" stroke-width="1.2"/>
+            <line x1="20" y1="24" x2="20" y2="29.5" stroke="currentColor" stroke-width="1.2"/>
+            <line x1="10.2" y1="15.2" x2="16.5" y2="18.5" stroke="currentColor" stroke-width="1.2"/>
+            <line x1="23.5" y1="18.5" x2="29.8" y2="15.2" stroke="currentColor" stroke-width="1.2"/>
+            <line x1="10.2" y1="24.8" x2="16.5" y2="21.5" stroke="currentColor" stroke-width="1.2"/>
+            <line x1="23.5" y1="21.5" x2="29.8" y2="24.8" stroke="currentColor" stroke-width="1.2"/>
+          </svg>
+        </div>
         <h4>One Unified Member Record</h4>
         <p>Context flows across roles — doctors, concierge, pod leads — within permission boundaries, so nothing is lost in handoffs.</p>
       </div>
       <div class="knowledge-arrow">→</div>
       <div class="knowledge-step">
-        <div class="knowledge-icon">◎</div>
+        <div class="knowledge-icon">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polyline points="4,32 14,24 22,28 36,10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <polyline points="28,10 36,10 36,18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
         <h4>Quality Improves Over Time</h4>
         <p>Feedback loops mean the system gets better. AI can scale what works.</p>
       </div>

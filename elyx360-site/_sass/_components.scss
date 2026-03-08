@@ -59,6 +59,36 @@
   position: relative;
   padding: $spacing-2xl $spacing-lg;
   margin-top: 80px;
+  overflow: hidden;
+
+  &.hero-with-bg {
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0.3;
+      z-index: 0;
+
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to bottom,
+          rgba($color-bg-dark, 0.4) 0%,
+          rgba($color-bg-dark, 0.6) 50%,
+          rgba($color-bg-dark, 0.95) 100%
+        );
+      }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+  }
 
   .hero-content {
     max-width: $breakpoint-lg;
@@ -345,6 +375,30 @@
   margin-bottom: $spacing-md;
 }
 
+// Section with background image
+.section-with-bg {
+  position: relative;
+  overflow: hidden;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+
+  // Overlay to darken the background image
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: $color-bg-dark;
+    opacity: 0.92;
+    z-index: 0;
+  }
+
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+}
+
 // Full-width dark section
 .section-dark-full {
   background-color: $color-bg-section;
@@ -602,6 +656,13 @@
     font-size: 28px;
     color: $color-primary;
     margin-bottom: $spacing-md;
+    display: flex;
+    justify-content: center;
+
+    svg {
+      width: 40px;
+      height: 40px;
+    }
   }
 
   h4 {
