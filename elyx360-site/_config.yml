@@ -5,7 +5,7 @@ description: >-
   The technology engine behind Elyx. We're building AI-powered healthcare
   automation to maximize human healthspan.
 baseurl: ""
-url: "https://careers.elyx.life"
+url: "https://360.elyx.life"
 
 # Build settings
 markdown: kramdown

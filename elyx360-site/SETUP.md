@@ -104,7 +104,7 @@ You should see:
 1. Connect GitHub repository
 2. Build command: `jekyll build`
 3. Publish directory: `_site`
-4. Add custom domain: `careers.elyx.life`
+4. Add custom domain: `360.elyx.life`
 
 ### Vercel
 1. Import GitHub repository
@@ -116,12 +116,12 @@ You should see:
 1. Build locally: `bundle exec jekyll build`
 2. Upload `_site/` to S3 bucket
 3. Configure CloudFront distribution
-4. Point careers.elyx.life to CloudFront
+4. Point 360.elyx.life to CloudFront
 
 ### GitHub Pages
 1. Push to GitHub
 2. Enable Pages in repository settings
-3. Custom domain: Add CNAME file with `careers.elyx.life`
+3. Custom domain: Add CNAME file with `360.elyx.life`
 4. Update DNS to point to GitHub Pages
 
 ## Troubleshooting

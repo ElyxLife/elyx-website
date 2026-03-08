@@ -2,7 +2,7 @@
 
 ## 🎯 Project Summary
 
-A modern, developer-focused Jekyll website showcasing Elyx 360's technology and engineering culture. Built for `careers.elyx.life`, this site serves as both a technology showcase and recruiting platform.
+A modern, developer-focused Jekyll website showcasing Elyx 360's technology and engineering culture. Built for `360.elyx.life`, this site serves as both a technology showcase and recruiting platform.
 
 **Design Inspiration:**
 - **elyx.life** - Gold/black aesthetic, minimalist premium feel
@@ -322,6 +322,6 @@ Proprietary - Elyx 360
 
 **Built with:** Jekyll, Sass, and a vision for the future of healthcare.
 
-**Ready for:** Deployment to careers.elyx.life
+**Ready for:** Deployment to 360.elyx.life
 
 **Status:** ✅ Production-ready (pending images and team content)

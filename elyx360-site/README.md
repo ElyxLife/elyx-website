@@ -128,7 +128,7 @@ Generate the images and place them in `assets/images/`.
 
 1. Build with `bundle exec jekyll build`
 2. Upload `_site/` contents to web server
-3. Point domain (careers.elyx.life) to deployment
+3. Point domain (360.elyx.life) to deployment
 
 ## Customization
 

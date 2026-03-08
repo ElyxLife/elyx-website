@@ -22,7 +22,7 @@
    - **Publish directory:** `_site`
    - **Environment variable:** `JEKYLL_ENV=production`
 6. Click "Deploy site"
-7. Add custom domain `careers.elyx.life` in Domain settings
+7. Add custom domain `360.elyx.life` in Domain settings
 8. Update DNS with Netlify's nameservers or add CNAME record
 
 **DNS Configuration:**
@@ -42,7 +42,7 @@ Value: [your-site].netlify.app
 4. Source: Deploy from main branch
 5. Add `CNAME` file with domain:
    ```bash
-   echo "careers.elyx.life" > CNAME
+   echo "360.elyx.life" > CNAME
    ```
 6. Update DNS:
    ```
@@ -75,20 +75,20 @@ JEKYLL_ENV=production bundle exec jekyll build
 
 **Upload to S3:**
 ```bash
-aws s3 sync _site/ s3://careers.elyx.life --delete
+aws s3 sync _site/ s3://360.elyx.life --delete
 ```
 
 **CloudFront Configuration:**
 1. Create CloudFront distribution
 2. Origin: S3 bucket
-3. SSL: Use ACM certificate for careers.elyx.life
+3. SSL: Use ACM certificate for 360.elyx.life
 4. Default root object: index.html
 5. Error pages: Map 404 to /404.html
 
 **DNS (Route 53 or other):**
 ```
 Type: A (Alias)
-Name: careers.elyx.life
+Name: 360.elyx.life
 Value: CloudFront distribution domain
 ```
 
@@ -125,7 +125,7 @@ jobs:
         with:
           args: --delete
         env:
-          AWS_S3_BUCKET: 'careers.elyx.life'
+          AWS_S3_BUCKET: '360.elyx.life'
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           SOURCE_DIR: '_site'
@@ -238,7 +238,7 @@ In `_layouts/default.html`, add before `</head>`:
 ### Privacy-Focused Alternative: Plausible
 
 ```html
-<script defer data-domain="careers.elyx.life" src="https://plausible.io/js/script.js"></script>
+<script defer data-domain="360.elyx.life" src="https://plausible.io/js/script.js"></script>
 ```
 
 ## Security Considerations
@@ -265,8 +265,8 @@ In `_layouts/default.html`, add before `</head>`:
 After configuring DNS, it may take 24-48 hours for changes to propagate globally. Test with:
 
 ```bash
-dig careers.elyx.life
-nslookup careers.elyx.life
+dig 360.elyx.life
+nslookup 360.elyx.life
 ```
 
 ## Rollback Strategy
@@ -296,7 +296,7 @@ For deployment issues:
 
 ## Post-Deployment
 
-1. Test website: https://careers.elyx.life
+1. Test website: https://360.elyx.life
 2. Submit to search engines:
    - Google Search Console
    - Bing Webmaster Tools

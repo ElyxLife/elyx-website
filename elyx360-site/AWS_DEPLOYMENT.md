@@ -92,14 +92,14 @@ The script:
 
 ## DNS Configuration
 
-Point `careers.elyx.life` to your CloudFront distribution or S3 bucket:
+Point `360.elyx.life` to your CloudFront distribution or S3 bucket:
 
 ### Option 1: CloudFront (Recommended)
 
 **Route 53:**
 ```
 Type: A (Alias)
-Name: careers.elyx.life
+Name: 360.elyx.life
 Value: CloudFront distribution (e.g., d111111abcdef8.cloudfront.net)
 ```
 
@@ -138,9 +138,9 @@ Add a path pattern for `/elyx360/*`:
 - **Compress Objects:** Yes
 
 ### Alternative: Subdomain Origin
-If careers.elyx.life has its own behavior:
+If 360.elyx.life has its own behavior:
 - **Path Pattern:** `*`
-- **Host Header:** careers.elyx.life
+- **Host Header:** 360.elyx.life
 - Same cache settings as above
 
 ## Cache Configuration
@@ -362,7 +362,7 @@ The bucket should have a policy allowing CloudFront access:
 
 Ensure CloudFront is configured to:
 - **Viewer Protocol Policy:** Redirect HTTP to HTTPS
-- **SSL Certificate:** ACM certificate for careers.elyx.life
+- **SSL Certificate:** ACM certificate for 360.elyx.life
 
 ## Monitoring
 
@@ -436,5 +436,5 @@ For AWS-specific issues:
 **Next Steps:**
 1. Configure `deploy-to-s3.sh` with your AWS details
 2. Test deployment: `./deploy-to-s3.sh`
-3. Verify: https://careers.elyx.life
+3. Verify: https://360.elyx.life
 4. Set up GitHub Actions for automated deployments

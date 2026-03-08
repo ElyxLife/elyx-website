@@ -2,7 +2,7 @@
 
 ## 🎯 What You Have
 
-A complete Jekyll website for careers.elyx.life with:
+A complete Jekyll website for 360.elyx.life with:
 - ✅ 4 main pages (Home, Join Us, Team, Blog)
 - ✅ 5 job listings from your JD
 - ✅ 3 sample blog posts
@@ -57,7 +57,7 @@ nano deploy-to-s3.sh
 - [ ] Configure deploy-to-s3.sh with CloudFront ID
 - [ ] Test deployment to S3
 - [ ] Verify careers@elyx.life email works
-- [ ] Update DNS for careers.elyx.life
+- [ ] Update DNS for 360.elyx.life
 
 ### Medium Priority
 - [ ] Replace team page placeholders with real team
@@ -120,4 +120,4 @@ Edit: `pages/team.html`
 1. Generate images
 2. Test locally
 3. Deploy to S3
-4. Point DNS to careers.elyx.life
+4. Point DNS to 360.elyx.life
