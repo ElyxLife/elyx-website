@@ -331,6 +331,324 @@
   }
 }
 
+// Hero eyebrow
+.hero-eyebrow {
+  font-size: $font-size-base;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: $color-primary;
+  margin-bottom: $spacing-md;
+}
+
+// Full-width dark section
+.section-dark-full {
+  background-color: $color-bg-section;
+  padding: $spacing-2xl $spacing-lg;
+
+  .section-inner {
+    max-width: $breakpoint-xl;
+    margin: 0 auto;
+  }
+}
+
+// Mission blockquote
+.mission-statement {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+
+  blockquote {
+    font-size: $font-size-xl;
+    color: $color-text-secondary;
+    line-height: 1.7;
+    font-style: italic;
+    border-left: 4px solid $color-primary;
+    padding-left: $spacing-lg;
+    text-align: left;
+    margin: 0;
+  }
+}
+
+// Concentric circles diagram
+.circles-section {
+  max-width: $breakpoint-xl;
+}
+
+.circles-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-2xl;
+  align-items: center;
+  margin-bottom: $spacing-xl;
+
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.circles-diagram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circle {
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-direction: column;
+
+  &.circle-outer {
+    width: 440px;
+    height: 440px;
+    border: 2px solid rgba($color-primary, 0.5);
+    background: rgba($color-primary, 0.04);
+  }
+
+  &.circle-middle {
+    width: 310px;
+    height: 310px;
+    border: 2px solid rgba($color-primary, 0.35);
+    background: rgba($color-primary, 0.07);
+  }
+
+  &.circle-inner {
+    width: 190px;
+    height: 190px;
+    border: 2px solid rgba($color-primary, 0.6);
+    background: rgba($color-primary, 0.12);
+  }
+}
+
+.circle-label {
+  position: absolute;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  .circle-title {
+    font-weight: 700;
+    color: $color-text-primary;
+  }
+
+  .circle-desc {
+    font-size: 12px;
+    color: $color-text-muted;
+  }
+
+  &.circle-label-inner {
+    .circle-title { font-size: 13px; }
+    .circle-desc { display: none; }
+  }
+
+  &.circle-label-middle {
+    top: 16px;
+    .circle-title { font-size: 13px; color: $color-text-secondary; }
+    .circle-desc { font-size: 11px; }
+  }
+
+  &.circle-label-outer {
+    top: 16px;
+    .circle-title { font-size: 14px; color: $color-primary; }
+    .circle-desc { font-size: 11px; }
+  }
+}
+
+.circles-explanation {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+}
+
+.care-tier {
+  display: flex;
+  gap: $spacing-md;
+  align-items: flex-start;
+
+  h3 {
+    font-size: $font-size-lg;
+    margin-bottom: $spacing-xs;
+  }
+
+  p {
+    color: $color-text-secondary;
+    line-height: 1.6;
+    font-size: 15px;
+  }
+}
+
+.care-tier-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 6px;
+
+  &.dot-inner {
+    background: rgba($color-primary, 0.4);
+    border: 2px solid rgba($color-primary, 0.6);
+  }
+
+  &.dot-middle {
+    background: rgba($color-primary, 0.6);
+    border: 2px solid rgba($color-primary, 0.8);
+  }
+
+  &.dot-outer {
+    background: $color-primary;
+    border: 2px solid $color-primary-light;
+  }
+}
+
+.circles-outcome {
+  background: rgba($color-primary, 0.06);
+  border: 1px solid rgba($color-primary, 0.2);
+  border-radius: $radius-lg;
+  padding: $spacing-lg $spacing-xl;
+  text-align: center;
+
+  p {
+    font-size: $font-size-lg;
+    color: $color-text-secondary;
+    line-height: 1.7;
+    margin: 0;
+
+    strong {
+      color: $color-primary;
+    }
+  }
+}
+
+// Pillars grid
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: $spacing-lg;
+
+}
+
+.pillar-card {
+  background: $color-bg-section;
+  border: 1px solid rgba($color-primary, 0.1);
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  transition: $transition-base;
+  position: relative;
+
+  &:hover {
+    border-color: rgba($color-primary, 0.35);
+    transform: translateY(-4px);
+  }
+
+  .pillar-number {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: $color-primary;
+    margin-bottom: $spacing-sm;
+    font-family: $font-mono;
+  }
+
+  h3 {
+    font-size: $font-size-xl;
+    font-weight: 700;
+    margin-bottom: $spacing-sm;
+  }
+
+  p {
+    color: $color-text-secondary;
+    line-height: 1.7;
+    margin-bottom: $spacing-md;
+    font-size: 15px;
+  }
+
+  .pillar-tech {
+    font-size: 12px;
+    color: $color-text-muted;
+    font-family: $font-mono;
+    border-top: 1px solid rgba($color-primary, 0.1);
+    padding-top: $spacing-sm;
+    line-height: 1.6;
+  }
+}
+
+// Knowledge flow
+.knowledge-flow {
+  display: flex;
+  align-items: flex-start;
+  gap: $spacing-md;
+  justify-content: center;
+
+  @media (max-width: $breakpoint-md) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.knowledge-step {
+  flex: 1;
+  max-width: 300px;
+  text-align: center;
+
+  .knowledge-icon {
+    font-size: 28px;
+    color: $color-primary;
+    margin-bottom: $spacing-md;
+  }
+
+  h4 {
+    font-size: $font-size-lg;
+    font-weight: 600;
+    margin-bottom: $spacing-sm;
+  }
+
+  p {
+    color: $color-text-secondary;
+    line-height: 1.6;
+    font-size: 15px;
+  }
+}
+
+.knowledge-arrow {
+  font-size: 24px;
+  color: rgba($color-primary, 0.4);
+  margin-top: 8px;
+  flex-shrink: 0;
+
+  @media (max-width: $breakpoint-md) {
+    transform: rotate(90deg);
+  }
+}
+
+// Outcome cards
+.outcome-card {
+  background: $color-bg-section;
+  border: 1px solid rgba($color-primary, 0.1);
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  transition: $transition-base;
+
+  &:hover {
+    border-color: rgba($color-primary, 0.3);
+  }
+
+  h3 {
+    font-size: $font-size-xl;
+    font-weight: 600;
+    margin-bottom: $spacing-sm;
+    color: $color-primary;
+  }
+
+  p {
+    color: $color-text-secondary;
+    line-height: 1.7;
+  }
+}
+
 // Responsive design
 @media (max-width: $breakpoint-md) {
   .hero h1 {
