@@ -6,11 +6,16 @@
 
 set -e
 
-# Configuration
-S3_BUCKET="360-elyx-life-static"
+# Configuration — set these via environment variables or override below
+S3_BUCKET="${S3_BUCKET:-}"
 S3_PATH=""             # Root of bucket (no subfolder)
-CLOUDFRONT_DIST_ID="E3FDAE39VEYN3X"
-AWS_PROFILE="elyx-emr"  # Change if using a specific AWS profile
+CLOUDFRONT_DIST_ID="${CLOUDFRONT_DIST_ID:-}"
+AWS_PROFILE="${AWS_PROFILE:-default}"
+
+if [ -z "$S3_BUCKET" ]; then
+    echo "❌ S3_BUCKET environment variable is not set."
+    exit 1
+fi
 
 # Colors for output
 GREEN='\033[0;32m'

@@ -150,10 +150,10 @@ Check that all `.scss` files in `_sass/` have correct syntax.
 Make sure `main.scss` has the front matter `---` at the top.
 
 **AWS credentials not found?**
-Run `aws configure list` to check, `aws s3 ls s3://360-elyx-life-static/` to test.
+Run `aws configure list` to check, `aws s3 ls s3://$S3_BUCKET/` to test.
 
 **Old content still showing after deploy?**
-Force CloudFront invalidation: `aws cloudfront create-invalidation --distribution-id E3FDAE39VEYN3X --paths "/*"`
+Force CloudFront invalidation: `aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DIST_ID --paths "/*"`
 
 ## SEO
 
