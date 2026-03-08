@@ -36,29 +36,21 @@ jobs:
           role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
           aws-region: ${{ env.AWS_REGION }}
 
-      - name: Sync to S3
+      - name: Sync static assets (long cache)
+        run: |
+          aws s3 sync _site/assets/ s3://${{ env.S3_BUCKET }}/assets/ \
+            --delete \
+            --cache-control "public, max-age=31536000, immutable" \
+            --exclude ".DS_Store"
+
+      - name: Sync everything else (short cache)
         run: |
           aws s3 sync _site/ s3://${{ env.S3_BUCKET }}/ \
             --delete \
             --cache-control "public, max-age=3600" \
             --exclude ".git/*" \
-            --exclude ".DS_Store"
-
-      - name: Set long cache on static assets
-        run: |
-          aws s3 cp s3://${{ env.S3_BUCKET }}/assets/ s3://${{ env.S3_BUCKET }}/assets/ \
-            --recursive \
-            --cache-control "public, max-age=31536000, immutable" \
-            --metadata-directive REPLACE
-
-      - name: Set short cache on HTML
-        run: |
-          aws s3 cp s3://${{ env.S3_BUCKET }}/ s3://${{ env.S3_BUCKET }}/ \
-            --recursive \
-            --exclude "*" \
-            --include "*.html" \
-            --cache-control "public, max-age=3600" \
-            --metadata-directive REPLACE
+            --exclude ".DS_Store" \
+            --exclude "assets/*"
 
       - name: Invalidate CloudFront cache
         run: |

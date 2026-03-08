@@ -35,38 +35,29 @@ else
     CF_PATH="/*"
 fi
 
-# Step 1: Sync to S3
-echo -e "${YELLOW}[1/3]${NC} Syncing to S3: ${S3_URI}/"
+# Step 1: Sync static assets with long cache (1 year)
+echo -e "${YELLOW}[1/3]${NC} Syncing assets to S3: ${S3_URI}/assets/"
+
+aws s3 sync _site/assets/ ${S3_URI}/assets/ \
+    --profile ${AWS_PROFILE} \
+    --delete \
+    --cache-control "public, max-age=31536000, immutable" \
+    --exclude ".DS_Store"
+
+echo -e "${GREEN}✓${NC} Assets synced"
+
+# Step 2: Sync everything else with short cache (1 hour)
+echo -e "${YELLOW}[2/3]${NC} Syncing remaining files to S3: ${S3_URI}/"
 
 aws s3 sync _site/ ${S3_URI}/ \
     --profile ${AWS_PROFILE} \
     --delete \
     --cache-control "public, max-age=3600" \
     --exclude ".git/*" \
-    --exclude ".DS_Store"
+    --exclude ".DS_Store" \
+    --exclude "assets/*"
 
-echo -e "${GREEN}✓${NC} Files synced to S3"
-
-# Step 2: Set specific cache headers for assets
-echo -e "${YELLOW}[2/3]${NC} Setting cache headers for static assets..."
-
-# Long cache for CSS/JS (1 year)
-aws s3 cp ${S3_URI}/assets/ ${S3_URI}/assets/ \
-    --recursive \
-    --profile ${AWS_PROFILE} \
-    --cache-control "public, max-age=31536000, immutable" \
-    --metadata-directive REPLACE
-
-# Short cache for HTML (1 hour)
-aws s3 cp ${S3_URI}/ ${S3_URI}/ \
-    --recursive \
-    --profile ${AWS_PROFILE} \
-    --exclude "*" \
-    --include "*.html" \
-    --cache-control "public, max-age=3600" \
-    --metadata-directive REPLACE
-
-echo -e "${GREEN}✓${NC} Cache headers updated"
+echo -e "${GREEN}✓${NC} Files synced"
 
 # Step 3: Invalidate CloudFront cache
 if [ -n "$CLOUDFRONT_DIST_ID" ]; then
