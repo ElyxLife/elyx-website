@@ -35,6 +35,10 @@
       transition: $transition-base;
       font-size: $font-size-base;
 
+      &.btn-primary {
+        color: $color-bg-dark;
+      }
+
       &:hover {
         color: $color-primary;
       }
