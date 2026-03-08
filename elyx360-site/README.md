@@ -1,149 +1,98 @@
 # Elyx 360 - Technology Careers Site
 
-The technology engine behind Elyx. Built with Jekyll, themed after elyx.life, inspired by Supabase's developer-focused design.
+The technology engine behind Elyx. Built with Jekyll, themed after elyx.life.
 
-## Overview
+**Target Audience:** Engineers interested in AI, healthcare automation, and longevity technology.
 
-This is a static website showcasing Elyx 360's technology and engineering culture, with a primary focus on hiring talented engineers who want to build the future of AI-powered healthcare.
+## Quick Start
 
-## Pages
-
-1. **Home** - Technology showcase and mission overview
-2. **Join Us** - All open engineering positions with detailed job descriptions
-3. **Team** - Engineering team and culture (placeholder with dummy content)
-4. **Blog** - Engineering insights and technical articles (includes 3 sample posts)
-
-## Tech Stack
-
-- **Jekyll 4.3** - Static site generator
-- **Sass** - CSS preprocessing
-- **Custom Design System** - Inspired by elyx.life (gold/black aesthetic) and Supabase (developer-focused)
-- **Responsive Design** - Mobile-first approach
-
-## Local Development
-
-### Prerequisites
-
-- Ruby 2.7 or higher
-- Bundler gem
-
-### Setup
+### Option A: Docker (Easiest)
 
 ```bash
 cd elyx360-site
-
-# Install dependencies
-bundle install
-
-# Run local development server
-bundle exec jekyll serve
-
-# Visit http://localhost:4000
+docker-compose up
 ```
+
+Visit: http://localhost:4000
+
+### Option B: Local Ruby
+
+```bash
+cd elyx360-site
+bundle config set --local path 'vendor/bundle'
+bundle install
+bundle exec jekyll serve
+```
+
+Visit: http://localhost:4000
 
 ### Build for Production
 
 ```bash
-bundle exec jekyll build
+JEKYLL_ENV=production bundle exec jekyll build
+# Output in _site/
+```
 
-# Output will be in _site/ directory
+## Pages
+
+1. **Home** (`/`) — Technology showcase, healthspan formula, engineering philosophy, hiring CTA
+2. **Join Us** (`/join-us`) — 5 job listings with detailed descriptions, culture, application process
+3. **Team** (`/team`) — Engineering team and culture (placeholder with dummy content)
+4. **Blog** (`/blog`) — 3 sample technical posts with RSS feed
+
+## Project Structure
+
+```
+elyx360-site/
+├── _config.yml              # Jekyll configuration
+├── _layouts/                # Page templates
+│   ├── default.html         # Base layout
+│   └── post.html            # Blog post layout
+├── _includes/               # Reusable components
+│   ├── header.html          # Navigation bar
+│   └── footer.html          # Footer with links
+├── _sass/                   # Stylesheets (SCSS)
+│   ├── _variables.scss      # Design tokens (colors, spacing)
+│   ├── _reset.scss          # CSS reset
+│   └── _components.scss     # All component styles
+├── _posts/                  # Blog posts (Markdown)
+├── pages/                   # Static pages
+│   ├── join-us.html         # Job listings
+│   ├── team.html            # Team page
+│   └── blog.html            # Blog index
+├── assets/
+│   ├── css/main.scss        # Main stylesheet
+│   ├── js/main.js           # Interactive features
+│   └── images/              # Generated images (see IMAGE_PROMPTS.md)
+├── deploy-to-s3.sh          # AWS S3 deployment script
+├── build.sh                 # Build script
+├── docker-compose.yml       # Docker development setup
+└── IMAGE_PROMPTS.md         # AI image generation prompts
 ```
 
 ## Design System
 
-### Colors
+| Token | Value | Usage |
+|-------|-------|-------|
+| Primary Gold | `#C9A961` | Brand accent, CTAs, highlights |
+| Dark Background | `#0A0A0A` | Main background |
+| Section Background | `#1A1A1A` | Cards, sections |
+| Text Primary | `#FFFFFF` | Headings |
+| Text Secondary | `#B8B8B8` | Body text |
+| Text Muted | `#808080` | Meta information |
 
-- **Primary Gold**: `#C9A961` - Main brand accent
-- **Dark Background**: `#0A0A0A` - Main background
-- **Section Background**: `#1A1A1A` - Card/section backgrounds
-- **Text Primary**: `#FFFFFF` - Main text
-- **Text Secondary**: `#B8B8B8` - Secondary text
-- **Text Muted**: `#808080` - Muted text
+**Typography:** System font stack, 16px base, 1.6 line-height. Headings use tight line-height with negative letter-spacing.
 
-### Typography
-
-- **Font Family**: System fonts for optimal performance
-- **Headings**: Bold, tight line-height, negative letter-spacing
-- **Body**: 16px base, 1.6 line-height
-
-### Components
-
-- Navigation (fixed header with blur effect)
-- Hero sections (large, centered, gold accents)
-- Cards (hover effects, border animations)
-- Buttons (primary gradient, secondary outline)
-- Job cards (left border accent, structured layout)
-- Footer (multi-column, links to all sections)
-
-## Content Structure
-
-```
-elyx360-site/
-├── _config.yml           # Jekyll configuration
-├── _layouts/             # Page layouts
-│   ├── default.html      # Base layout
-│   └── post.html         # Blog post layout
-├── _includes/            # Reusable components
-│   ├── header.html       # Navigation
-│   └── footer.html       # Footer
-├── _sass/                # Stylesheets
-│   ├── _variables.scss   # Design tokens
-│   ├── _reset.scss       # CSS reset
-│   └── _components.scss  # Component styles
-├── _posts/               # Blog posts
-├── pages/                # Static pages
-├── assets/
-│   ├── css/              # Compiled CSS
-│   ├── js/               # JavaScript
-│   └── images/           # Images (use IMAGE_PROMPTS.md to generate)
-└── index.html            # Home page
-```
-
-## Images
-
-We've included detailed AI image generation prompts in `IMAGE_PROMPTS.md`. Use these with:
-
-- Midjourney
-- DALL-E 3
-- Stable Diffusion
-- Adobe Firefly
-
-Generate the images and place them in `assets/images/`.
-
-## Deployment
-
-### GitHub Pages
-
-1. Push to GitHub
-2. Enable GitHub Pages in repository settings
-3. Set source to main branch
-
-### Netlify
-
-1. Connect repository to Netlify
-2. Build command: `jekyll build`
-3. Publish directory: `_site`
-
-### Custom Server
-
-1. Build with `bundle exec jekyll build`
-2. Upload `_site/` contents to web server
-3. Point domain (360.elyx.life) to deployment
+**Components:** Fixed nav with blur, hero sections, hover cards, gradient/outline buttons, job cards, responsive grid, multi-column footer.
 
 ## Customization
 
-### Adding New Job Positions
+### Add/Edit Job Positions
+Edit `pages/join-us.html` — copy an existing job card section.
 
-Edit `pages/join-us.html` and add a new job card section following the existing pattern.
+### Add a Blog Post
+Create `_posts/YYYY-MM-DD-post-slug.md`:
 
-### Adding Blog Posts
-
-Create new markdown files in `_posts/` with the naming convention:
-```
-YYYY-MM-DD-post-title.md
-```
-
-Front matter template:
 ```yaml
 ---
 layout: post
@@ -151,44 +100,65 @@ title: "Your Post Title"
 date: YYYY-MM-DD
 author: "Author Name"
 category: "Category"
-excerpt: "Brief excerpt of the post"
+excerpt: "Brief excerpt"
 ---
 ```
 
-### Updating Team Page
+### Update Colors
+Edit `_sass/_variables.scss`.
 
-Replace placeholder content in `pages/team.html` with actual team member information and photos.
+
+## Brand Voice
+- Direct and technical, mission-driven, AI-native
+- Honest about challenges, excited about impact
+- "Build guardrails for AI to build features" — not "Synergize cross-functional paradigms"
+
+## TODO
+- [ ] Replace team page placeholders with real team
+- [ ] Review and adjust job salary ranges
+- [ ] Add analytics (Google Analytics or Plausible)
+- [ ] Test on mobile devices
+- [ ] Write blog posts
+- [ ] Set up GitHub Actions for auto-deploy
+- [ ] Add application form service
+- [ ] Create custom 404 page
+
+## Deployment
+
+```bash
+./build.sh          # Build _site/
+./deploy-to-s3.sh   # Sync to S3 + invalidate CloudFront
+```
+
+Configuration is at the top of `deploy-to-s3.sh`.
+
+## Troubleshooting
+
+**Bundle install requires sudo?**
+Use `bundle config set --local path 'vendor/bundle'` then `bundle install`.
+
+**Command not found: jekyll?**
+Use `bundle exec jekyll` instead of just `jekyll`.
+
+**Can't build locally?**
+Use Docker: `docker-compose up`
+
+**Sass compilation failed?**
+Check that all `.scss` files in `_sass/` have correct syntax.
+
+**CSS not loading?**
+Make sure `main.scss` has the front matter `---` at the top.
+
+**AWS credentials not found?**
+Run `aws configure list` to check, `aws s3 ls s3://360-elyx-life-static/` to test.
+
+**Old content still showing after deploy?**
+Force CloudFront invalidation: `aws cloudfront create-invalidation --distribution-id E3FDAE39VEYN3X --paths "/*"`
 
 ## SEO
 
-The site includes:
-- jekyll-seo-tag plugin
-- Meta descriptions on all pages
-- Semantic HTML structure
-- OpenGraph tags
-
-## Browser Support
-
-- Chrome/Edge (latest)
-- Firefox (latest)
-- Safari (latest)
-- Mobile browsers (iOS Safari, Chrome Mobile)
-
-## Performance
-
-- Minimal JavaScript (vanilla JS, no frameworks)
-- CSS optimized with Sass
-- System fonts (no web font loading)
-- Lazy loading for images (when added)
+Includes jekyll-seo-tag plugin, meta descriptions, semantic HTML, OpenGraph tags, sitemap.xml, and robots.txt.
 
 ## License
 
 Proprietary - Elyx 360
-
-## Contact
-
-For questions about this website: [careers@elyx.life](mailto:careers@elyx.life)
-
----
-
-Built with ❤️ by the Elyx 360 team
