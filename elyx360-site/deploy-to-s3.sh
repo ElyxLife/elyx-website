@@ -10,7 +10,7 @@ set -e
 S3_BUCKET="360-elyx-life-static"
 S3_PATH=""             # Root of bucket (no subfolder)
 CLOUDFRONT_DIST_ID="E3FDAE39VEYN3X"
-AWS_PROFILE="default"  # Change if using a specific AWS profile
+AWS_PROFILE="elyx-emr"  # Change if using a specific AWS profile
 
 # Colors for output
 GREEN='\033[0;32m'

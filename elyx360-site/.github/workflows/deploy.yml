@@ -1,0 +1,67 @@
+name: Build & Deploy to S3
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+env:
+  AWS_REGION: us-east-1
+  S3_BUCKET: 360-elyx-life-static
+  CLOUDFRONT_DIST_ID: E3FDAE39VEYN3X
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+
+      - name: Build Jekyll site
+        run: JEKYLL_ENV=production bundle exec jekyll build
+
+      - name: Configure AWS credentials via OIDC
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Sync to S3
+        run: |
+          aws s3 sync _site/ s3://${{ env.S3_BUCKET }}/ \
+            --delete \
+            --cache-control "public, max-age=3600" \
+            --exclude ".git/*" \
+            --exclude ".DS_Store"
+
+      - name: Set long cache on static assets
+        run: |
+          aws s3 cp s3://${{ env.S3_BUCKET }}/assets/ s3://${{ env.S3_BUCKET }}/assets/ \
+            --recursive \
+            --cache-control "public, max-age=31536000, immutable" \
+            --metadata-directive REPLACE
+
+      - name: Set short cache on HTML
+        run: |
+          aws s3 cp s3://${{ env.S3_BUCKET }}/ s3://${{ env.S3_BUCKET }}/ \
+            --recursive \
+            --exclude "*" \
+            --include "*.html" \
+            --cache-control "public, max-age=3600" \
+            --metadata-directive REPLACE
+
+      - name: Invalidate CloudFront cache
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id ${{ env.CLOUDFRONT_DIST_ID }} \
+            --paths "/*"
