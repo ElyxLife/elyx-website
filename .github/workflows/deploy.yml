@@ -12,7 +12,7 @@ permissions:
   contents: read
 
 env:
-  AWS_REGION: us-east-1
+  AWS_REGION: ap-southeast-1
   S3_BUCKET: 360-elyx-life-static
   CLOUDFRONT_DIST_ID: E3FDAE39VEYN3X
 
