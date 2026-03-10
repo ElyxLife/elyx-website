@@ -69,18 +69,18 @@ description: Elyx360 is the AI-powered healthcare operations platform powering E
         <div class="circle circle-outer circle-product">
           <div class="circle-badge">Elyx 360</div>
           <div class="circle-label circle-label-outer">
-            <span class="circle-title">Coordination</span>
-            <span class="circle-desc">Scheduling, referrals, logistics</span>
+            <span class="circle-title">Context Sharing</span>
+            <span class="circle-desc">Cross-role coordination</span>
           </div>
           <div class="circle circle-middle circle-product">
             <div class="circle-label circle-label-middle">
-              <span class="circle-title">Intelligence</span>
+              <span class="circle-title">Decision Support</span>
               <span class="circle-desc">Risk scoring, recommendations</span>
             </div>
             <div class="circle circle-inner circle-product">
               <div class="circle-label circle-label-inner">
-                <span class="circle-title">Member</span>
-                <span class="circle-desc">Unified health record</span>
+                <span class="circle-title">Data Capture</span>
+                <span class="circle-desc">Structured health record</span>
               </div>
             </div>
           </div>
@@ -91,46 +91,81 @@ description: Elyx360 is the AI-powered healthcare operations platform powering E
 
   <div class="circles-explanation-grid">
     <div class="care-tier">
-      <div class="care-tier-dot dot-inner"></div>
+      <div class="knowledge-icon">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="1.5" opacity="0.3"/>
+          <circle cx="20" cy="20" r="12" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+          <circle cx="20" cy="20" r="6" stroke="currentColor" stroke-width="1.5" opacity="0.8"/>
+          <circle cx="20" cy="20" r="2" fill="currentColor"/>
+        </svg>
+      </div>
       <div>
-        <h3>Member Record</h3>
-        <p>A single longitudinal health profile — labs, wearables, genetics, clinical notes — with role-based access for every team member.</p>
+        <h3>Structured Data Capture</h3>
+        <p>A single longitudinal health profile — labs, wearables, genetics, clinical notes — captured as structured data within the workflow, with role-based access for every team member.</p>
       </div>
     </div>
     <div class="care-tier">
-      <div class="care-tier-dot dot-middle"></div>
+      <div class="knowledge-icon">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="20" y1="16" x2="20" y2="22" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="20" y1="22" x2="10" y2="30" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="20" y1="22" x2="30" y2="30" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="10" cy="32" r="3" fill="currentColor" opacity="0.5"/>
+          <circle cx="30" cy="32" r="3" fill="currentColor" opacity="0.8"/>
+        </svg>
+      </div>
       <div>
-        <h3>Intelligence Layer</h3>
+        <h3>Decision Support</h3>
         <p>Continuous risk scoring, proactive alerts, and best-next-action recommendations backed by evidence and full decision traceability.</p>
       </div>
     </div>
     <div class="care-tier">
-      <div class="care-tier-dot dot-outer"></div>
+      <div class="knowledge-icon">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="4" fill="currentColor"/>
+          <circle cx="20" cy="8" r="2.5" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="20" cy="32" r="2.5" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="8" cy="14" r="2.5" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="32" cy="14" r="2.5" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="8" cy="26" r="2.5" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="32" cy="26" r="2.5" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="20" y1="10.5" x2="20" y2="16" stroke="currentColor" stroke-width="1.2"/>
+          <line x1="20" y1="24" x2="20" y2="29.5" stroke="currentColor" stroke-width="1.2"/>
+          <line x1="10.2" y1="15.2" x2="16.5" y2="18.5" stroke="currentColor" stroke-width="1.2"/>
+          <line x1="23.5" y1="18.5" x2="29.8" y2="15.2" stroke="currentColor" stroke-width="1.2"/>
+          <line x1="10.2" y1="24.8" x2="16.5" y2="21.5" stroke="currentColor" stroke-width="1.2"/>
+          <line x1="23.5" y1="21.5" x2="29.8" y2="24.8" stroke="currentColor" stroke-width="1.2"/>
+        </svg>
+      </div>
       <div>
-        <h3>Coordination Engine</h3>
-        <p>Automated scheduling, referral routing, and follow-up management across specialists — no manual handoffs, nothing dropped.</p>
+        <h3>Context Sharing</h3>
+        <p>Automated scheduling, referral routing, and follow-up management across physicians, concierge staff, and pod leads — within permission boundaries — so context is never lost in handoffs between specialists.</p>
       </div>
     </div>
   </div>
 
-  <div class="circles-outcome">
-    <p>
-      <strong>Powering <a href="https://www.elyx.life" target="_blank">Elyx</a></strong> — Singapore's first concierge longevity experience — where these capabilities
-      come together to deliver proactive, personalized healthspan care at scale.
-    </p>
-  </div>
 </section>
 
 
+<!-- Architecture Diagram Section -->
+<section class="section section-dark-full">
+  <div class="section-inner">
+    <div class="section-header">
+      <h2>Platform Architecture</h2>
+      <p>
+        How Elyx360 orchestrates data, decisions, and coordination across every layer of care delivery.
+      </p>
+    </div>
+
+    <div class="architecture-image" style="margin-bottom: 3rem; max-width: 80%; margin-left: auto; margin-right: auto; overflow: hidden; border-radius: 12px;">
+      <img src="{{ site.baseurl }}/assets/images/Elyx AI Components.svg" alt="Elyx AI architecture — HealthSpan AI, Personal Data Management, and Concierge AI Interface" loading="lazy" style="width: 200%; max-width: none; display: block;">
+    </div>
+  </div>
+</section>
+
 <!-- Core Features Section -->
 <section class="section section-with-bg" id="pillars" style="background-image: url('{{ site.baseurl }}/assets/images/hexagon-grid.png');">
-  <div class="section-header">
-    <h2>What Elyx360 Does</h2>
-    <p>
-      The platform's capabilities span the full lifecycle of concierge healthcare delivery — from member onboarding to long-term health optimization.
-    </p>
-  </div>
-
   <div class="feature-showcase">
     <div class="feature-row">
       <div class="feature-text">
@@ -201,75 +236,16 @@ description: Elyx360 is the AI-powered healthcare operations platform powering E
     <div class="feature-row">
       <div class="feature-text">
         <div class="pillar-number">07</div>
-        <h3>Member App</h3>
+        <h3>Member Connection</h3>
         <p>A member-facing interface with progress dashboards, goal tracking, and milestone notifications. Health literacy content and upcoming actions keep members informed and engaged as active participants in their own care journey.</p>
       </div>
       <div class="feature-image feature-image-mobile">
-        <img src="{{ site.baseurl }}/assets/images/feature-member-app.png" alt="Member App — health dashboard and wearable data" loading="lazy">
+        <img src="{{ site.baseurl }}/assets/images/feature-member-app.png" alt="Member Connection — health dashboard and wearable data" loading="lazy">
       </div>
     </div>
   </div>
 </section>
 
-<!-- Compounding Knowledge Section -->
-<section class="section section-dark-full section-with-bg" style="background-image: url('{{ site.baseurl }}/assets/images/data-flow.png');">
-  <div class="section-inner">
-    <div class="section-header">
-      <h2>A System That Gets Smarter Over Time</h2>
-      <p>
-        Elyx360 is built as a learning system. Every clinical interaction, care decision, and health outcome
-        feeds back into the platform — compounding institutional knowledge and continuously improving care quality.
-      </p>
-    </div>
 
-    <div class="knowledge-flow">
-      <div class="knowledge-step">
-        <div class="knowledge-icon">
-          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="1.5" opacity="0.3"/>
-            <circle cx="20" cy="20" r="12" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
-            <circle cx="20" cy="20" r="6" stroke="currentColor" stroke-width="1.5" opacity="0.8"/>
-            <circle cx="20" cy="20" r="2" fill="currentColor"/>
-          </svg>
-        </div>
-        <h4>Structured Data Capture</h4>
-        <p>Every consultation, lab result, care decision, and outcome is captured as structured data within the workflow — not in disconnected notes or spreadsheets.</p>
-      </div>
-      <div class="knowledge-arrow">→</div>
-      <div class="knowledge-step">
-        <div class="knowledge-icon">
-          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="20" cy="20" r="4" fill="currentColor"/>
-            <circle cx="20" cy="8" r="2.5" stroke="currentColor" stroke-width="1.5"/>
-            <circle cx="20" cy="32" r="2.5" stroke="currentColor" stroke-width="1.5"/>
-            <circle cx="8" cy="14" r="2.5" stroke="currentColor" stroke-width="1.5"/>
-            <circle cx="32" cy="14" r="2.5" stroke="currentColor" stroke-width="1.5"/>
-            <circle cx="8" cy="26" r="2.5" stroke="currentColor" stroke-width="1.5"/>
-            <circle cx="32" cy="26" r="2.5" stroke="currentColor" stroke-width="1.5"/>
-            <line x1="20" y1="10.5" x2="20" y2="16" stroke="currentColor" stroke-width="1.2"/>
-            <line x1="20" y1="24" x2="20" y2="29.5" stroke="currentColor" stroke-width="1.2"/>
-            <line x1="10.2" y1="15.2" x2="16.5" y2="18.5" stroke="currentColor" stroke-width="1.2"/>
-            <line x1="23.5" y1="18.5" x2="29.8" y2="15.2" stroke="currentColor" stroke-width="1.2"/>
-            <line x1="10.2" y1="24.8" x2="16.5" y2="21.5" stroke="currentColor" stroke-width="1.2"/>
-            <line x1="23.5" y1="21.5" x2="29.8" y2="24.8" stroke="currentColor" stroke-width="1.2"/>
-          </svg>
-        </div>
-        <h4>Cross-Role Context Sharing</h4>
-        <p>The unified member record flows across physicians, concierge staff, and pod leads — within permission boundaries — so context is never lost in handoffs between specialists.</p>
-      </div>
-      <div class="knowledge-arrow">→</div>
-      <div class="knowledge-step">
-        <div class="knowledge-icon">
-          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <polyline points="4,32 14,24 22,28 36,10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <polyline points="28,10 36,10 36,18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <h4>AI-Powered Improvement</h4>
-        <p>Outcome data feeds back into the risk engine and decision support system. Recommendations get more precise, protocols get more effective, and the platform scales what works across the entire member base.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
 
