@@ -581,6 +581,134 @@
   }
 }
 
+// Dual circles layout (vision → platform)
+.circles-dual-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-lg;
+  margin-bottom: $spacing-xl;
+
+  @media (max-width: $breakpoint-md) {
+    flex-direction: column;
+  }
+}
+
+.circles-dual-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+
+  .circles-diagram {
+    transform: scale(0.78);
+    transform-origin: center center;
+
+    @media (max-width: $breakpoint-md) {
+      transform: scale(0.7);
+    }
+  }
+}
+
+.circles-dual-label {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: $color-text-muted;
+  margin-bottom: $spacing-sm;
+}
+
+.circles-dual-arrow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-xs;
+  color: $color-primary;
+  flex-shrink: 0;
+
+  span {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: $color-text-muted;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    svg {
+      transform: rotate(90deg);
+    }
+  }
+}
+
+.circle.circle-product {
+  &.circle-outer {
+    border-color: rgba($color-primary, 0.7);
+    background: rgba($color-primary, 0.06);
+  }
+  &.circle-middle {
+    border-color: rgba($color-primary, 0.5);
+    background: rgba($color-primary, 0.1);
+  }
+  &.circle-inner {
+    border-color: rgba($color-primary, 0.8);
+    background: rgba($color-primary, 0.16);
+  }
+}
+
+.circle-badge {
+  position: absolute;
+  bottom: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: $color-bg-section;
+  border: 1.5px solid $color-primary;
+  color: $color-primary;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 4px 16px;
+  border-radius: 20px;
+  white-space: nowrap;
+  z-index: 1;
+
+  a {
+    color: $color-primary;
+    text-decoration: none;
+
+    &:hover {
+      color: $color-primary-light;
+    }
+  }
+}
+
+.circles-explanation-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-xl;
+  margin-bottom: $spacing-xl;
+
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: 1fr;
+  }
+
+  .care-tier {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-sm;
+
+    h3 {
+      font-size: $font-size-base;
+      margin-bottom: $spacing-xs;
+    }
+
+    p {
+      font-size: 14px;
+    }
+  }
+}
+
 // Pillars grid
 .pillars-grid {
   display: grid;
