@@ -25,6 +25,9 @@ if [ -d /workspace/elyx360-site/.claude/commands ]; then
   cp -r /workspace/elyx360-site/.claude/commands/* /home/vscode/.claude/commands/ 2>/dev/null || true
 fi
 
+echo "Installing Playwright browser (Chromium)..."
+python3 -m playwright install chromium
+
 echo "Installing Ruby gems..."
 bundle config set --local path "vendor/bundle"
 bundle install
