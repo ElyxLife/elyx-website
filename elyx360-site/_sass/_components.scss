@@ -460,22 +460,22 @@
   flex-direction: column;
 
   &.circle-outer {
-    width: 440px;
-    height: 440px;
+    width: 572px;
+    height: 572px;
     border: 2px solid rgba($color-primary, 0.5);
     background: rgba($color-primary, 0.04);
   }
 
   &.circle-middle {
-    width: 310px;
-    height: 310px;
+    width: 403px;
+    height: 403px;
     border: 2px solid rgba($color-primary, 0.35);
     background: rgba($color-primary, 0.07);
   }
 
   &.circle-inner {
-    width: 190px;
-    height: 190px;
+    width: 247px;
+    height: 247px;
     border: 2px solid rgba($color-primary, 0.6);
     background: rgba($color-primary, 0.12);
   }
@@ -494,25 +494,25 @@
   }
 
   .circle-desc {
-    font-size: 12px;
+    font-size: 14px;
     color: $color-text-muted;
   }
 
   &.circle-label-inner {
-    .circle-title { font-size: 13px; }
-    .circle-desc { display: none; }
+    .circle-title { font-size: 16px; }
+    .circle-desc { font-size: 13px; }
   }
 
   &.circle-label-middle {
     top: 16px;
-    .circle-title { font-size: 13px; color: $color-text-secondary; }
-    .circle-desc { font-size: 11px; }
+    .circle-title { font-size: 16px; color: $color-text-secondary; }
+    .circle-desc { font-size: 14px; }
   }
 
   &.circle-label-outer {
     top: 16px;
-    .circle-title { font-size: 14px; color: $color-primary; }
-    .circle-desc { font-size: 11px; }
+    .circle-title { font-size: 18px; color: $color-primary; }
+    .circle-desc { font-size: 14px; }
   }
 }
 
@@ -1073,16 +1073,16 @@
   }
 
   .circle.circle-outer {
-    width: 320px;
-    height: 320px;
+    width: 416px;
+    height: 416px;
   }
   .circle.circle-middle {
-    width: 225px;
-    height: 225px;
+    width: 293px;
+    height: 293px;
   }
   .circle.circle-inner {
-    width: 140px;
-    height: 140px;
+    width: 182px;
+    height: 182px;
   }
 
   .btn.btn-lg {
