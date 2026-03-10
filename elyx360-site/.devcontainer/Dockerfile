@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/devcontainers/ruby:3.4-trixie
+FROM mcr.microsoft.com/devcontainers/ruby:3.4-bookworm
 
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install --no-install-recommends \
@@ -10,7 +10,7 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     tmux \
     vim \
     && pip3 install --break-system-packages playwright \
-    && npx playwright install-deps chromium \
+    && python3 -m playwright install-deps chromium \
     && apt-get clean -y && rm -rf /var/lib/apt/lists/*
 
 # Install Claude Code CLI (native binary, recommended method).
