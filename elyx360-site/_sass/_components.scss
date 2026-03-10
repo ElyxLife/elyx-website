@@ -205,11 +205,11 @@
   gap: $spacing-lg;
 
   &.grid-2 {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
   }
 
   &.grid-3 {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
   }
 }
 
@@ -281,7 +281,7 @@
     max-width: $breakpoint-xl;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
     gap: $spacing-lg;
   }
 
@@ -712,9 +712,8 @@
 // Pillars grid
 .pillars-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
   gap: $spacing-lg;
-
 }
 
 .pillar-card {
@@ -842,21 +841,151 @@
   }
 }
 
-// Responsive design
+// Mobile menu toggle button (hidden on desktop)
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: $color-primary;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 8px;
+  line-height: 1;
+}
+
+// Responsive design — tablet
 @media (max-width: $breakpoint-md) {
-  .hero h1 {
-    font-size: $font-size-3xl;
+  .nav {
+    .nav-container {
+      padding: $spacing-sm $spacing-md;
+    }
+
+    .mobile-menu-toggle {
+      display: block;
+    }
+
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: rgba(10, 10, 10, 0.98);
+      backdrop-filter: blur(10px);
+      padding: $spacing-sm $spacing-md $spacing-md;
+      gap: 0;
+      border-bottom: 1px solid rgba(201, 169, 97, 0.1);
+
+      &.mobile-open {
+        display: flex;
+      }
+
+      a {
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+        &.btn {
+          padding: $spacing-sm $spacing-lg;
+          border-bottom: none;
+          margin-top: $spacing-sm;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  .hero {
+    min-height: 70vh;
+    margin-top: 60px;
+
+    h1 {
+      font-size: $font-size-3xl;
+    }
+
+    .hero-subtitle {
+      font-size: $font-size-lg;
+    }
   }
 
   .section {
     padding: $spacing-xl $spacing-md;
-  }
 
-  .nav .nav-links {
-    gap: $spacing-md;
+    .section-header h2 {
+      font-size: $font-size-2xl;
+    }
   }
 
   .grid {
     grid-template-columns: 1fr;
+  }
+
+  .card, .pillar-card, .outcome-card {
+    padding: $spacing-md;
+  }
+
+  .job-card {
+    padding: $spacing-md;
+
+    .job-header h3 {
+      font-size: $font-size-xl;
+    }
+  }
+
+  .circles-outcome {
+    padding: $spacing-md;
+  }
+
+  .pillars-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer .footer-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Responsive design — small phones
+@media (max-width: $breakpoint-sm) {
+  .hero {
+    padding: $spacing-lg $spacing-sm;
+
+    h1 {
+      font-size: $font-size-2xl;
+    }
+
+    .hero-subtitle {
+      font-size: $font-size-base;
+    }
+  }
+
+  .section {
+    padding: $spacing-lg $spacing-sm;
+
+    .section-header h2 {
+      font-size: $font-size-xl;
+    }
+  }
+
+  .circles-dual-side .circles-diagram {
+    transform: scale(0.55);
+  }
+
+  .circle.circle-outer {
+    width: 320px;
+    height: 320px;
+  }
+  .circle.circle-middle {
+    width: 225px;
+    height: 225px;
+  }
+  .circle.circle-inner {
+    width: 140px;
+    height: 140px;
+  }
+
+  .btn.btn-lg {
+    padding: $spacing-sm $spacing-md;
+    font-size: $font-size-base;
   }
 }

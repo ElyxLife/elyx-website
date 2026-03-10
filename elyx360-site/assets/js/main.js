@@ -94,39 +94,35 @@ if (newsletterForm) {
   }
 }
 
-// Mobile navigation toggle (for future mobile menu implementation)
-const createMobileMenu = () => {
+// Mobile navigation toggle
+const initMobileMenu = () => {
   const nav = document.querySelector('.nav');
   const navLinks = document.querySelector('.nav-links');
+  if (!nav || !navLinks) return;
 
-  // Check if we're on mobile
-  if (window.innerWidth <= 768) {
-    // Add mobile menu button if it doesn't exist
-    if (!nav.querySelector('.mobile-menu-toggle')) {
-      const toggleButton = document.createElement('button');
-      toggleButton.className = 'mobile-menu-toggle';
-      toggleButton.innerHTML = '☰';
-      toggleButton.style.cssText = `
-        display: block;
-        background: none;
-        border: none;
-        color: #C9A961;
-        font-size: 24px;
-        cursor: pointer;
-        padding: 8px;
-      `;
+  // Create toggle button once
+  if (!nav.querySelector('.mobile-menu-toggle')) {
+    const toggleButton = document.createElement('button');
+    toggleButton.className = 'mobile-menu-toggle';
+    toggleButton.setAttribute('aria-label', 'Toggle menu');
+    toggleButton.innerHTML = '&#9776;';
+    nav.querySelector('.nav-container').appendChild(toggleButton);
 
-      nav.querySelector('.nav-container').appendChild(toggleButton);
+    toggleButton.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('mobile-open');
+      toggleButton.innerHTML = isOpen ? '&#10005;' : '&#9776;';
+    });
 
-      toggleButton.addEventListener('click', () => {
-        navLinks.classList.toggle('mobile-open');
+    // Close menu when a link is clicked
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('mobile-open');
+        toggleButton.innerHTML = '&#9776;';
       });
-    }
+    });
   }
 };
 
-// Initialize mobile menu on load and resize
-window.addEventListener('load', createMobileMenu);
-window.addEventListener('resize', createMobileMenu);
+window.addEventListener('DOMContentLoaded', initMobileMenu);
 
 console.log('Elyx 360 - Building the future of healthcare 🚀');
