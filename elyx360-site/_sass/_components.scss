@@ -43,6 +43,11 @@
         color: $color-primary;
       }
 
+      &.btn:hover {
+        opacity: 0.7;
+        color: $color-bg-dark;
+      }
+
       &.active {
         color: $color-text-primary;
       }
@@ -147,8 +152,7 @@
     color: $color-bg-dark;
 
     &:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(201, 169, 97, 0.3);
+      opacity: 0.7;
     }
   }
 
@@ -158,8 +162,7 @@
     color: $color-primary;
 
     &:hover {
-      background: $color-primary;
-      color: $color-bg-dark;
+      opacity: 0.7;
     }
   }
 
