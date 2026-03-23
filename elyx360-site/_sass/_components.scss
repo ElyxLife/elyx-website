@@ -172,6 +172,16 @@
   }
 }
 
+// Post content
+.post-content p {
+  margin-bottom: 1.5em;
+}
+
+.post-content a {
+  color: $color-primary;
+  text-decoration: underline;
+}
+
 // Section container
 .section {
   padding: $spacing-2xl $spacing-lg;
@@ -594,6 +604,7 @@
 
   @media (max-width: $breakpoint-md) {
     flex-direction: column;
+    gap: 0;
   }
 }
 
@@ -610,6 +621,8 @@
 
     @media (max-width: $breakpoint-md) {
       transform: scale(0.7);
+      margin-top: -50px;
+      margin-bottom: -60px;
     }
   }
 }

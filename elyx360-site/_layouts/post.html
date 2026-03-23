@@ -12,7 +12,13 @@ layout: default
       </div>
     </header>
 
-    <div style="line-height: 1.8; color: #B8B8B8;">
+    {% if page.image %}
+    <div style="margin-bottom: 48px; border-radius: 12px; overflow: hidden;">
+      <img src="{{ page.image | relative_url }}" alt="{{ page.title }}" style="width: 100%; display: block;">
+    </div>
+    {% endif %}
+
+    <div style="line-height: 1.8; color: #B8B8B8;" class="post-content">
       {{ content }}
     </div>
   </div>
