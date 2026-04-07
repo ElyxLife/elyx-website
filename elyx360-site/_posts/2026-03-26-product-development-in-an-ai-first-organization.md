@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Product Development in an AI-First Organization"
-date: 2025-03-26
+date: 2026-03-26
+author: Nishanth Sudharsanam
 image: /assets/images/blog/Gemini_Generated_Image_undm3uundm3uundm.png
 ---
 
