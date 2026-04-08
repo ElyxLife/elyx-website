@@ -96,7 +96,8 @@
   }
 
   .hero-content {
-    max-width: $breakpoint-lg;
+    max-width: $breakpoint-xl;
+    margin: 0 auto;
     text-align: center;
   }
 
@@ -114,7 +115,9 @@
   }
 
   .hero-subtitle {
+    font-family: $font-primary;
     font-size: $font-size-xl;
+    font-weight: 300;
     color: $color-text-secondary;
     margin-bottom: $spacing-xl;
     line-height: 1.5;
@@ -184,7 +187,7 @@
 
 // Section container
 .section {
-  padding: $spacing-2xl $spacing-lg;
+  padding: 96px $spacing-lg;
   max-width: $breakpoint-xl;
   margin: 0 auto;
 
@@ -197,14 +200,17 @@
     text-align: center;
 
     h2 {
+      font-family: $font-heading;
       font-size: $font-size-3xl;
-      font-weight: 700;
+      font-weight: 600;
       margin-bottom: $spacing-md;
-      letter-spacing: -0.02em;
+      letter-spacing: 0.01em;
     }
 
     p {
+      font-family: $font-primary;
       font-size: $font-size-lg;
+      font-weight: 300;
       color: $color-text-secondary;
       max-width: 700px;
       margin: 0 auto;
@@ -252,12 +258,16 @@
   }
 
   h3 {
+    font-family: $font-heading;
     font-size: $font-size-xl;
     margin-bottom: $spacing-sm;
     font-weight: 600;
+    letter-spacing: 0.01em;
   }
 
   p {
+    font-family: $font-primary;
+    font-weight: 300;
     color: $color-text-secondary;
     line-height: 1.7;
   }
@@ -380,6 +390,7 @@
 
 // Hero eyebrow
 .hero-eyebrow {
+  font-family: $font-primary;
   font-size: $font-size-base;
   font-weight: 600;
   letter-spacing: 0.15em;
@@ -600,7 +611,7 @@
   align-items: center;
   justify-content: center;
   gap: $spacing-lg;
-  margin-bottom: $spacing-xl;
+  margin-bottom: 20px;
 
   @media (max-width: $breakpoint-md) {
     flex-direction: column;
@@ -703,7 +714,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: $spacing-xl;
-  margin-bottom: $spacing-xl;
+  margin-bottom: 20px;
 
   @media (max-width: $breakpoint-md) {
     grid-template-columns: 1fr;
@@ -781,7 +792,7 @@
 .feature-showcase {
   display: flex;
   flex-direction: column;
-  gap: $spacing-2xl;
+  gap: 96px;
 }
 
 .feature-row {
@@ -810,21 +821,26 @@
 
 .feature-text {
   .pillar-number {
+    font-family: $font-primary;
     font-size: 12px;
     font-weight: 700;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
     color: $color-primary;
     margin-bottom: $spacing-sm;
-    font-family: $font-mono;
   }
 
   h3 {
+    font-family: $font-heading;
     font-size: $font-size-2xl;
-    font-weight: 700;
+    font-weight: 600;
     margin-bottom: $spacing-sm;
+    letter-spacing: 0.01em;
   }
 
   p {
+    font-family: $font-primary;
+    font-weight: 300;
     color: $color-text-secondary;
     line-height: 1.7;
     font-size: $font-size-lg;

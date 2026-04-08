@@ -6,7 +6,8 @@ description: Join the Elyx 360 team and build the future of AI-powered healthcar
 ---
 
 <!-- Hero -->
-<section class="hero" style="min-height: 60vh;">
+<section class="hero hero-with-bg" style="min-height: 60vh; padding-top: 60px; padding-bottom: 60px;">
+  <div class="hero-bg" style="background-image: url('{{ site.baseurl }}/assets/images/Gemini_Generated_Image_2qhtsf2qhtsf2qht.png'); background-size: cover; background-position: center 70%;"></div>
   <div class="hero-content">
     <h1>Build the Operating System for <em>Human Health</em></h1>
     <p class="hero-subtitle">
@@ -16,45 +17,213 @@ description: Join the Elyx 360 team and build the future of AI-powered healthcar
   </div>
 </section>
 
+<!-- Capability Carousel -->
+<div class="capability-carousel">
+  <!-- Row 1: scrolls left -->
+  <div class="carousel-track carousel-left">
+    <div class="carousel-inner">
+      <span class="carousel-pill">Care Pods</span>
+      <div class="carousel-img"><img src="{{ site.baseurl }}/assets/images/feature-care-pods.png" alt=""></div>
+      <span class="carousel-pill">Risk Engine</span>
+      <span class="carousel-pill">Longitudinal Health Profile</span>
+      <div class="carousel-img"><img src="{{ site.baseurl }}/assets/images/feature-risk-engine.png" alt=""></div>
+      <span class="carousel-pill">Clinical Workflows</span>
+      <span class="carousel-pill">Wearable Integration</span>
+      <div class="carousel-img"><img src="{{ site.baseurl }}/assets/images/feature-decision-support.png" alt=""></div>
+      <span class="carousel-pill">Biomarker Tracking</span>
+      <span class="carousel-pill">Orchestration Hub</span>
+      <!-- duplicate for seamless loop -->
+      <span class="carousel-pill">Care Pods</span>
+      <div class="carousel-img"><img src="{{ site.baseurl }}/assets/images/feature-care-pods.png" alt=""></div>
+      <span class="carousel-pill">Risk Engine</span>
+      <span class="carousel-pill">Longitudinal Health Profile</span>
+      <div class="carousel-img"><img src="{{ site.baseurl }}/assets/images/feature-risk-engine.png" alt=""></div>
+      <span class="carousel-pill">Clinical Workflows</span>
+      <span class="carousel-pill">Wearable Integration</span>
+      <div class="carousel-img"><img src="{{ site.baseurl }}/assets/images/feature-decision-support.png" alt=""></div>
+      <span class="carousel-pill">Biomarker Tracking</span>
+      <span class="carousel-pill">Orchestration Hub</span>
+    </div>
+  </div>
+  <!-- Row 2: scrolls right -->
+  <div class="carousel-track carousel-right">
+    <div class="carousel-inner">
+      <span class="carousel-pill">Decision Support</span>
+      <div class="carousel-img"><img src="{{ site.baseurl }}/assets/images/feature-orchestration.png" alt=""></div>
+      <span class="carousel-pill">Dynamic Constraint Mapping</span>
+      <span class="carousel-pill">AI Health Records</span>
+      <div class="carousel-img"><img src="{{ site.baseurl }}/assets/images/feature-personalization.png" alt=""></div>
+      <span class="carousel-pill">Proactive Care</span>
+      <span class="carousel-pill">Clinical Safety</span>
+      <div class="carousel-img"><img src="{{ site.baseurl }}/assets/images/feature-clinical-safety.png" alt=""></div>
+      <span class="carousel-pill">Care Team Coordination</span>
+      <span class="carousel-pill">Health Intelligence</span>
+      <!-- duplicate -->
+      <span class="carousel-pill">Decision Support</span>
+      <div class="carousel-img"><img src="{{ site.baseurl }}/assets/images/feature-orchestration.png" alt=""></div>
+      <span class="carousel-pill">Dynamic Constraint Mapping</span>
+      <span class="carousel-pill">AI Health Records</span>
+      <div class="carousel-img"><img src="{{ site.baseurl }}/assets/images/feature-personalization.png" alt=""></div>
+      <span class="carousel-pill">Proactive Care</span>
+      <span class="carousel-pill">Clinical Safety</span>
+      <div class="carousel-img"><img src="{{ site.baseurl }}/assets/images/feature-clinical-safety.png" alt=""></div>
+      <span class="carousel-pill">Care Team Coordination</span>
+      <span class="carousel-pill">Health Intelligence</span>
+    </div>
+  </div>
+  <!-- Row 3: scrolls left -->
+  <div class="carousel-track carousel-left">
+    <div class="carousel-inner">
+      <span class="carousel-pill">Member Connection</span>
+      <div class="carousel-img"><img src="{{ site.baseurl }}/assets/images/feature-member-app.png" alt=""></div>
+      <span class="carousel-pill">Risk Scoring</span>
+      <span class="carousel-pill">Preventive Protocols</span>
+      <div class="carousel-img"><img src="{{ site.baseurl }}/assets/images/tech-showcase.png" alt=""></div>
+      <span class="carousel-pill">Role-Based Access</span>
+      <span class="carousel-pill">Contraindication Detection</span>
+      <div class="carousel-img"><img src="{{ site.baseurl }}/assets/images/feature-member-app.png" alt=""></div>
+      <span class="carousel-pill">Health Monitoring</span>
+      <span class="carousel-pill">Adaptive Care Plans</span>
+      <!-- duplicate -->
+      <span class="carousel-pill">Member Connection</span>
+      <div class="carousel-img"><img src="{{ site.baseurl }}/assets/images/feature-member-app.png" alt=""></div>
+      <span class="carousel-pill">Risk Scoring</span>
+      <span class="carousel-pill">Preventive Protocols</span>
+      <div class="carousel-img"><img src="{{ site.baseurl }}/assets/images/tech-showcase.png" alt=""></div>
+      <span class="carousel-pill">Role-Based Access</span>
+      <span class="carousel-pill">Contraindication Detection</span>
+      <div class="carousel-img"><img src="{{ site.baseurl }}/assets/images/feature-member-app.png" alt=""></div>
+      <span class="carousel-pill">Health Monitoring</span>
+      <span class="carousel-pill">Adaptive Care Plans</span>
+    </div>
+  </div>
+</div>
+
+<style>
+.capability-carousel {
+  width: 100%;
+  overflow: hidden;
+  padding: 32px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: transparent;
+  margin-top: -110px;
+}
+
+.carousel-track {
+  overflow: hidden;
+  width: 100%;
+}
+
+.carousel-inner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: max-content;
+}
+
+.carousel-left .carousel-inner {
+  animation: scrollLeft 35s linear infinite;
+}
+
+.carousel-right .carousel-inner {
+  animation: scrollRight 35s linear infinite;
+}
+
+@keyframes scrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes scrollRight {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.carousel-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 20px;
+  border: 1px solid rgba(201, 169, 97, 0.4);
+  border-radius: 999px;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #B8B8B8;
+  white-space: nowrap;
+  background: rgba(255,255,255,0.03);
+}
+
+.carousel-img {
+  width: 80px;
+  height: 40px;
+  border-radius: 999px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.carousel-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.capability-carousel:hover .carousel-inner {
+  animation-play-state: paused;
+}
+</style>
+
+<style>
+#culture .grid .card:nth-child(1):hover { background: rgba(44, 54, 66, 0.85); border-color: rgba(44, 54, 66, 0.9); }
+#culture .grid .card:nth-child(2):hover { background: rgba(47, 37, 29, 0.85); border-color: rgba(160, 147, 125, 0.4); }
+#culture .grid .card:nth-child(3):hover { background: rgba(45, 71, 61, 0.85); border-color: rgba(45, 71, 61, 0.9); }
+#culture .grid .card:nth-child(4):hover { background: rgba(54, 0, 10, 0.75); border-color: rgba(99, 47, 57, 0.6); }
+#culture .grid .card:nth-child(5):hover { background: rgba(30, 45, 70, 0.85); border-color: rgba(74, 144, 226, 0.3); }
+#culture .grid .card:nth-child(6):hover { background: rgba(160, 147, 125, 0.15); border-color: rgba(201, 169, 97, 0.5); }
+</style>
+
 <!-- Why Join Section -->
-<section class="section" id="culture">
+<section class="section" id="culture" style="padding-top: 20px;">
   <div class="section-header">
-    <h2>Why Join Elyx 360?</h2>
+    <h2 style="margin-bottom: 10px;">Why Join Elyx 360?</h2>
+    <p style="margin-top: 0; margin-bottom: 0;"><span style="color: #C9A961;">High-agency engineers</span> building at the frontier of human health</p>
   </div>
 
   <div class="grid grid-2">
     <div class="card">
-      <div class="card-icon">🛠️</div>
+      <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
       <h3>The Best Tools</h3>
       <p>If an AI tool makes you better, we use it. Period. Master and push the limits of AI coding agents to build, test, and deploy at a pace that "feels like magic."</p>
     </div>
 
     <div class="card">
-      <div class="card-icon">🧠</div>
+      <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.46 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-1.14"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.46 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-1.14"/></svg></div>
       <h3>Deep Thinking</h3>
       <p>We value first-principles logic over "how it's always been done." Zero politics. Radical transparency. Direct, vocal communication expected from everyone.</p>
     </div>
 
     <div class="card">
-      <div class="card-icon">🎯</div>
+      <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
       <h3>Mission-Critical Work</h3>
       <p>Your code directly impacts how long and how well people live. This isn't just another SaaS product—it's healthcare infrastructure for human longevity.</p>
     </div>
 
     <div class="card">
-      <div class="card-icon">🏃</div>
+      <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
       <h3>A Masterclass in Longevity</h3>
       <p>Learn from experts on how to run marathons at 80. Work alongside experienced founders who have built multiple unicorns.</p>
     </div>
 
     <div class="card">
-      <div class="card-icon">🤖</div>
+      <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 12 7 8 3"/><line x1="12" y1="7" x2="12" y2="13"/><path d="M2 17l4-4 4 4 4-4 4 4"/><line x1="2" y1="21" x2="22" y2="21"/></svg></div>
       <h3>Automate Everything</h3>
       <p>To automate healthcare, we must automate software development itself. You don't just build features—you build guardrails and scaffolding to help AI build features.</p>
     </div>
 
     <div class="card">
-      <div class="card-icon">🌍</div>
+      <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
       <h3>Remote-First Culture</h3>
       <p>Decentralized, high-initiative, and built for deep work. We operate at the intersection of heavy regulation and the upcoming Singularity.</p>
     </div>
@@ -64,6 +233,34 @@ description: Join the Elyx 360 team and build the future of AI-powered healthcar
     <p style="font-size: 18px; color: #B8B8B8; line-height: 1.8; margin-bottom: 24px;">
       If <a href="https://steve-yegge.medium.com/welcome-to-gas-town-4f25ee16dd04" target="_blank" style="color: #C9A961; text-decoration: underline;">Gastown</a> fills you with a strange mix of <strong style="color: #C9A961;">horror and excitement</strong>, you'll fit right in.
     </p>
+  </div>
+</section>
+
+<!-- How to Apply -->
+<section class="section section-dark" id="apply" style="padding-top: 48px; padding-bottom: 48px;">
+  <div style="max-width: 800px; margin: 0 auto;">
+    <h2 style="font-size: 40px; margin-bottom: 24px; text-align: center;">How to Apply</h2>
+    <p style="font-size: 18px; color: #B8B8B8; text-align: center; margin-bottom: 48px;">
+      To apply, please email <a href="mailto:{{ site.email }}" style="color: #C9A961; text-decoration: underline;">{{ site.email }}</a> with brief answers to the following three questions:
+    </p>
+
+    <div style="background: #0A0A0A; border: 1px solid #C9A961; border-radius: 8px; padding: 32px;">
+      <ol style="list-style: decimal; margin-left: 24px; color: #B8B8B8; line-height: 2; font-size: 18px;">
+        <li style="margin-bottom: 16px;">
+          <strong style="color: #FFFFFF;">What is the highest and lowest value work you typically do?</strong>
+        </li>
+        <li style="margin-bottom: 16px;">
+          <strong style="color: #FFFFFF;">What needs to happen—in terms of software tooling, AI, or processes—so that you (or any other human) can stop doing both?</strong>
+        </li>
+        <li>
+          <strong style="color: #FFFFFF;">What is something you built or solved that you think was exceptional? And why?</strong>
+        </li>
+      </ol>
+    </div>
+
+    <div style="text-align: center; margin-top: 48px;">
+      <a href="https://www.elyx.life/careers-at-elyx#engineering" target="_blank" class="btn btn-primary btn-lg">View All Roles Here</a>
+    </div>
   </div>
 </section>
 
@@ -111,7 +308,7 @@ description: Join the Elyx 360 team and build the future of AI-powered healthcar
         <li><strong>Compliance:</strong> Experience being an active participant in a formal security audit (e.g., SOC2, HIPAA, or ISO 27001).</li>
       </ul>
     </div>
-    <a href="mailto:{{ site.email }}?subject=Application: Infrastructure Architect" class="btn btn-primary">Apply for this Position</a>
+    <a href="https://www.elyx.life/careers-elyx360-infrastructure-architect" target="_blank" class="btn btn-primary">View Full Job Description</a>
   </div>
 
   <!-- Full-Stack Engineer -->
@@ -151,7 +348,7 @@ description: Join the Elyx 360 team and build the future of AI-powered healthcar
         <li><strong>AI Native:</strong> Experience using AI agents (beyond simple autocomplete) to code, with the ability to explain their constraints and failure modes.</li>
       </ul>
     </div>
-    <a href="mailto:{{ site.email }}?subject=Application: Full-Stack Engineer" class="btn btn-primary">Apply for this Position</a>
+    <a href="https://www.elyx.life/careers-elyx360-full-stack-engineer" target="_blank" class="btn btn-primary">View Full Job Description</a>
   </div>
 
   <!-- Front-End Framework Engineer -->
@@ -192,7 +389,7 @@ description: Join the Elyx 360 team and build the future of AI-powered healthcar
         <li><strong>AI Native:</strong> Experience using AI agents (beyond simple autocomplete) to code, with a clear understanding of their current limitations.</li>
       </ul>
     </div>
-    <a href="mailto:{{ site.email }}?subject=Application: Front-End Framework Engineer" class="btn btn-primary">Apply for this Position</a>
+    <a href="https://www.elyx.life/careers-elyx360-frontend-framework-engineer" target="_blank" class="btn btn-primary">View Full Job Description</a>
   </div>
 
   <!-- Product Engineer -->
@@ -233,7 +430,7 @@ description: Join the Elyx 360 team and build the future of AI-powered healthcar
         <li><strong>AI Native:</strong> Experience using AI agents (beyond simple autocomplete) to write code, with the ability to articulate their current limitations.</li>
       </ul>
     </div>
-    <a href="mailto:{{ site.email }}?subject=Application: Product Engineer" class="btn btn-primary">Apply for this Position</a>
+    <a href="https://www.elyx.life/careers-elyx360-product-engineer" target="_blank" class="btn btn-primary">View Full Job Description</a>
   </div>
 
   <!-- AI Systems Engineer -->
@@ -269,34 +466,6 @@ description: Join the Elyx 360 team and build the future of AI-powered healthcar
         You understand that AI in healthcare is a matter of hypothesis and validation. You are a researcher-builder who wants to create AI systems to actually extend human life, not just generate text.
       </p>
     </div>
-    <a href="mailto:{{ site.email }}?subject=Application: AI Systems Engineer" class="btn btn-primary">Apply for this Position</a>
-  </div>
-</section>
-
-<!-- How to Apply -->
-<section class="section section-dark" id="apply">
-  <div style="max-width: 800px; margin: 0 auto;">
-    <h2 style="font-size: 40px; margin-bottom: 24px; text-align: center;">How to Apply</h2>
-    <p style="font-size: 18px; color: #B8B8B8; text-align: center; margin-bottom: 48px;">
-      To apply, please email <a href="mailto:{{ site.email }}" style="color: #C9A961; text-decoration: underline;">{{ site.email }}</a> with brief answers to the following three questions:
-    </p>
-
-    <div style="background: #0A0A0A; border: 1px solid #C9A961; border-radius: 8px; padding: 32px;">
-      <ol style="list-style: decimal; margin-left: 24px; color: #B8B8B8; line-height: 2; font-size: 18px;">
-        <li style="margin-bottom: 16px;">
-          <strong style="color: #FFFFFF;">What is the highest and lowest value work you typically do?</strong>
-        </li>
-        <li style="margin-bottom: 16px;">
-          <strong style="color: #FFFFFF;">What needs to happen—in terms of software tooling, AI, or processes—so that you (or any other human) can stop doing both?</strong>
-        </li>
-        <li>
-          <strong style="color: #FFFFFF;">What is something you built or solved that you think was exceptional? And why?</strong>
-        </li>
-      </ol>
-    </div>
-
-    <div style="text-align: center; margin-top: 48px;">
-      <a href="mailto:{{ site.email }}" class="btn btn-primary btn-lg">Send Your Application</a>
-    </div>
+    <a href="https://www.elyx.life/careers-elyx360-ai-systems-engineer" target="_blank" class="btn btn-primary">View Full Job Description</a>
   </div>
 </section>
