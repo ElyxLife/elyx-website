@@ -131,14 +131,21 @@ description: Join the Elyx 360 team and build the future of AI-powered healthcar
   animation: scrollRight 35s linear infinite;
 }
 
-@keyframes scrollLeft {
+`@keyframes` scrollLeft {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
-@keyframes scrollRight {
+`@keyframes` scrollRight {
   0% { transform: translateX(-50%); }
   100% { transform: translateX(0); }
+}
+
+`@media` (prefers-reduced-motion: reduce) {
+  .carousel-left .carousel-inner,
+  .carousel-right .carousel-inner {
+    animation: none;
+  }
 }
 
 .carousel-pill {
