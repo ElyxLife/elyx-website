@@ -55,14 +55,14 @@ To build a good wearables system, we need to build the underlying system design 
 
 <p><strong>At a high level, the formula is:</strong></p>
 
-<ol class="post-pipeline" markdown="0">
+<ul class="post-pipeline" markdown="0">
   <li>Ingest data from providers and apps.</li>
   <li>Preserve raw payloads.</li>
   <li>Normalize into internal models.</li>
   <li>Store curated data in BigQuery.</li>
   <li>Expose stable structures for dashboards, internal tools, and downstream services.</li>
   <li>Build monitoring around the data itself, not just the infrastructure.</li>
-</ol>
+</ul>
 
 None of this is exotic. The interesting part is deciding where meaning should live.
 
