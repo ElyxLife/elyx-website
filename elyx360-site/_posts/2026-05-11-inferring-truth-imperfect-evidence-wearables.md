@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Inferring truth from imperfect evidence"
+title: "Inferring Truth From Imperfect Evidence"
 date: 2026-05-11
 author: "Engineering Team"
 category: "Platform"
@@ -13,7 +13,7 @@ excerpt: "Most people think wearable products are an integration problem. Connec
 
 Most people think wearable products are an integration problem. Connect Garmin, Oura, Apple Health, WHOOP, a CGM, and a smart scale, and you have a health platform.
 
-Spend enough time building these systems and you realize the integrations are the easy part. At least for the most common devices, tools like [tryterra.co](https://tryterra.co/) and [junction.com](https://www.junction.com/) make it easy. The hard part is interpretation.
+Spend enough time building these systems and you realize the integrations are the easy part. At least for the most common devices, tools like [https://tryterra.co/](https://tryterra.co/) and [https://www.junction.com/](https://www.junction.com/) make it easy. The hard part is interpretation.
 
 Each source has its own schema, its own granularity, its own time model, and its own hidden assumptions.
 
