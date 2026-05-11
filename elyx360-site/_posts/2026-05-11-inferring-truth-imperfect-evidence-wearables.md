@@ -70,13 +70,13 @@ None of this is exotic.
   The interesting part is deciding where meaning should live.
 </div>
 
-<ol class="post-questions" markdown="0">
+<ul class="post-list-cards" markdown="0">
   <li>How much raw structure do you preserve?</li>
   <li>How much normalization happens at ingestion time versus query time?</li>
   <li>How do you support point measurements, interval events, and dense time series without turning the platform into a pile of special cases?</li>
   <li>How do you preserve source context without making every downstream query unbearable?</li>
   <li>How do you design a warehouse model that supports product features, operational checks, analytics, and AI on top of the same foundation?</li>
-</ol>
+</ul>
 
 For the interpretation to work correctly, wearables data has to be enriched with 3 non-negotiables - **Timezones**, **Canonicalization**, **Provenance**.
 
