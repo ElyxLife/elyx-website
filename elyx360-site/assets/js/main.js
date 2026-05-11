@@ -64,6 +64,11 @@ const observer = new IntersectionObserver((entries) => {
 
 // Observe all cards
 document.addEventListener('DOMContentLoaded', () => {
+  // Blog index uses `.card` for post previews; don't hide them behind opacity:0 or they can
+  // look "missing" until scroll/intersection (and feel broken if the observer never fires).
+  const path = window.location.pathname.replace(/\/+$/, '') || '/';
+  if (path.endsWith('/blog')) return;
+
   const cards = document.querySelectorAll('.card, .job-card');
 
   cards.forEach(card => {
