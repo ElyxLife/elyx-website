@@ -13,7 +13,7 @@ excerpt: "Most people think wearable products are an integration problem. Connec
 
 Most people think wearable products are an integration problem. Connect Garmin, Oura, Apple Health, WHOOP, a CGM, and a smart scale, and you have a health platform.
 
-Spend enough time building these systems and you realize the integrations are the easy part. At least for the most common devices, tools like [https://tryterra.co/](https://tryterra.co/) and [https://www.junction.com/](https://www.junction.com/) make it easy.
+Spend enough time building these systems and you realize the integrations are the easy part. At least for the most common devices, tools like [terra](https://tryterra.co/) and [junction](https://www.junction.com/) make it easy.
 
 <div class="post-pullquote post-pullquote--compact">
   The hard part is interpretation.
