@@ -94,4 +94,4 @@ You have to build abstractions that are clean enough to scale and honest enough 
 
 At Elyx, we think the next generation of health software will not be defined by who collects the most data, but by who can make that data coherent enough for software, humans, and AI to use well.
 
-We are looking for engineers who want to build that kind of foundation. If that sounds like you, get in touch.
+**We're hiring engineers** who want to build that kind of foundation. [Join us →](/join-us)
