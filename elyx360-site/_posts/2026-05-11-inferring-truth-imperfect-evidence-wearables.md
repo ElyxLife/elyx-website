@@ -64,7 +64,11 @@ To build a good wearables system, we need to build the underlying system design 
   <li>Build monitoring around the data itself, not just the infrastructure.</li>
 </ul>
 
-None of this is exotic. The interesting part is deciding where meaning should live.
+None of this is exotic.
+
+<div class="post-pullquote post-pullquote--compact">
+  The interesting part is deciding where meaning should live.
+</div>
 
 <ol class="post-questions" markdown="0">
   <li>How much raw structure do you preserve?</li>
