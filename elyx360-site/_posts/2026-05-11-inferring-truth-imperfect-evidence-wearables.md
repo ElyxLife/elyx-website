@@ -3,7 +3,6 @@ layout: post
 title: "Inferring Truth From Imperfect Evidence"
 date: 2026-05-11
 author: "Engineering Team"
-category: "Platform"
 excerpt: "Most people think wearable products are an integration problem. Connect Garmin, Oura, Apple Health, WHOOP, a CGM, and a smart scale, and you have a health platform."
 ---
 
