@@ -10,6 +10,8 @@ url: "https://360.elyx.life"
 # Build settings
 markdown: kramdown
 permalink: pretty
+# Include posts dated in the future (e.g. scheduled publish dates / CI clock skew)
+future: true
 exclude:
   - Gemfile
   - Gemfile.lock
