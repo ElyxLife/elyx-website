@@ -32,7 +32,7 @@ Each source has its own schema, its own granularity, its own time model, and its
 
 A normal analytics pipeline can assume the source systems agree on what the data means. Wearables cannot. Even when two systems use the same label, they rarely mean the same thing.
 
-AI compresses some of the execution and normalization work. But they are not good at deciding:
+AI compresses some of the execution and normalization work. But it is not good at deciding:
 
 <ul class="post-list-cards" markdown="0">
   <li>whether a sleep session that crosses midnight belongs to one day or another,</li>
@@ -149,4 +149,4 @@ You have to build abstractions that are clean enough to scale and honest enough 
 
 At Elyx, we think the next generation of health software will not be defined by who collects the most data, but by who can make that data coherent enough for software, humans, and AI to use well.
 
-**We're hiring engineers** who want to build that kind of foundation. [Join us →](/join-us)
+**We're hiring engineers** who want to build that kind of foundation. [Join us →]({{ '/join-us' | relative_url }})
