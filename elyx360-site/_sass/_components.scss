@@ -139,6 +139,18 @@
   }
 }
 
+// Blog index — short hero; avoid vertically centering a tiny headline in a tall viewport
+.hero.hero--blog {
+  min-height: 0;
+  align-items: flex-start;
+  padding-top: 120px;
+  padding-bottom: $spacing-md;
+
+  .hero-subtitle {
+    margin-bottom: $spacing-md;
+  }
+}
+
 // Button component
 .btn {
   display: inline-block;
