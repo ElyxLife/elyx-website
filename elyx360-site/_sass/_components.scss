@@ -175,14 +175,203 @@
   }
 }
 
-// Post content
-.post-content p {
-  margin-bottom: 1.5em;
+
+
+// Blog post body (wrapped by _layouts/post.html)
+.post-content {
+  font-size: $font-size-lg;
+  color: $color-text-secondary;
+
+  > *:first-child {
+    margin-top: 0;
+  }
+
+  h2 {
+    margin: 2.75rem 0 1.25rem;
+    padding-bottom: 0.65rem;
+    border-bottom: 1px solid rgba(201, 169, 97, 0.22);
+    font-size: $font-size-2xl;
+    font-weight: 600;
+    color: $color-text-primary;
+    letter-spacing: -0.02em;
+    line-height: $line-height-tight;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+
+  p {
+    margin: 0 0 1.35rem;
+    line-height: 1.75;
+  }
+
+  hr.post-divider,
+  hr {
+    border: 0;
+    height: 1px;
+    margin: 2.5rem 0;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(201, 169, 97, 0.35) 20%,
+      rgba(201, 169, 97, 0.35) 80%,
+      transparent
+    );
+  }
+
+  figure {
+    margin: 0 0 2.5rem;
+
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: $radius-lg;
+      display: block;
+    }
+  }
+
+  a {
+    color: $color-primary-light;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  strong {
+    color: #eaeaea;
+    font-weight: 600;
+  }
+
+  // Lists (default body lists)
+  > ul:not([class]),
+  > ol:not([class]) {
+    margin: 0 0 1.5rem;
+    padding-left: 1.35rem;
+
+    li {
+      margin-bottom: 0.55rem;
+      line-height: 1.65;
+    }
+  }
+
+  > ul:not([class]) li::marker {
+    color: $color-primary;
+  }
 }
 
-.post-content a {
+// Pull quote / emphasis block
+.post-pullquote {
+  margin: 1.75rem 0;
+  padding: 1rem 1.25rem;
+  border-left: 3px solid $color-primary;
+  color: #ececec;
+  font-size: 1.08em;
+  line-height: 1.65;
+  background: rgba(201, 169, 97, 0.05);
+  border-radius: 0 8px 8px 0;
+
+  p {
+    margin: 0 0 1rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.post-pullquote--compact {
+  font-size: 1.05em;
+}
+
+// Formula / pipeline rows (illustrative; not a rigid numbered sequence)
+.post-pipeline {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.post-pipeline > li {
+  display: grid;
+  grid-template-columns: 4px 1fr;
+  gap: 1rem;
+  align-items: start;
+  margin: 0;
+  padding: 1.1rem 1.25rem;
+  background: linear-gradient(
+    135deg,
+    rgba(26, 26, 26, 0.95) 0%,
+    rgba(20, 20, 20, 0.98) 100%
+  );
+  border: 1px solid rgba(201, 169, 97, 0.28);
+  border-radius: 10px;
+  color: $color-text-primary;
+  font-family: $font-mono;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  letter-spacing: -0.01em;
+}
+
+.post-pipeline > li::before {
+  content: '';
+  width: 4px;
+  align-self: stretch;
+  min-height: 1.4rem;
+  margin-top: 0.12rem;
+  background: $color-primary;
+  border-radius: 2px;
+}
+
+.post-list-cards {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.post-list-cards > li {
+  margin: 0;
+  padding: 0.65rem 1rem;
+  background: rgba(255, 255, 255, 0.025);
+  border-radius: 8px;
+  border-left: 2px solid rgba(201, 169, 97, 0.35);
+  line-height: 1.6;
+}
+
+.post-capabilities {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.post-capabilities > li {
+  margin: 0;
+  padding: 0.85rem 1rem 0.85rem 2.5rem;
+  position: relative;
+  background: rgba(201, 169, 97, 0.06);
+  border-radius: 8px;
+  border: 1px solid rgba(201, 169, 97, 0.15);
+  line-height: 1.55;
+}
+
+.post-capabilities > li::before {
+  content: '→';
+  position: absolute;
+  left: 1rem;
+  top: 0.9rem;
   color: $color-primary;
-  text-decoration: underline;
+  font-weight: 700;
 }
 
 // Section container

@@ -7,68 +7,76 @@ category: "Platform"
 excerpt: "Most people think wearable products are an integration problem. Connect Garmin, Oura, Apple Health, WHOOP, a CGM, and a smart scale, and you have a health platform."
 ---
 
-<figure style="margin: 0 0 48px 0;">
-  <img src="{{ '/assets/images/wearables-inferring-truth-hero.png' | relative_url }}" alt="Data from wearables flowing through ingestion and interpretation layers into curated storage and product surfaces." style="width: 100%; height: auto; border-radius: 8px; display: block;" />
+<figure>
+  <img src="{{ '/assets/images/wearables-inferring-truth-hero.png' | relative_url }}" alt="Data from wearables flowing through ingestion and interpretation layers into curated storage and product surfaces." />
 </figure>
 
 Most people think wearable products are an integration problem. Connect Garmin, Oura, Apple Health, WHOOP, a CGM, and a smart scale, and you have a health platform.
 
 Spend enough time building these systems and you realize the integrations are the easy part. At least for the most common devices, tools like [https://tryterra.co/](https://tryterra.co/) and [https://www.junction.com/](https://www.junction.com/) make it easy.
 
-<div style="margin: 1.5rem 0; padding: 0.75rem 0 0.75rem 1.25rem; border-left: 3px solid #C9A961; color: #E8E8E8; font-size: 1.05em; line-height: 1.65;">
+<div class="post-pullquote post-pullquote--compact">
   The hard part is interpretation.
 </div>
 
 Each source has its own schema, its own granularity, its own time model, and its own hidden assumptions.
 
-- One provider emits dense time series. Another emits daily summaries.
-- One preserves provenance. Another collapses it.
-- One records sleep as intervals, another as aggregates, another as a score.
-- A workout may arrive directly from a watch, through Apple Health, and through an aggregator.
-- A weight may come from a connected device or a manual entry.
-- Glucose may be recorded in mmol/L or mg/dL.
-- Timestamps may be local, UTC, shifted, delayed, or backfilled later.
+<ul class="post-list-cards" markdown="0">
+  <li>One provider emits dense time series. Another emits daily summaries.</li>
+  <li>One preserves provenance. Another collapses it.</li>
+  <li>One records sleep as intervals, another as aggregates, another as a score.</li>
+  <li>A workout may arrive directly from a watch, through Apple Health, and through an aggregator.</li>
+  <li>A weight may come from a connected device or a manual entry.</li>
+  <li>Glucose may be recorded in mmol/L or mg/dL.</li>
+  <li>Timestamps may be local, UTC, shifted, delayed, or backfilled later.</li>
+</ul>
 
 A normal analytics pipeline can assume the source systems agree on what the data means. Wearables cannot. Even when two systems use the same label, they rarely mean the same thing.
 
 AI compresses some of the execution and normalization work. But they are not good at deciding:
 
-- whether a sleep session that crosses midnight belongs to one day or another,
-- whether two workouts from different sources are duplicates or distinct events,
-- whether a glucose reading is aligned to the right local context, or
-- whether one provider's "recovery" can be meaningfully compared to another's.
+<ul class="post-list-cards" markdown="0">
+  <li>whether a sleep session that crosses midnight belongs to one day or another,</li>
+  <li>whether two workouts from different sources are duplicates or distinct events,</li>
+  <li>whether a glucose reading is aligned to the right local context, or</li>
+  <li>whether one provider's "recovery" can be meaningfully compared to another's.</li>
+</ul>
 
----
+<hr class="post-divider" />
 
 ## The Interpretation layer
 
 To build a good wearables system, we need to build the underlying system design and interpretation layer that decides what is canonical, what is duplicated, what is comparable, and what can be trusted and how much.
 
-<div style="margin: 1.75rem 0; padding: 0.75rem 0 0.75rem 1.25rem; border-left: 3px solid #C9A961; color: #E8E8E8; line-height: 1.7;">
-  It has to infer truth from imperfect evidence.<br /><br />
-  That shifts the engineering problem from &quot;how do we move data?&quot; to &quot;how do we design a platform that can reason correctly about messy physiological signals?&quot;
+<div class="post-pullquote">
+  <p>It has to infer truth from imperfect evidence.</p>
+  <p>That shifts the engineering problem from &quot;how do we move data?&quot; to &quot;how do we design a platform that can reason correctly about messy physiological signals?&quot;</p>
 </div>
 
-**At a high level, the formula is:**
+<p><strong>At a high level, the formula is:</strong></p>
 
-- Ingest data from providers and apps.
-- Preserve raw payloads.
-- Normalize into internal models.
-- Store curated data in BigQuery.
-- Expose stable structures for dashboards, internal tools, and downstream services.
-- Build monitoring around the data itself, not just the infrastructure.
+<ol class="post-pipeline" markdown="0">
+  <li>Ingest data from providers and apps.</li>
+  <li>Preserve raw payloads.</li>
+  <li>Normalize into internal models.</li>
+  <li>Store curated data in BigQuery.</li>
+  <li>Expose stable structures for dashboards, internal tools, and downstream services.</li>
+  <li>Build monitoring around the data itself, not just the infrastructure.</li>
+</ol>
 
 None of this is exotic. The interesting part is deciding where meaning should live.
 
-1. How much raw structure do you preserve?
-2. How much normalization happens at ingestion time versus query time?
-3. How do you support point measurements, interval events, and dense time series without turning the platform into a pile of special cases?
-4. How do you preserve source context without making every downstream query unbearable?
-5. How do you design a warehouse model that supports product features, operational checks, analytics, and AI on top of the same foundation?
+<ol class="post-questions" markdown="0">
+  <li>How much raw structure do you preserve?</li>
+  <li>How much normalization happens at ingestion time versus query time?</li>
+  <li>How do you support point measurements, interval events, and dense time series without turning the platform into a pile of special cases?</li>
+  <li>How do you preserve source context without making every downstream query unbearable?</li>
+  <li>How do you design a warehouse model that supports product features, operational checks, analytics, and AI on top of the same foundation?</li>
+</ol>
 
 For the interpretation to work correctly, wearables data has to be enriched with 3 non-negotiables - **Timezones**, **Canonicalization**, **Provenance**.
 
----
+<hr class="post-divider" />
 
 ## Timezones
 
@@ -76,14 +84,16 @@ A sleep session crossing midnight, a late-arriving workout, a glucose spike afte
 
 You need a real model for UTC, local time, offsets, event intervals, late arrival, and user-day semantics. A platform that gets this wrong will still run. It will just quietly lose trust.
 
----
+<hr class="post-divider" />
 
 ## Canonicalization
 
-- **Garmin’s stress score** estimates stress from heart rate variability and reports it on a 0–100 scale.
-- **WHOOP’s recovery score** combines HRV, resting heart rate, sleep, respiratory rate, and other body signals into a daily readiness-style score.
-- **Oura’s readiness score** also summarizes recovery, but using its own contributors such as sleep, activity, HRV, body temperature, and personal baselines.
-- **Apple Health HRV**, meanwhile, is specifically SDNN: the standard deviation of normal-to-normal heartbeat intervals.
+<ul class="post-list-cards" markdown="0">
+  <li><strong>Garmin’s stress score</strong> estimates stress from heart rate variability and reports it on a 0–100 scale.</li>
+  <li><strong>WHOOP’s recovery score</strong> combines HRV, resting heart rate, sleep, respiratory rate, and other body signals into a daily readiness-style score.</li>
+  <li><strong>Oura’s readiness score</strong> also summarizes recovery, but using its own contributors such as sleep, activity, HRV, body temperature, and personal baselines.</li>
+  <li><strong>Apple Health HRV</strong>, meanwhile, is specifically SDNN: the standard deviation of normal-to-normal heartbeat intervals.</li>
+</ul>
 
 These signals may appear similar in a product experience, but they do not carry the same meaning.
 
@@ -91,19 +101,21 @@ Canonicalization prevents us from flattening them into generic metrics like “r
 
 Canonicalization is the internal semantic contract for wearable data. It determines which provider-specific metrics stay provider-specific, which raw signals can be converted into common units, which metrics can be compared across devices, and which ones should only be interpreted within their original wearable ecosystem.
 
----
+<hr class="post-divider" />
 
 ## Provenance
 
 Where a record came from is part of what it means:
 
-- A watch-recorded workout is not the same as one imported through a sync layer.
-- A scale reading is not the same as a manual entry.
-- A step count aggregated by one platform may hide a very different source chain than another.
+<ul class="post-list-cards" markdown="0">
+  <li>A watch-recorded workout is not the same as one imported through a sync layer.</li>
+  <li>A scale reading is not the same as a manual entry.</li>
+  <li>A step count aggregated by one platform may hide a very different source chain than another.</li>
+</ul>
 
 So we preserve provenance aggressively: provider, app, device, ingestion path, source type, workout context, and anything else needed to reason about the record later. That is good for debugging. More importantly, it is good for truth.
 
----
+<hr class="post-divider" />
 
 ## What a strong interpretation layer unlocks
 
@@ -115,12 +127,14 @@ When the interpretation layer is weak, AI produces fluent nonsense.
 
 When the layer is strong, the same model becomes genuinely useful:
 
-- It can generate longitudinal narratives instead of one-off summaries.
-- It can relate sleep, activity, recovery, nutrition, and glucose in the right temporal context.
-- It can surface anomalies worth a human's attention.
-- It can prioritize what matters instead of describing what happened.
+<ul class="post-capabilities" markdown="0">
+  <li>It can generate longitudinal narratives instead of one-off summaries.</li>
+  <li>It can relate sleep, activity, recovery, nutrition, and glucose in the right temporal context.</li>
+  <li>It can surface anomalies worth a human's attention.</li>
+  <li>It can prioritize what matters instead of describing what happened.</li>
+</ul>
 
----
+<hr class="post-divider" />
 
 ## Who we are looking for
 
