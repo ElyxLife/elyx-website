@@ -78,25 +78,18 @@ Pre-computed briefs also help when the model itself fails. When Claude lost its 
 
 Some of our generated tests are red. We don't delete them.
 
+```javascript
 test.fixme(
-
   'reminders for time-zone-changed members fire in UTC, not local time',
-
-  async ({ page }) \=\> {
-
+  async ({ page }) => {
     // The Planning agent caught this exploring the appointments flow.
-
-    // When a member updates their timezone within \~1 hour of an existing
-
+    // When a member updates their timezone within ~1 hour of an existing
     // appointment, the reminder job picks up the old TZ.
-
     // Filed as BUG-2147. Reproduces reliably.
-
     // Keeping the test so the regression is visible the day we ship a fix.
-
   }
-
 );
+```
 
 A `fixme` test is documentation of a known bug. Ugly in the test report, honest about what it represents. Several of our `fixme` tests turned out to be real application bugs nobody had caught through manual testing — the Planning phase explores the UI by trying combinations a human tester wouldn't have prioritized (a member changing timezone within an hour of an appointment, or a clinician with two active roles attempting an action permitted by one and forbidden by the other).
 
