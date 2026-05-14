@@ -6,8 +6,6 @@ author: "Kshitiz Shankar"
 excerpt: "In early April, our test-generation pipeline produced thirty Playwright tests for API endpoints that don't exist. Every test compiled. Every test would have hit the application with a 404 the first time CI touched it."
 ---
 
-# We Built an AI Pipeline That Writes Our UI Tests
-
 In early April, our test-generation pipeline produced thirty Playwright tests for API endpoints that don't exist. Every test compiled. Every test would have hit the application with a 404 the first time CI touched it. We caught it two weeks in.
 
 This post is about how that happened, the five-agent pipeline that produced it, and why we now treat every intermediate output as something to verify rather than something to consume. We're a healthcare platform — timezone-aware clinical scheduling, role-based permissions for clinicians and members, wearable integrations, multi-step intake forms. The UI surface is wide enough that handwritten Playwright coverage was always going to lag the product. So we built something to write the tests for us.
