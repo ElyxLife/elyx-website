@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "We Built an AI Pipeline That Writes Our UI Tests"
-date: 2026-04-15
+date: 2026-05-14
 author: "Kshitiz Shankar"
 excerpt: "In early April, our test-generation pipeline produced thirty Playwright tests for API endpoints that don't exist. Every test compiled. Every test would have hit the application with a 404 the first time CI touched it."
 ---
