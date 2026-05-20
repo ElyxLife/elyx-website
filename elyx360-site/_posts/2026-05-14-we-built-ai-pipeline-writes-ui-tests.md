@@ -2,11 +2,27 @@
 layout: post
 title: "We Built an AI Pipeline That Writes Our UI Tests"
 date: 2026-05-14
-author: "Kshitiz Shankar"
+author: '<a href="https://www.linkedin.com/in/kshitizshankar/" target="_blank" rel="noopener noreferrer" style="color: #C9A961;">Kshitiz Shankar</a>'
 excerpt: "In early April, our test-generation pipeline produced thirty Playwright tests for API endpoints that don't exist. Every test compiled. Every test would have hit the application with a 404 the first time CI touched it."
 ---
 
-In early April, our test-generation pipeline produced thirty Playwright tests for API endpoints that don't exist. Every test compiled. Every test would have hit the application with a 404 the first time CI touched it. We caught it two weeks in.
+<style>
+  .code-card { margin: 1.75rem 0; background: #141414; border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 8px; overflow: hidden; }
+  .code-card__header { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1.25rem; background: rgba(255, 255, 255, 0.025); border-bottom: 1px solid rgba(201, 169, 97, 0.12); font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; }
+  .code-card__filename { color: #808080; }
+  .code-card__tag { color: #E07060; }
+  .code-card .highlight, .code-card figure.highlight { margin: 0; background: transparent; }
+  .code-card pre { margin: 0; padding: 1.25rem 1.5rem; background: transparent; color: #B8B8B8; font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace; font-size: 13.5px; line-height: 1.65; overflow-x: auto; }
+  .code-card pre code { background: transparent; padding: 0; color: inherit; font-size: inherit; }
+  .code-card .c, .code-card .c1, .code-card .cm { color: #808080; font-style: italic; }
+  .post-content h2:first-of-type { margin-top: 2.75rem; }
+</style>
+
+<figure>
+  <img src="{{ '/assets/images/blog-banner.svg' | relative_url }}" alt="Banner showing five connected nodes along an organic flow line, surrounded by a particle field and corner registration marks — an abstract representation of the test generation pipeline." />
+</figure>
+
+<p style="font-size: 20px; color: #FFFFFF; line-height: 1.5; margin: 0 0 36px;">In early April, our test-generation pipeline produced thirty Playwright tests for API endpoints that don't exist. Every test compiled. Every test would have hit the application with a 404 the first time CI touched it. We caught it two weeks in.</p>
 
 This post is about how that happened, the five-agent pipeline that produced it, and why we now treat every intermediate output as something to verify rather than something to consume. We're a healthcare platform — timezone-aware clinical scheduling, role-based permissions for clinicians and members, wearable integrations, multi-step intake forms. The UI surface is wide enough that handwritten Playwright coverage was always going to lag the product. So we built something to write the tests for us.
 
@@ -23,6 +39,11 @@ UI testing needs three kinds of grounding in the same context: what the backend 
 ## Five specialized agents
 
 We split the work into five stages — an orchestrator-workers decomposition in the sense Anthropic describes in [Building Effective Agents](https://www.anthropic.com/research/building-effective-agents). Focused jobs, focused context per agent, narrow handoffs.
+
+<figure>
+  <img src="{{ '/assets/images/test-pipeline-five-agents.svg' | relative_url }}" alt="Diagram of the five-stage pipeline: Enrichment, Planning, Generation, Review (with parallel convention and coverage reviewers), and Healing, with handoffs labeled between stages and a self-loop on Healing." />
+  <figcaption style="font-size: 13px; color: #808080; text-align: center; margin-top: 16px; font-style: italic;">Each stage runs on focused context. Inputs flow in from above; handoffs labeled on the connectors.</figcaption>
+</figure>
 
 **Enrichment.** Reads backend routes, validation schemas, and frontend components. Produces a document mapping the feature: which endpoints exist (with file citations), what fields are required/optional/nullable, what the component hierarchy looks like.
 
@@ -44,9 +65,9 @@ It read database table schemas — `panel_types`, `device_models`, `intervention
 
 The root cause was two bugs at once.
 
-Ours: the Enricher's prompt didn't require it to verify routes were actually mounted. Schema existence was enough for it to document a route. That one was on us.
+**Ours:** the Enricher's prompt didn't require it to verify routes were actually mounted. Schema existence was enough for it to document a route. That one was on us.
 
-The model's, separately: we were running on Claude Opus 4.6 through Claude Code, and in the weeks before our incident Anthropic had shipped three concurrent changes to the Claude Code / Agent SDK / Cowork surfaces. The relevant one for us turned out to be a [caching change deployed on March 26, 2026](https://www.anthropic.com/engineering/april-23-postmortem) that was meant to clear the model's older thinking only from idle sessions. A bug caused it to clear thinking *every turn* for the rest of the session. The effect, in Anthropic's own words, was that "Claude seem\[ed\] forgetful and repetitive." Independent telemetry from [Stella Laurenzo at AMD](https://github.com/anthropics/claude-code/issues/42796), published on April 2, measured a 67% drop in median reasoning depth across 6,852 Claude Code sessions in this window.
+**The model's, separately:** we were running on Claude Opus 4.6 through Claude Code, and in the weeks before our incident Anthropic had shipped three concurrent changes to the Claude Code / Agent SDK / Cowork surfaces. The relevant one for us turned out to be a [caching change deployed on March 26, 2026](https://www.anthropic.com/engineering/april-23-postmortem) that was meant to clear the model's older thinking only from idle sessions. A bug caused it to clear thinking *every turn* for the rest of the session. The effect, in Anthropic's own words, was that "Claude seem\[ed\] forgetful and repetitive." Independent telemetry from [Stella Laurenzo at AMD](https://github.com/anthropics/claude-code/issues/42796), published on April 2, measured a 67% drop in median reasoning depth across 6,852 Claude Code sessions in this window.
 
 The fit was exact. An Enricher in the middle of a multi-turn route investigation needs to carry observations forward — "I opened `routes.py` and saw these route handlers; now let me check the corresponding controllers" — to ground later claims in actual file evidence. When the model's own prior thinking gets wiped between turns, it falls back on whatever the prompt and the immediate context can produce. For a route-discovery task, that fallback is *infer from the schemas* — which is exactly the speculative behavior we observed. The bug was fixed on April 10\.
 
@@ -62,6 +83,11 @@ We fixed our Enricher prompt the same day we identified the cause: *"if you cann
 
 Before the change, each agent searched the codebase independently. Grep for routes here, file reads there. The Enricher might find six of the eight relevant files. The coverage reviewer might find a different six. Neither would see cross-layer connections — this frontend component calls this API route which queries this database view which joins three tables, including the one that tracks longitudinal member sessions.
 
+<figure>
+  <img src="{{ '/assets/images/test-pipeline-knowledge-graph.svg' | relative_url }}" alt="Before-and-after comparison. Before: each of the five agents reaches independently into a scattered set of files in the codebase, producing partial overlapping mental models. After: a connected graph of file nodes clustered into communities feeds a single structured brief, and each agent reads from the same brief." />
+  <figcaption style="font-size: 13px; color: #808080; text-align: center; margin-top: 16px; font-style: italic;">The agents didn't get smarter. They had less room to speculate.</figcaption>
+</figure>
+
 After the change, we pre-compute a knowledge graph of the entire codebase. Files as nodes, imports and calls and references as edges, clustered into communities. Before any agent runs, a script queries the graph for the feature area and produces a structured brief: key files, data flows, most-connected components, untested paths.
 
 Every agent downstream gets the same map. They aren't inferring codebase structure from partial grep results; they're reading a pre-computed answer to "what's involved in this feature?"
@@ -76,7 +102,12 @@ Pre-computed briefs also help when the model itself fails. When Claude lost its 
 
 Some of our generated tests are red. We don't delete them.
 
-```javascript
+<div class="code-card" markdown="0">
+  <div class="code-card__header">
+    <span class="code-card__filename">tests/scheduling/timezone.fixme.spec.ts</span>
+    <span class="code-card__tag">fixme · kept red</span>
+  </div>
+{% highlight javascript %}
 test.fixme(
   'reminders for time-zone-changed members fire in UTC, not local time',
   async ({ page }) => {
@@ -87,7 +118,8 @@ test.fixme(
     // Keeping the test so the regression is visible the day we ship a fix.
   }
 );
-```
+{% endhighlight %}
+</div>
 
 A `fixme` test is documentation of a known bug. Ugly in the test report, honest about what it represents. Several of our `fixme` tests turned out to be real application bugs nobody had caught through manual testing — the Planning phase explores the UI by trying combinations a human tester wouldn't have prioritized (a member changing timezone within an hour of an appointment, or a clinician with two active roles attempting an action permitted by one and forbidden by the other).
 

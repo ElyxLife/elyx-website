@@ -1,0 +1,98 @@
+    <svg viewBox="0 0 1100 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram showing the five-stage test generation pipeline: Enrichment, Planning, Generation, Review (split into convention and coverage reviewers), and Healing.">
+  <defs>
+    <marker id="p1-arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#B5B0A2"/>
+    </marker>
+    <marker id="p1-arrow-accent" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#C9A961"/>
+    </marker>
+  </defs>
+
+  <!-- Title block -->
+  <text x="60" y="44" font-family="'Work Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif" font-size="19" font-weight="600" fill="#FFFFFF">A five-agent pipeline</text>
+  <text x="60" y="66" font-family="'Work Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif" font-size="13" fill="#808080">Each stage runs on focused context. The handoffs are where the bugs live.</text>
+
+  <!-- Inputs row -->
+  <g font-family="'Work Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif" font-size="11" fill="#808080" font-style="italic">
+    <text x="190" y="125" text-anchor="middle">backend routes,</text>
+    <text x="190" y="140" text-anchor="middle">schemas, components</text>
+    <text x="370" y="125" text-anchor="middle">live application</text>
+    <text x="370" y="140" text-anchor="middle">(browser exploration)</text>
+    <text x="550" y="125" text-anchor="middle">headless browser</text>
+    <text x="550" y="140" text-anchor="middle">+ plan + doc</text>
+    <text x="910" y="125" text-anchor="middle">CI failures +</text>
+    <text x="910" y="140" text-anchor="middle">DOM snapshot</text>
+  </g>
+  <g stroke="#6B6862" stroke-width="1" stroke-dasharray="2,3">
+    <line x1="190" y1="150" x2="190" y2="200"/>
+    <line x1="370" y1="150" x2="370" y2="200"/>
+    <line x1="550" y1="150" x2="550" y2="200"/>
+    <line x1="910" y1="150" x2="910" y2="200"/>
+  </g>
+
+  <!-- Agent boxes (5 stages) -->
+  <g font-family="'Work Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif">
+    <!-- 01 Enrichment -->
+    <rect x="120" y="205" width="140" height="100" rx="4" fill="rgba(255,255,255,0.04)" stroke="#B5B0A2" stroke-width="1.2"/>
+    <text x="134" y="225" font-family="'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace" font-size="11" fill="#C9A961" font-weight="600">01</text>
+    <text x="190" y="252" text-anchor="middle" font-size="14" font-weight="600" fill="#FFFFFF">Enrichment</text>
+    <text x="190" y="274" text-anchor="middle" font-size="11" fill="#808080">maps the feature:</text>
+    <text x="190" y="289" text-anchor="middle" font-size="11" fill="#808080">endpoints, fields, tree</text>
+
+    <!-- 02 Planning -->
+    <rect x="300" y="205" width="140" height="100" rx="4" fill="rgba(255,255,255,0.04)" stroke="#B5B0A2" stroke-width="1.2"/>
+    <text x="314" y="225" font-family="'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace" font-size="11" fill="#C9A961" font-weight="600">02</text>
+    <text x="370" y="252" text-anchor="middle" font-size="14" font-weight="600" fill="#FFFFFF">Planning</text>
+    <text x="370" y="274" text-anchor="middle" font-size="11" fill="#808080">scenarios, edge cases,</text>
+    <text x="370" y="289" text-anchor="middle" font-size="11" fill="#808080">selector strategies</text>
+
+    <!-- 03 Generation -->
+    <rect x="480" y="205" width="140" height="100" rx="4" fill="rgba(255,255,255,0.04)" stroke="#B5B0A2" stroke-width="1.2"/>
+    <text x="494" y="225" font-family="'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace" font-size="11" fill="#C9A961" font-weight="600">03</text>
+    <text x="550" y="252" text-anchor="middle" font-size="14" font-weight="600" fill="#FFFFFF">Generation</text>
+    <text x="550" y="274" text-anchor="middle" font-size="11" fill="#808080">writes Playwright code</text>
+    <text x="550" y="289" text-anchor="middle" font-size="11" fill="#808080">against a live app</text>
+
+    <!-- 04 Review (parallel reviewers) -->
+    <rect x="660" y="205" width="160" height="100" rx="4" fill="rgba(255,255,255,0.04)" stroke="#B5B0A2" stroke-width="1.2"/>
+    <text x="674" y="225" font-family="'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace" font-size="11" fill="#C9A961" font-weight="600">04</text>
+    <text x="740" y="243" text-anchor="middle" font-size="14" font-weight="600" fill="#FFFFFF">Review</text>
+    <rect x="670" y="255" width="140" height="20" rx="2" fill="rgba(255,255,255,0.06)" stroke="#6B6862" stroke-width="0.8"/>
+    <text x="740" y="269" text-anchor="middle" font-size="10.5" fill="#FFFFFF">convention reviewer</text>
+    <rect x="670" y="279" width="140" height="20" rx="2" fill="rgba(255,255,255,0.06)" stroke="#6B6862" stroke-width="0.8"/>
+    <text x="740" y="293" text-anchor="middle" font-size="10.5" fill="#FFFFFF">coverage reviewer</text>
+
+    <!-- 05 Healing -->
+    <rect x="860" y="205" width="140" height="100" rx="4" fill="rgba(255,255,255,0.04)" stroke="#B5B0A2" stroke-width="1.2"/>
+    <text x="874" y="225" font-family="'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace" font-size="11" fill="#C9A961" font-weight="600">05</text>
+    <text x="930" y="252" text-anchor="middle" font-size="14" font-weight="600" fill="#FFFFFF">Healing</text>
+    <text x="930" y="274" text-anchor="middle" font-size="11" fill="#808080">traces selector,</text>
+    <text x="930" y="289" text-anchor="middle" font-size="11" fill="#808080">proposes fix, retries</text>
+  </g>
+
+  <!-- Arrows between stages -->
+  <g stroke="#B5B0A2" stroke-width="1.2" fill="none">
+    <line x1="260" y1="255" x2="294" y2="255" marker-end="url(#p1-arrow)"/>
+    <line x1="440" y1="255" x2="474" y2="255" marker-end="url(#p1-arrow)"/>
+    <line x1="620" y1="255" x2="654" y2="255" marker-end="url(#p1-arrow)"/>
+    <line x1="820" y1="255" x2="854" y2="255" marker-end="url(#p1-arrow)"/>
+  </g>
+
+  <!-- Handoff labels above arrows -->
+  <g font-family="'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace" font-size="9.5" fill="#808080" text-anchor="middle">
+    <text x="277" y="247">doc</text>
+    <text x="457" y="247">plan</text>
+    <text x="637" y="247">code</text>
+    <text x="837" y="247">fail</text>
+  </g>
+
+  <!-- Healer self-loop indicating iteration -->
+  <path d="M 998,275 Q 1050,295 1020,330 Q 990,360 930,360 Q 870,360 860,310 Q 855,290 870,278"
+        fill="none" stroke="#C9A961" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#p1-arrow-accent)"/>
+  <text x="930" y="378" text-anchor="middle" font-family="'Work Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif" font-size="11" fill="#C9A961" font-style="italic">iterates until passing</text>
+
+  <!-- Footer note -->
+  <text x="60" y="430" font-family="'Work Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif" font-size="11" fill="#808080">
+    Specialization means each agent can be smaller and more constrained. It also means the system's failure modes live at the boundaries.
+  </text>
+</svg>
