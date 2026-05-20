@@ -1,0 +1,114 @@
+<svg viewBox="0 0 1240 460" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A banner showing five connected nodes along an organic flow line, surrounded by a particle field and corner registration marks — an abstract representation of the test generation pipeline.">
+  <defs>
+    <radialGradient id="bn-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f0d495" stop-opacity=".32"/>
+      <stop offset="60%" stop-color="#f0d495" stop-opacity=".05"/>
+      <stop offset="100%" stop-color="#f0d495" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="bn-rail" x1="0" x2="1">
+      <stop offset="0" stop-color="#ece1c8" stop-opacity="0"/>
+      <stop offset=".22" stop-color="#ece1c8" stop-opacity=".5"/>
+      <stop offset=".78" stop-color="#f0d495" stop-opacity=".7"/>
+      <stop offset="1" stop-color="#f0d495" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="bn-flow" x1="0" x2="1">
+      <stop offset="0" stop-color="#f0d495" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#f0d495" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#f0d495" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- explicit background so the SVG is self-contained -->
+  <rect width="1240" height="460" fill="#0F0E0B"/>
+
+  <!-- soft glow behind the diagram -->
+  <ellipse cx="620" cy="230" rx="460" ry="260" fill="url(#bn-glow)"/>
+
+  <!-- ambient particle field -->
+  <g fill="#ece1c8">
+    <circle cx="260" cy="90" r="1" opacity=".3"/>
+    <circle cx="340" cy="60" r="1.2" opacity=".45"/>
+    <circle cx="420" cy="110" r="1" opacity=".22"/>
+    <circle cx="520" cy="70" r="1.4" opacity=".38"/>
+    <circle cx="610" cy="45" r="1" opacity=".3"/>
+    <circle cx="710" cy="80" r="1.4" opacity=".42"/>
+    <circle cx="800" cy="55" r="1" opacity=".28"/>
+    <circle cx="900" cy="100" r="1.2" opacity=".35"/>
+    <circle cx="990" cy="70" r="1" opacity=".25"/>
+    <circle cx="260" cy="380" r="1.2" opacity=".35"/>
+    <circle cx="350" cy="410" r="1" opacity=".28"/>
+    <circle cx="440" cy="360" r="1" opacity=".35"/>
+    <circle cx="540" cy="400" r="1.2" opacity=".33"/>
+    <circle cx="640" cy="385" r="1" opacity=".25"/>
+    <circle cx="740" cy="415" r="1.4" opacity=".4"/>
+    <circle cx="840" cy="370" r="1" opacity=".3"/>
+    <circle cx="940" cy="400" r="1.2" opacity=".35"/>
+    <circle cx="180" cy="230" r="1" opacity=".25"/>
+    <circle cx="1060" cy="230" r="1.4" opacity=".35"/>
+    <circle cx="150" cy="170" r="1" opacity=".22"/>
+    <circle cx="1090" cy="300" r="1" opacity=".25"/>
+  </g>
+
+  <!-- subsidiary feeder lines (codebase grounding) -->
+  <g stroke="#ece1c8" stroke-opacity=".10" stroke-width="1" fill="none">
+    <path d="M 180 130 C 260 170 300 200 350 230"/>
+    <path d="M 180 330 C 260 290 300 260 350 230"/>
+    <path d="M 150 230 C 240 230 290 230 350 230"/>
+    <path d="M 1060 130 C 990 170 950 200 890 230"/>
+    <path d="M 1060 330 C 990 290 950 260 890 230"/>
+    <path d="M 1090 230 C 1000 230 950 230 890 230"/>
+  </g>
+
+  <!-- secondary cluster nodes -->
+  <g>
+    <circle cx="180" cy="130" r="3" fill="#ece1c8" opacity=".5"/>
+    <circle cx="180" cy="330" r="3" fill="#ece1c8" opacity=".5"/>
+    <circle cx="150" cy="230" r="2.5" fill="#ece1c8" opacity=".45"/>
+    <circle cx="1060" cy="130" r="3" fill="#ece1c8" opacity=".5"/>
+    <circle cx="1060" cy="330" r="3" fill="#ece1c8" opacity=".5"/>
+    <circle cx="1090" cy="230" r="2.5" fill="#ece1c8" opacity=".45"/>
+  </g>
+
+  <!-- main pipeline rail (curving, organic) -->
+  <path d="M 370 230 C 470 170 570 290 620 230 C 670 170 770 290 870 230" fill="none" stroke="url(#bn-rail)" stroke-width="1"/>
+
+  <!-- five primary nodes — the pipeline (uniform inner treatment, central composition keeps the eye but doesn't editorially privilege 03) -->
+  <g>
+    <!-- 01 Enrichment -->
+    <circle cx="370" cy="230" r="22" fill="none" stroke="rgba(236,225,200,.16)"/>
+    <circle cx="370" cy="230" r="7" fill="#0F0E0B" stroke="#ece1c8" stroke-width="1.2"/>
+    <text x="370" y="272" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" letter-spacing=".18em" fill="#ece1c8" opacity=".55">01</text>
+
+    <!-- 02 Planning -->
+    <circle cx="495" cy="230" r="20" fill="none" stroke="rgba(236,225,200,.14)"/>
+    <circle cx="495" cy="230" r="7" fill="#0F0E0B" stroke="#ece1c8" stroke-width="1.2"/>
+    <text x="495" y="270" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" letter-spacing=".18em" fill="#ece1c8" opacity=".55">02</text>
+
+    <!-- 03 Generation — composition focal point (dual aura kept for visual weight at center) but inner node and label uniform with other stages -->
+    <circle cx="620" cy="230" r="38" fill="none" stroke="rgba(240,212,149,.18)"/>
+    <circle cx="620" cy="230" r="26" fill="none" stroke="rgba(240,212,149,.28)"/>
+    <circle cx="620" cy="230" r="7" fill="#0F0E0B" stroke="#ece1c8" stroke-width="1.2"/>
+    <text x="620" y="278" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" letter-spacing=".18em" fill="#ece1c8" opacity=".55">03</text>
+
+    <!-- 04 Review -->
+    <circle cx="745" cy="230" r="20" fill="none" stroke="rgba(236,225,200,.14)"/>
+    <circle cx="745" cy="230" r="7" fill="#0F0E0B" stroke="#ece1c8" stroke-width="1.2"/>
+    <text x="745" y="270" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" letter-spacing=".18em" fill="#ece1c8" opacity=".55">04</text>
+
+    <!-- 05 Healing -->
+    <circle cx="870" cy="230" r="22" fill="none" stroke="rgba(236,225,200,.16)"/>
+    <circle cx="870" cy="230" r="7" fill="#0F0E0B" stroke="#ece1c8" stroke-width="1.2"/>
+    <text x="870" y="272" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" letter-spacing=".18em" fill="#ece1c8" opacity=".55">05</text>
+  </g>
+
+  <!-- accent flow line over the rail -->
+  <path d="M 370 230 C 470 170 570 290 620 230 C 670 170 770 290 870 230" fill="none" stroke="url(#bn-flow)" stroke-width="1.4" stroke-dasharray="1 6"/>
+
+  <!-- corner registration marks -->
+  <g stroke="rgba(236,225,200,.25)" stroke-width="1" fill="none">
+    <path d="M 30 30   L 30 50   M 30 30   L 50 30"/>
+    <path d="M 1210 30 L 1210 50 M 1210 30 L 1190 30"/>
+    <path d="M 30 430  L 30 410  M 30 430  L 50 430"/>
+    <path d="M 1210 430 L 1210 410 M 1210 430 L 1190 430"/>
+  </g>
+</svg>

@@ -1,0 +1,188 @@
+    <svg viewBox="0 0 1100 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Before/after comparison showing how a pre-computed codebase knowledge graph replaced independent searches by each agent.">
+  <defs>
+    <marker id="p3-arrow" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#B5B0A2"/>
+    </marker>
+    <marker id="p3-arrow-accent" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#C9A961"/>
+    </marker>
+    <marker id="p3-arrow-muted" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#6B6862"/>
+    </marker>
+  </defs>
+
+  <!-- Title block -->
+  <text x="60" y="44" font-family="'Work Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif" font-size="19" font-weight="600" fill="#FFFFFF">Pre-computing the map</text>
+  <text x="60" y="66" font-family="'Work Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif" font-size="13" fill="#808080">The agents didn't get smarter. They had less room to speculate.</text>
+
+  <!-- Dividing line between panels -->
+  <line x1="550" y1="100" x2="550" y2="540" stroke="#3D3B36" stroke-width="1" stroke-dasharray="3,4"/>
+
+  <!-- LEFT PANEL: BEFORE -->
+  <g font-family="'Work Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif">
+    <text x="80" y="115" font-size="12" font-weight="600" fill="#808080" letter-spacing="1.5">BEFORE</text>
+    <text x="80" y="135" font-size="13" fill="#FFFFFF">Each agent searches the codebase independently.</text>
+  </g>
+
+  <!-- Agent row (5 agents, BEFORE) -->
+  <g font-family="'Work Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif">
+    <rect x="65" y="165" width="80" height="34" rx="3" fill="rgba(255,255,255,0.04)" stroke="#B5B0A2" stroke-width="1"/>
+    <text x="105" y="186" text-anchor="middle" font-size="11" fill="#FFFFFF">Enricher</text>
+
+    <rect x="155" y="165" width="80" height="34" rx="3" fill="rgba(255,255,255,0.04)" stroke="#B5B0A2" stroke-width="1"/>
+    <text x="195" y="186" text-anchor="middle" font-size="11" fill="#FFFFFF">Planner</text>
+
+    <rect x="245" y="165" width="80" height="34" rx="3" fill="rgba(255,255,255,0.04)" stroke="#B5B0A2" stroke-width="1"/>
+    <text x="285" y="186" text-anchor="middle" font-size="11" fill="#FFFFFF">Generator</text>
+
+    <rect x="335" y="165" width="80" height="34" rx="3" fill="rgba(255,255,255,0.04)" stroke="#B5B0A2" stroke-width="1"/>
+    <text x="375" y="186" text-anchor="middle" font-size="11" fill="#FFFFFF">Reviewer</text>
+
+    <rect x="425" y="165" width="80" height="34" rx="3" fill="rgba(255,255,255,0.04)" stroke="#B5B0A2" stroke-width="1"/>
+    <text x="465" y="186" text-anchor="middle" font-size="11" fill="#FFFFFF">Healer</text>
+  </g>
+
+  <!-- Chaotic independent arrows from agents to codebase files (BEFORE) -->
+  <g stroke="#6B6862" stroke-width="0.8" fill="none" opacity="0.75">
+    <!-- Enricher arrows -->
+    <line x1="105" y1="199" x2="95" y2="370" marker-end="url(#p3-arrow-muted)"/>
+    <line x1="105" y1="199" x2="175" y2="395" marker-end="url(#p3-arrow-muted)"/>
+    <line x1="105" y1="199" x2="245" y2="380" marker-end="url(#p3-arrow-muted)"/>
+    <!-- Planner arrows -->
+    <line x1="195" y1="199" x2="155" y2="370" marker-end="url(#p3-arrow-muted)"/>
+    <line x1="195" y1="199" x2="280" y2="395" marker-end="url(#p3-arrow-muted)"/>
+    <line x1="195" y1="199" x2="370" y2="385" marker-end="url(#p3-arrow-muted)"/>
+    <!-- Generator arrows -->
+    <line x1="285" y1="199" x2="200" y2="395" marker-end="url(#p3-arrow-muted)"/>
+    <line x1="285" y1="199" x2="335" y2="370" marker-end="url(#p3-arrow-muted)"/>
+    <line x1="285" y1="199" x2="430" y2="380" marker-end="url(#p3-arrow-muted)"/>
+    <!-- Reviewer arrows -->
+    <line x1="375" y1="199" x2="130" y2="385" marker-end="url(#p3-arrow-muted)"/>
+    <line x1="375" y1="199" x2="395" y2="370" marker-end="url(#p3-arrow-muted)"/>
+    <line x1="375" y1="199" x2="475" y2="395" marker-end="url(#p3-arrow-muted)"/>
+    <!-- Healer arrows -->
+    <line x1="465" y1="199" x2="225" y2="380" marker-end="url(#p3-arrow-muted)"/>
+    <line x1="465" y1="199" x2="450" y2="385" marker-end="url(#p3-arrow-muted)"/>
+    <line x1="465" y1="199" x2="495" y2="370" marker-end="url(#p3-arrow-muted)"/>
+  </g>
+
+  <!-- Codebase region (BEFORE): scattered file dots -->
+  <rect x="60" y="340" width="475" height="115" fill="rgba(255,255,255,0.03)" stroke="#3D3B36" stroke-width="1" rx="4"/>
+  <text x="68" y="357" font-family="'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace" font-size="10" fill="#808080">codebase</text>
+  <g fill="#A8A49A">
+    <rect x="85" y="365" width="14" height="14" rx="1.5"/>
+    <rect x="125" y="385" width="14" height="14" rx="1.5"/>
+    <rect x="165" y="370" width="14" height="14" rx="1.5"/>
+    <rect x="205" y="395" width="14" height="14" rx="1.5"/>
+    <rect x="245" y="375" width="14" height="14" rx="1.5"/>
+    <rect x="270" y="405" width="14" height="14" rx="1.5"/>
+    <rect x="295" y="380" width="14" height="14" rx="1.5"/>
+    <rect x="325" y="408" width="14" height="14" rx="1.5"/>
+    <rect x="355" y="370" width="14" height="14" rx="1.5"/>
+    <rect x="385" y="395" width="14" height="14" rx="1.5"/>
+    <rect x="415" y="375" width="14" height="14" rx="1.5"/>
+    <rect x="445" y="402" width="14" height="14" rx="1.5"/>
+    <rect x="470" y="378" width="14" height="14" rx="1.5"/>
+    <rect x="495" y="408" width="14" height="14" rx="1.5"/>
+    <rect x="105" y="412" width="14" height="14" rx="1.5"/>
+    <rect x="200" y="368" width="14" height="14" rx="1.5"/>
+  </g>
+
+  <!-- Caption BEFORE -->
+  <text x="80" y="490" font-family="'Work Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" fill="#B8B8B8">Five partial mental models. The Enricher might find six of</text>
+  <text x="80" y="506" font-family="'Work Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" fill="#B8B8B8">the eight relevant files. The Reviewer finds a different six.</text>
+  <text x="80" y="522" font-family="'Work Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" fill="#B8B8B8">Downstream agents have no way to reconcile the gap.</text>
+
+  <!-- RIGHT PANEL: AFTER -->
+  <g font-family="'Work Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif">
+    <text x="580" y="115" font-size="12" font-weight="600" fill="#C9A961" letter-spacing="1.5">AFTER</text>
+    <text x="580" y="135" font-size="13" fill="#FFFFFF">One pre-computed brief. Every agent reads the same map.</text>
+  </g>
+
+  <!-- Agent row (5 agents, AFTER) -->
+  <g font-family="'Work Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif">
+    <rect x="565" y="165" width="80" height="34" rx="3" fill="rgba(255,255,255,0.04)" stroke="#B5B0A2" stroke-width="1"/>
+    <text x="605" y="186" text-anchor="middle" font-size="11" fill="#FFFFFF">Enricher</text>
+
+    <rect x="655" y="165" width="80" height="34" rx="3" fill="rgba(255,255,255,0.04)" stroke="#B5B0A2" stroke-width="1"/>
+    <text x="695" y="186" text-anchor="middle" font-size="11" fill="#FFFFFF">Planner</text>
+
+    <rect x="745" y="165" width="80" height="34" rx="3" fill="rgba(255,255,255,0.04)" stroke="#B5B0A2" stroke-width="1"/>
+    <text x="785" y="186" text-anchor="middle" font-size="11" fill="#FFFFFF">Generator</text>
+
+    <rect x="835" y="165" width="80" height="34" rx="3" fill="rgba(255,255,255,0.04)" stroke="#B5B0A2" stroke-width="1"/>
+    <text x="875" y="186" text-anchor="middle" font-size="11" fill="#FFFFFF">Reviewer</text>
+
+    <rect x="925" y="165" width="80" height="34" rx="3" fill="rgba(255,255,255,0.04)" stroke="#B5B0A2" stroke-width="1"/>
+    <text x="965" y="186" text-anchor="middle" font-size="11" fill="#FFFFFF">Healer</text>
+  </g>
+
+  <!-- Arrows from brief UP to each agent -->
+  <g stroke="#C9A961" stroke-width="1.1" fill="none">
+    <line x1="785" y1="250" x2="605" y2="202" marker-end="url(#p3-arrow-accent)"/>
+    <line x1="785" y1="250" x2="695" y2="202" marker-end="url(#p3-arrow-accent)"/>
+    <line x1="785" y1="250" x2="785" y2="202" marker-end="url(#p3-arrow-accent)"/>
+    <line x1="785" y1="250" x2="875" y2="202" marker-end="url(#p3-arrow-accent)"/>
+    <line x1="785" y1="250" x2="965" y2="202" marker-end="url(#p3-arrow-accent)"/>
+  </g>
+
+  <!-- Brief node (single shared) -->
+  <rect x="690" y="248" width="190" height="44" rx="4" fill="rgba(201,169,97,0.10)" stroke="#C9A961" stroke-width="1.4"/>
+  <text x="785" y="266" text-anchor="middle" font-family="'Work Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" fill="#FFFFFF">structured brief</text>
+  <text x="785" y="282" text-anchor="middle" font-family="'Work Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif" font-size="10.5" fill="#808080">key files · data flows · untested paths</text>
+
+  <!-- Arrow from graph builder up to brief -->
+  <line x1="785" y1="335" x2="785" y2="295" stroke="#B5B0A2" stroke-width="1.1" marker-end="url(#p3-arrow)"/>
+
+  <!-- Codebase region (AFTER): connected graph -->
+  <rect x="560" y="340" width="475" height="115" fill="rgba(255,255,255,0.03)" stroke="#3D3B36" stroke-width="1" rx="4"/>
+  <text x="568" y="357" font-family="'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace" font-size="10" fill="#808080">codebase — graph + communities</text>
+
+  <!-- Graph edges first (so nodes sit on top) -->
+  <g stroke="#A8A49A" stroke-width="0.8" opacity="0.65">
+    <!-- community A (left cluster) -->
+    <line x1="600" y1="385" x2="635" y2="395"/>
+    <line x1="635" y1="395" x2="615" y2="420"/>
+    <line x1="615" y1="420" x2="660" y2="415"/>
+    <line x1="600" y1="385" x2="660" y2="415"/>
+    <line x1="635" y1="395" x2="685" y2="385"/>
+    <!-- bridge between communities -->
+    <line x1="660" y1="415" x2="755" y2="395"/>
+    <line x1="685" y1="385" x2="770" y2="412"/>
+    <!-- community B (middle cluster) -->
+    <line x1="755" y1="395" x2="790" y2="380"/>
+    <line x1="790" y1="380" x2="820" y2="400"/>
+    <line x1="820" y1="400" x2="770" y2="412"/>
+    <line x1="755" y1="395" x2="820" y2="400"/>
+    <line x1="790" y1="380" x2="770" y2="412"/>
+    <!-- bridge -->
+    <line x1="820" y1="400" x2="890" y2="385"/>
+    <!-- community C (right cluster) -->
+    <line x1="890" y1="385" x2="930" y2="395"/>
+    <line x1="930" y1="395" x2="910" y2="420"/>
+    <line x1="910" y1="420" x2="970" y2="410"/>
+    <line x1="970" y1="410" x2="990" y2="385"/>
+    <line x1="930" y1="395" x2="990" y2="385"/>
+  </g>
+  <g fill="#B8B8B8">
+    <circle cx="600" cy="385" r="5"/>
+    <circle cx="635" cy="395" r="5"/>
+    <circle cx="615" cy="420" r="5"/>
+    <circle cx="660" cy="415" r="5"/>
+    <circle cx="685" cy="385" r="5"/>
+    <circle cx="755" cy="395" r="5"/>
+    <circle cx="790" cy="380" r="5"/>
+    <circle cx="820" cy="400" r="5"/>
+    <circle cx="770" cy="412" r="5"/>
+    <circle cx="890" cy="385" r="5"/>
+    <circle cx="930" cy="395" r="5"/>
+    <circle cx="910" cy="420" r="5"/>
+    <circle cx="970" cy="410" r="5"/>
+    <circle cx="990" cy="385" r="5"/>
+  </g>
+
+  <!-- Caption AFTER -->
+  <text x="580" y="490" font-family="'Work Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" fill="#B8B8B8">Files as nodes; imports and calls as edges; clusters as</text>
+  <text x="580" y="506" font-family="'Work Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" fill="#B8B8B8">communities. A script queries the graph and produces the</text>
+  <text x="580" y="522" font-family="'Work Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" fill="#B8B8B8">brief before any agent runs.</text>
+</svg>
