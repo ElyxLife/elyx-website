@@ -46,16 +46,28 @@ Values come from `elyx-infra` Terraform outputs after apply.
 
 DNS for `elyx.life` stays on **Namecheap**. AWS serves the site via CloudFront; you replace Squarespace records at cutover.
 
-### 1. ACM certificate validation
+### 1. ACM certificate validation (two Terraform applies)
 
-After prod Terraform apply starts, get validation records:
+Prod uses external DNS (Namecheap), so infrastructure is applied in **two steps**:
+
+**Step 1** — with `elyx_life_frontend_enable_cloudfront = false` in `elyx-infra/envs/prod/tfvars.auto.tfvars`:
 
 ```bash
 cd elyx-infra/envs/prod
+terraform apply
 terraform output elyx_life_acm_domain_validation_options
 ```
 
-In Namecheap → **elyx.life** → Advanced DNS, add each **CNAME** (name + value from output). Wait until ACM status is **Issued** (Terraform apply may pause until this completes).
+In Namecheap → **elyx.life** → Advanced DNS, add each **CNAME** from the output. Wait until the ACM certificate status is **Issued** in the AWS console (usually 5–30 minutes).
+
+**Step 2** — set `elyx_life_frontend_enable_cloudfront = true`, then apply again:
+
+```bash
+terraform apply
+terraform output elyx_life_cloudfront_domain_name
+```
+
+This creates CloudFront and completes the GitHub deploy role (including cache invalidation permissions).
 
 ### 2. Point traffic at CloudFront
 
