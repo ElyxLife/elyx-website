@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
+<script src="./elyx-nav.js"></script>
 </head>
 <body>
 <x-dc>
@@ -268,16 +269,6 @@ class Component extends DCLogic {
     const hero = document.getElementById('top');
     if (!header) return;
     const burger = document.getElementById('elyx-burger');
-    const menu = document.getElementById('elyx-mobile-menu');
-    window.__elyxToggleMenu = (open) => {
-      if (!menu) return;
-      menu.style.opacity = open ? '1' : '0';
-      menu.style.pointerEvents = open ? 'auto' : 'none';
-      menu.style.transform = open ? 'none' : 'translateY(-6px)';
-      document.body.classList.toggle('elyx-menu-open', open);
-    };
-    if (menu) menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => window.__elyxToggleMenu(false)));
-    window.addEventListener('keydown', (e) => { if (e.key === 'Escape') window.__elyxToggleMenu(false); });
     const links = Array.from(header.querySelectorAll('a:not([data-cta])'));
     const upd = () => {
       const h = hero ? hero.offsetHeight : window.innerHeight;

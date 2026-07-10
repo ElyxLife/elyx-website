@@ -7,11 +7,6 @@ permissions:
   id-token: write
   contents: read
 
-env:
-  AWS_REGION: ap-southeast-1
-  S3_BUCKET: ${{ secrets.S3_BUCKET }}
-  CLOUDFRONT_DIST_ID: ${{ secrets.CLOUDFRONT_DIST_ID }}
-
 defaults:
   run:
     working-directory: elyx-life-2
@@ -20,6 +15,10 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     environment: staging
+    env:
+      AWS_REGION: ap-southeast-1
+      S3_BUCKET: ${{ secrets.S3_BUCKET }}
+      CLOUDFRONT_DIST_ID: ${{ secrets.CLOUDFRONT_DIST_ID }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -45,7 +44,15 @@ jobs:
             --exclude ".git/*" \
             --exclude ".DS_Store" \
             --exclude "assets/*" \
-            --exclude "README.md"
+            --exclude "README.md" \
+            --exclude "robots.txt" \
+            --exclude "robots.staging.txt"
+
+      - name: Upload staging robots.txt
+        run: |
+          aws s3 cp robots.staging.txt s3://${{ env.S3_BUCKET }}/robots.txt \
+            --cache-control "public, max-age=3600" \
+            --content-type "text/plain"
 
       - name: Invalidate CloudFront cache
         run: |

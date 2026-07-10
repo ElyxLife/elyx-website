@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
+<script src="./elyx-nav.js"></script>
 </head>
 <body>
 <x-dc>
@@ -97,20 +98,27 @@
           <input type="hidden" name="_subject" value="New Membership Inquiry — Elyx">
           <input type="hidden" name="_template" value="table">
           <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_next" value="/ThankYou.dc.html">
-          <input type="text" name="_honey" style="display:none">
+          <input type="hidden" name="_next" id="inquiry-next" value="https://elyx.life/ThankYou.dc.html">
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
           <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;">
-            <div><label style="display:block;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#74726A;margin-bottom:8px;">Full name</label><input type="text" name="Name" required placeholder="Your name" style="width:100%;font-size:15px;color:#1C1C1A;background:#FBFAF7;border:1px solid #E4E2DA;border-radius:10px;padding:13px 14px;transition:border-color .2s;box-sizing:border-box;"></div>
-            <div><label style="display:block;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#74726A;margin-bottom:8px;">Email</label><input type="email" name="Email" required placeholder="you@example.com" style="width:100%;font-size:15px;color:#1C1C1A;background:#FBFAF7;border:1px solid #E4E2DA;border-radius:10px;padding:13px 14px;transition:border-color .2s;box-sizing:border-box;"></div>
-            <div><label style="display:block;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#74726A;margin-bottom:8px;">Phone</label><input type="tel" name="Phone" placeholder="+65 ..." style="width:100%;font-size:15px;color:#1C1C1A;background:#FBFAF7;border:1px solid #E4E2DA;border-radius:10px;padding:13px 14px;transition:border-color .2s;box-sizing:border-box;"></div>
-            <div><label style="display:block;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#74726A;margin-bottom:8px;">Country</label><input type="text" name="Country" placeholder="Singapore" style="width:100%;font-size:15px;color:#1C1C1A;background:#FBFAF7;border:1px solid #E4E2DA;border-radius:10px;padding:13px 14px;transition:border-color .2s;box-sizing:border-box;"></div>
+            <div><label for="inquiry-name" style="display:block;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#74726A;margin-bottom:8px;">Full name</label><input id="inquiry-name" type="text" name="Name" required placeholder="Your name" style="width:100%;font-size:15px;color:#1C1C1A;background:#FBFAF7;border:1px solid #E4E2DA;border-radius:10px;padding:13px 14px;transition:border-color .2s;box-sizing:border-box;"></div>
+            <div><label for="inquiry-email" style="display:block;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#74726A;margin-bottom:8px;">Email</label><input id="inquiry-email" type="email" name="Email" required placeholder="you@example.com" style="width:100%;font-size:15px;color:#1C1C1A;background:#FBFAF7;border:1px solid #E4E2DA;border-radius:10px;padding:13px 14px;transition:border-color .2s;box-sizing:border-box;"></div>
+            <div><label for="inquiry-phone" style="display:block;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#74726A;margin-bottom:8px;">Phone</label><input id="inquiry-phone" type="tel" name="Phone" placeholder="+65 ..." style="width:100%;font-size:15px;color:#1C1C1A;background:#FBFAF7;border:1px solid #E4E2DA;border-radius:10px;padding:13px 14px;transition:border-color .2s;box-sizing:border-box;"></div>
+            <div><label for="inquiry-country" style="display:block;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#74726A;margin-bottom:8px;">Country</label><input id="inquiry-country" type="text" name="Country" placeholder="Singapore" style="width:100%;font-size:15px;color:#1C1C1A;background:#FBFAF7;border:1px solid #E4E2DA;border-radius:10px;padding:13px 14px;transition:border-color .2s;box-sizing:border-box;"></div>
           </div>
-          <div style="margin-top:18px;"><label style="display:block;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#74726A;margin-bottom:8px;">What prompts this? <span style="text-transform:none;letter-spacing:0;">(optional)</span></label><textarea name="Message" rows="3" placeholder="A few words on what you're hoping for." style="width:100%;font-size:15px;color:#1C1C1A;background:#FBFAF7;border:1px solid #E4E2DA;border-radius:10px;padding:13px 14px;transition:border-color .2s;box-sizing:border-box;resize:vertical;"></textarea></div>
-          <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:28px;">
+          <div style="margin-top:18px;"><label for="inquiry-message" style="display:block;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#74726A;margin-bottom:8px;">What prompts this? <span style="text-transform:none;letter-spacing:0;">(optional)</span></label><textarea id="inquiry-message" name="Message" rows="3" placeholder="A few words on what you're hoping for." style="width:100%;font-size:15px;color:#1C1C1A;background:#FBFAF7;border:1px solid #E4E2DA;border-radius:10px;padding:13px 14px;transition:border-color .2s;box-sizing:border-box;resize:vertical;"></textarea></div>
+          <p style="margin:18px 0 0;font-size:12px;line-height:1.55;color:#74726A;">By submitting, you agree we may use your details to respond to this inquiry. Form delivery is handled by <a href="https://formsubmit.co" target="_blank" rel="noopener noreferrer" style="color:#9C7A3C;">FormSubmit</a>. See our <a href="Privacy.dc.html" style="color:#9C7A3C;">Privacy Policy</a>.</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:20px;">
             <span style="font-size:12.5px;color:#74726A;max-width:38ch;">Your details are private. This is a conversation, not a medical intake.</span>
             <button type="submit" style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;background:#9C7A3C;color:#fff;padding:15px 34px;border:0;border-radius:999px;cursor:pointer;transition:background .2s,transform .2s;" style-hover="background:#876a33;transform:translateY(-2px);">Submit</button>
           </div>
           </form>
+          <script>
+            (function () {
+              var next = document.getElementById('inquiry-next');
+              if (next) next.value = window.location.origin + '/ThankYou.dc.html';
+            })();
+          </script>
         </div>
       </div>
     </div>
@@ -123,7 +131,7 @@
         <div style="display:inline-flex;align-items:center;gap:12px;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:#C8A86A;margin-bottom:22px;"><span style="width:26px;height:1px;background:#C8A86A;display:inline-block;"></span><span>After You Join</span><span style="width:26px;height:1px;background:#C8A86A;display:inline-block;"></span></div>
         <h2 style="font-family:'Schibsted Grotesk',sans-serif;font-weight:600;font-size:clamp(28px,3.8vw,48px);line-height:1.05;letter-spacing:-.022em;margin:0;color:#FFFFFF;">What Happens <span style="font-family:'Cormorant Garamond',serif;font-size:1.15em;font-style:italic;font-weight:500;color:#E2C98F;">Next</span></h2>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;">
         <div style="border:1px solid rgba(200,168,106,.22);border-radius:16px;padding:26px 24px;"><div style="font-family:'Space Mono',monospace;font-size:11px;color:#C8A86A;margin-bottom:16px;">01</div><div style="font-family:'Schibsted Grotesk',sans-serif;font-weight:600;font-size:17px;color:#fff;margin-bottom:7px;">We review</div><div style="font-size:13.5px;line-height:1.55;color:#A9A496;">We read your goals and context for fit.</div></div>
         <div style="border:1px solid rgba(200,168,106,.22);border-radius:16px;padding:26px 24px;"><div style="font-family:'Space Mono',monospace;font-size:11px;color:#C8A86A;margin-bottom:16px;">02</div><div style="font-family:'Schibsted Grotesk',sans-serif;font-weight:600;font-size:17px;color:#fff;margin-bottom:7px;">Introductory call</div><div style="font-size:13.5px;line-height:1.55;color:#A9A496;">A short conversation to understand your situation.</div></div>
         <div style="border:1px solid rgba(200,168,106,.22);border-radius:16px;padding:26px 24px;"><div style="font-family:'Space Mono',monospace;font-size:11px;color:#C8A86A;margin-bottom:16px;">03</div><div style="font-family:'Schibsted Grotesk',sans-serif;font-weight:600;font-size:17px;color:#fff;margin-bottom:7px;">Fit discussion</div><div style="font-size:13.5px;line-height:1.55;color:#A9A496;">We confirm Elyx is the right system for you.</div></div>
@@ -203,16 +211,6 @@ class Component extends DCLogic {
     const hero = document.getElementById('top');
     if (!header) return;
     const burger = document.getElementById('elyx-burger');
-    const menu = document.getElementById('elyx-mobile-menu');
-    window.__elyxToggleMenu = (open) => {
-      if (!menu) return;
-      menu.style.opacity = open ? '1' : '0';
-      menu.style.pointerEvents = open ? 'auto' : 'none';
-      menu.style.transform = open ? 'none' : 'translateY(-6px)';
-      document.body.classList.toggle('elyx-menu-open', open);
-    };
-    if (menu) menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => window.__elyxToggleMenu(false)));
-    window.addEventListener('keydown', (e) => { if (e.key === 'Escape') window.__elyxToggleMenu(false); });
     const links = Array.from(header.querySelectorAll('a:not([data-cta])'));
     const upd = () => {
       const h = hero ? hero.offsetHeight : window.innerHeight;

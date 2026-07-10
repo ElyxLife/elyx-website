@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
+<script src="./elyx-nav.js"></script>
 </head>
 <body>
 <x-dc>
@@ -90,14 +91,14 @@
   <!-- LIVE SIGNALS STRIP -->
   <section style="background:#1C1A14;border-top:1px solid rgba(200,168,106,.16);border-bottom:1px solid rgba(200,168,106,.16);">
     <div style="max-width:1320px;margin:0 auto;padding:15px clamp(22px,5vw,56px);display:flex;align-items:center;gap:clamp(18px,3vw,40px);overflow-x:auto;">
-      <span style="flex:0 0 auto;display:inline-flex;align-items:center;gap:9px;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#C8A86A;"><span style="width:7px;height:7px;border-radius:50%;background:#7BBF8E;animation:elyx-pulse 2.4s ease-in-out infinite;"></span>Live Signals</span>
+      <span style="flex:0 0 auto;display:inline-flex;align-items:center;gap:9px;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#C8A86A;"><span style="width:7px;height:7px;border-radius:50%;background:#7BBF8E;animation:elyx-pulse 2.4s ease-in-out infinite;"></span>Illustrative Example</span>
       <span style="flex:0 0 auto;font-family:'Space Mono',monospace;font-size:12px;color:#8C8678;">HRV <span style="color:#F2EEE3;font-weight:700;">68 ms</span></span>
       <span style="flex:0 0 auto;font-family:'Space Mono',monospace;font-size:12px;color:#8C8678;">Resting HR <span style="color:#F2EEE3;font-weight:700;">52</span></span>
       <span style="flex:0 0 auto;font-family:'Space Mono',monospace;font-size:12px;color:#8C8678;">VO2 max <span style="color:#F2EEE3;font-weight:700;">54</span></span>
       <span style="flex:0 0 auto;font-family:'Space Mono',monospace;font-size:12px;color:#8C8678;">Sleep <span style="color:#F2EEE3;font-weight:700;">92</span></span>
       <span style="flex:0 0 auto;font-family:'Space Mono',monospace;font-size:12px;color:#8C8678;">ApoB <span style="color:#F2EEE3;font-weight:700;">0.7 g/L</span></span>
       <span style="flex:0 0 auto;font-family:'Space Mono',monospace;font-size:12px;color:#8C8678;">Glucose <span style="color:#F2EEE3;font-weight:700;">5.2</span></span>
-      <span style="flex:0 0 auto;margin-left:auto;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#C8A86A;white-space:nowrap;">&asymp; 250,000 signals / day</span>
+      <span style="flex:0 0 auto;margin-left:auto;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#74726A;white-space:nowrap;">Sample member dashboard — not live data</span>
     </div>
   </section>
 
@@ -230,9 +231,10 @@
       </div>
       <div>
         <div style="display:flex;align-items:center;gap:12px;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:#9C7A3C;margin-bottom:24px;">
-          <span style="width:26px;height:1px;background:#9C7A3C;display:inline-block;"></span><span>03 — Your Truth</span>
+          <span style="width:26px;height:1px;background:#9C7A3C;display:inline-block;"></span><span>03 — Your Truth (Illustrative)</span>
         </div>
         <h2 style="font-family:'Schibsted Grotesk',sans-serif;font-weight:600;font-size:clamp(32px,4.2vw,54px);line-height:1.05;letter-spacing:-.022em;margin:0 0 22px;">The Truth About <span style="font-family:'Cormorant Garamond',serif;font-size:1.15em;font-style:italic;font-weight:500;color:#9C7A3C;">You</span></h2>
+        <p style="font-size:13px;line-height:1.55;color:#74726A;margin:0 0 14px;max-width:58ch;font-style:italic;">Illustrative example only. Values shown are representative, not live member data or medical results.</p>
         <p style="font-size:17px;line-height:1.62;color:#56544B;margin:0 0 30px;max-width:50ch;">Elyx builds a complete, living picture of your physiology. Molecular to structural, genomic to continuous. Your body, read in full and kept current.</p>
         <div style="display:flex;flex-direction:column;border-top:1px solid #E4E2DA;margin-bottom:22px;">
           <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:15px 0;border-bottom:1px solid #E4E2DA;"><span style="font-family:'Schibsted Grotesk',sans-serif;font-weight:600;font-size:15.5px;color:#1C1C1A;">Cardiovascular</span><span style="font-family:'Space Mono',monospace;font-size:13px;color:#9C7A3C;">ApoB 0.7 &middot; CCTA clear</span></div>
@@ -451,16 +453,6 @@ class Component extends DCLogic {
     const hero = document.getElementById('top');
     if (!header) return;
     const burger = document.getElementById('elyx-burger');
-    const menu = document.getElementById('elyx-mobile-menu');
-    window.__elyxToggleMenu = (open) => {
-      if (!menu) return;
-      menu.style.opacity = open ? '1' : '0';
-      menu.style.pointerEvents = open ? 'auto' : 'none';
-      menu.style.transform = open ? 'none' : 'translateY(-6px)';
-      document.body.classList.toggle('elyx-menu-open', open);
-    };
-    if (menu) menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => window.__elyxToggleMenu(false)));
-    window.addEventListener('keydown', (e) => { if (e.key === 'Escape') window.__elyxToggleMenu(false); });
     const links = Array.from(header.querySelectorAll('a:not([data-cta])'));
     const upd = () => {
       const h = hero ? hero.offsetHeight : window.innerHeight;

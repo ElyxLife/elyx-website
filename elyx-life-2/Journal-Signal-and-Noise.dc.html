@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
+<script src="./elyx-nav.js"></script>
 </head>
 <body>
 <x-dc>
@@ -94,12 +95,12 @@
 <p style="margin:0 0 18px;">Muscle is mostly water; it&rsquo;s a good conductor. Fat is an insulator. The scale sees how much resistance your body offers and then makes a guess about your composition. The problem is that your body&rsquo;s &ldquo;conductivity&rdquo; changes every time you drink water, eat salt, or break a sweat.</p>
 <p style="margin:0 0 18px;">If you have a BMI of 23, technically healthy but perhaps carrying more fat than you&rsquo;d like, the &ldquo;signal&rdquo; you&rsquo;re looking for is very small. You might only be losing 0.1% of body fat a week. But the &ldquo;noise&rdquo; from your hydration levels can swing by 1% or 2% in a single morning.</p>
 <blockquote style="margin:30px 0;padding:22px 26px;border-left:3px solid #C8A86A;background:#FBF7EC;border-radius:0 12px 12px 0;font-family:'Cormorant Garamond',serif;font-size:1.15em;font-style:italic;font-size:clamp(19px,2vw,23px);line-height:1.4;color:#3A392F;">Statistically, a single BIA reading is almost worthless. It&rsquo;s a blurry photo taken from a moving car.</blockquote>
-<p style="margin:0 0 18px;">But if you step on that scale every morning at the same time, you can start to calculate a seven-day rolling average. Does that average going down mean you&rsquo;re losing fat? Not necessarily. It might just mean you&rsquo;re slightly more dehydrated this week than last. However, if the thirty-day trend is pointing down while your strength in the gym is going up, that combination is associated with <em>genuine recomposition</em>.</p>
+<p style="margin:0 0 18px;">But if you step on that scale every morning at the same time, you can start to calculate a seven-day rolling average. Does that average going down mean you&rsquo;re losing fat? Not necessarily. It might just mean you&rsquo;re slightly more dehydrated this week than last. However, if the thirty-day trend is pointing down while your strength in the gym is going up, that combination may suggest recomposition, though DEXA or other validated measures are needed to confirm it.</p>
 <img src="https://images.squarespace-cdn.com/content/v1/68d24af5fc6a2d3ce44f3853/005aab3f-bc73-40ae-9f6b-146b4bd2a206/5.png?format=1200w" alt="Trend over weeks" style="width:100%;border-radius:14px;margin:26px 0 14px;">
 <p style="margin:-8px 0 24px;font-size:13.5px;color:#74726A;font-style:italic;">A single reading rarely tells the truth. The trend, over weeks, usually does.</p>
 <h2 style="font-family:'Schibsted Grotesk',sans-serif;font-weight:600;font-size:clamp(22px,2.4vw,28px);letter-spacing:-.015em;line-height:1.2;margin:38px 0 16px;">Geometry vs. Electricity</h2>
 <p style="margin:0 0 18px;">If BIA is an electrical inference, a waist measurement is a physical reality.</p>
-<p style="margin:0 0 18px;">Muscle is roughly 20% denser than fat. If your weight is stable but your waist is shrinking, you are, by the laws of physics, undergoing recomposition. There is no other way for those two things to be true at the same time.</p>
+<p style="margin:0 0 18px;">Muscle is roughly 20% denser than fat. If your weight is stable but your waist is shrinking, you may be undergoing recomposition, though waist measurement alone cannot confirm fat loss versus other changes. There is no other way for those two things to be true at the same time.</p>
 <p style="margin:0 0 18px;">A smart tape measure is &ldquo;better&rdquo; than a BIA scale in terms of validation, but it&rsquo;s worse in terms of friction. It&rsquo;s cumbersome. You have to find the right spot on your iliac crest, make sure the tape is level, and try not to subconsciously suck in your gut.</p>
 <p style="margin:0 0 18px;">Because of this friction, most people won&rsquo;t do it every day. And that&rsquo;s actually a feature, not a bug. By measuring once a week, you&rsquo;re naturally filtering out the daily noise of &ldquo;gut fill&rdquo; and bloating. You get a high-fidelity data point that confirms what the noisy BIA scale is trying to whisper.</p>
 <h2 style="font-family:'Schibsted Grotesk',sans-serif;font-weight:600;font-size:clamp(22px,2.4vw,28px);letter-spacing:-.015em;line-height:1.2;margin:38px 0 16px;">The Adherence Anchor</h2>
@@ -118,6 +119,7 @@
 <p style="margin:0 0 18px;">The goal isn&rsquo;t to have perfect data. The goal is to have just enough signal to keep you from quitting before the six-month DEXA can prove you were right all along.</p>
 <p style="margin:0 0 18px;">This is the data discipline our physicians apply across every pillar at Elyx. Every signal to act on, not so much that the noise drowns out the signal.</p>
 <p style="margin:0 0 18px;"><strong>One interesting thing to consider:</strong> does having <em>too much</em> data actually make us more likely to quit? Or does the data itself act as a kind of &ldquo;sunk cost&rdquo; that keeps us committed to the program?</p>
+<p style="margin:0 0 18px;font-size:13.5px;line-height:1.6;color:#74726A;"><em>Educational content only — not medical advice. Consult a qualified clinician before changing diet, training, or supplementation.</em></p>
 <p style="margin:0 0 18px;"><em>Elyx is Singapore&rsquo;s first concierge healthspan service, based at the Raffles Hotel Arcade. To learn more about memberships, <a href="Inquiry.dc.html" style="color:#9C7A3C;font-weight:600;">inquire here</a>.</em></p>
       <div style="display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;border-top:1px solid #E4E2DA;margin-top:44px;padding-top:22px;">
         <span></span>
@@ -206,16 +208,6 @@ class Component extends DCLogic {
     const hero = document.getElementById('top');
     if (!header) return;
     const burger = document.getElementById('elyx-burger');
-    const menu = document.getElementById('elyx-mobile-menu');
-    window.__elyxToggleMenu = (open) => {
-      if (!menu) return;
-      menu.style.opacity = open ? '1' : '0';
-      menu.style.pointerEvents = open ? 'auto' : 'none';
-      menu.style.transform = open ? 'none' : 'translateY(-6px)';
-      document.body.classList.toggle('elyx-menu-open', open);
-    };
-    if (menu) menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => window.__elyxToggleMenu(false)));
-    window.addEventListener('keydown', (e) => { if (e.key === 'Escape') window.__elyxToggleMenu(false); });
     const links = Array.from(header.querySelectorAll('a:not([data-cta])'));
     const upd = () => {
       const h = hero ? hero.offsetHeight : window.innerHeight;

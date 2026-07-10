@@ -112,8 +112,14 @@
     if (!w) return;
     saving = true;
     Promise.resolve(w(STATE_FILE, JSON.stringify(slots)))
-      .catch(() => {})
-      .then(() => { saving = false; if (saveDirty) { saveDirty = false; save(); } });
+      .catch((err) => {
+        saveDirty = true;
+        console.warn('<image-slot> sidecar write failed:', err);
+      })
+      .then(() => {
+        saving = false;
+        if (saveDirty) { saveDirty = false; save(); }
+      });
   }
 
   const S_MAX = 5;
@@ -191,7 +197,8 @@
     ':host([data-reframe]) .frame{box-shadow:0 0 0 2px #c96442}' +
     '.empty{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;' +
     '  justify-content:center;gap:6px;text-align:center;padding:12px;box-sizing:border-box;' +
-    '  cursor:pointer;user-select:none}' +
+    '  cursor:pointer;user-select:none;outline:none}' +
+    '.empty:focus-visible{outline:2px solid #c96442;outline-offset:-2px}' +
     '.empty svg{opacity:.45}' +
     '.empty .cap{max-width:90%;font-weight:500;letter-spacing:.01em}' +
     '.empty .sub{font-size:11px}' +
@@ -209,7 +216,8 @@
     '.ctl{position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:8px;' +
     '  display:flex;gap:6px;opacity:0;pointer-events:none;transition:opacity .12s;z-index:2;' +
     '  white-space:nowrap}' +
-    ':host([data-filled][data-editable]:hover) .ctl,:host([data-reframe]) .ctl' +
+    ':host([data-filled][data-editable]:hover) .ctl,:host([data-reframe]) .ctl,' +
+    ':host([data-filled][data-editable]:focus-within) .ctl' +
     '  {opacity:1;pointer-events:auto}' +
     '.ctl button{appearance:none;border:0;border-radius:6px;padding:5px 10px;cursor:pointer;' +
     '  background:rgba(0,0,0,.65);color:#fff;font:11px/1 system-ui,-apple-system,sans-serif;' +
@@ -268,6 +276,14 @@
       // Shadow-DOM listeners live with the shadow DOM — bound once here so
       // disconnect/reconnect (e.g. React remount) doesn't stack handlers.
       this._empty.addEventListener('click', () => this._input.click());
+      this._empty.setAttribute('tabindex', '0');
+      this._empty.setAttribute('role', 'button');
+      this._empty.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this._input.click();
+        }
+      });
       root.addEventListener('click', (e) => {
         const act = e.target && e.target.getAttribute && e.target.getAttribute('data-act');
         if (act === 'replace') { this._exitReframe(true); this._input.click(); }
@@ -615,6 +631,7 @@
         };
       }
       this._cap.textContent = this.getAttribute('placeholder') || 'Drop an image';
+      this._empty.setAttribute('aria-label', (this.getAttribute('placeholder') || 'Drop an image') + '. Press Enter to browse files.');
       // Toggle via style.display — the [hidden] attribute alone loses to
       // the display:flex / display:block rules in the stylesheet above.
       if (url) {
