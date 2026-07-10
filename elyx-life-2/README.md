@@ -108,9 +108,9 @@ curl -sI https://elyx.life
 curl -sI https://www.elyx.life
 ```
 
-### FormSubmit
+### Formspree
 
-First live Inquiry submission emails `business@elyx.life` a one-time FormSubmit activation link.
+Inquiry form posts to Formspree (`https://formspree.io/f/xnjkedyw`). Confirm the form is active in the Formspree dashboard and that notification email is set to the right inbox. Optionally set a Thank You redirect there as a fallback; the page also redirects to `/ThankYou.dc.html` via AJAX after a successful submit.
 
 ## Staging
 
