@@ -94,20 +94,20 @@
         <div style="padding:clamp(28px,4vw,46px);">
           <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#9C7A3C;margin-bottom:9px;">Join Elyx</div>
           <h2 style="font-family:'Schibsted Grotesk',sans-serif;font-weight:600;font-size:clamp(22px,2.6vw,30px);letter-spacing:-.018em;margin:0 0 28px;">Start the Conversation</h2>
-          <form action="https://formsubmit.co/business@elyx.life" method="POST">
-          <input type="hidden" name="_subject" value="New Membership Inquiry — Elyx">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_next" id="inquiry-next" value="https://elyx.life/ThankYou.dc.html">
-          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+          <form action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="bde66eb3-7256-442f-9e8e-eccc775b1e0b">
+          <input type="hidden" name="subject" value="New Membership Inquiry — Elyx">
+          <input type="hidden" name="from_name" value="Elyx Inquiry">
+          <input type="hidden" name="redirect" id="inquiry-redirect" value="https://elyx.life/ThankYou.dc.html">
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
           <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;">
-            <div><label for="inquiry-name" style="display:block;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#74726A;margin-bottom:8px;">Full name</label><input id="inquiry-name" type="text" name="Name" required placeholder="Your name" style="width:100%;font-size:15px;color:#1C1C1A;background:#FBFAF7;border:1px solid #E4E2DA;border-radius:10px;padding:13px 14px;transition:border-color .2s;box-sizing:border-box;"></div>
-            <div><label for="inquiry-email" style="display:block;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#74726A;margin-bottom:8px;">Email</label><input id="inquiry-email" type="email" name="Email" required placeholder="you@example.com" style="width:100%;font-size:15px;color:#1C1C1A;background:#FBFAF7;border:1px solid #E4E2DA;border-radius:10px;padding:13px 14px;transition:border-color .2s;box-sizing:border-box;"></div>
-            <div><label for="inquiry-phone" style="display:block;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#74726A;margin-bottom:8px;">Phone</label><input id="inquiry-phone" type="tel" name="Phone" placeholder="+65 ..." style="width:100%;font-size:15px;color:#1C1C1A;background:#FBFAF7;border:1px solid #E4E2DA;border-radius:10px;padding:13px 14px;transition:border-color .2s;box-sizing:border-box;"></div>
-            <div><label for="inquiry-country" style="display:block;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#74726A;margin-bottom:8px;">Country</label><input id="inquiry-country" type="text" name="Country" placeholder="Singapore" style="width:100%;font-size:15px;color:#1C1C1A;background:#FBFAF7;border:1px solid #E4E2DA;border-radius:10px;padding:13px 14px;transition:border-color .2s;box-sizing:border-box;"></div>
+            <div><label for="inquiry-name" style="display:block;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#74726A;margin-bottom:8px;">Full name</label><input id="inquiry-name" type="text" name="name" required placeholder="Your name" style="width:100%;font-size:15px;color:#1C1C1A;background:#FBFAF7;border:1px solid #E4E2DA;border-radius:10px;padding:13px 14px;transition:border-color .2s;box-sizing:border-box;"></div>
+            <div><label for="inquiry-email" style="display:block;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#74726A;margin-bottom:8px;">Email</label><input id="inquiry-email" type="email" name="email" required placeholder="you@example.com" style="width:100%;font-size:15px;color:#1C1C1A;background:#FBFAF7;border:1px solid #E4E2DA;border-radius:10px;padding:13px 14px;transition:border-color .2s;box-sizing:border-box;"></div>
+            <div><label for="inquiry-phone" style="display:block;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#74726A;margin-bottom:8px;">Phone</label><input id="inquiry-phone" type="tel" name="phone" placeholder="+65 ..." style="width:100%;font-size:15px;color:#1C1C1A;background:#FBFAF7;border:1px solid #E4E2DA;border-radius:10px;padding:13px 14px;transition:border-color .2s;box-sizing:border-box;"></div>
+            <div><label for="inquiry-country" style="display:block;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#74726A;margin-bottom:8px;">Country</label><input id="inquiry-country" type="text" name="country" placeholder="Singapore" style="width:100%;font-size:15px;color:#1C1C1A;background:#FBFAF7;border:1px solid #E4E2DA;border-radius:10px;padding:13px 14px;transition:border-color .2s;box-sizing:border-box;"></div>
           </div>
-          <div style="margin-top:18px;"><label for="inquiry-message" style="display:block;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#74726A;margin-bottom:8px;">What prompts this? <span style="text-transform:none;letter-spacing:0;">(optional)</span></label><textarea id="inquiry-message" name="Message" rows="3" placeholder="A few words on what you're hoping for." style="width:100%;font-size:15px;color:#1C1C1A;background:#FBFAF7;border:1px solid #E4E2DA;border-radius:10px;padding:13px 14px;transition:border-color .2s;box-sizing:border-box;resize:vertical;"></textarea></div>
-          <p style="margin:18px 0 0;font-size:12px;line-height:1.55;color:#74726A;">By submitting, you agree we may use your details to respond to this inquiry. Form delivery is handled by <a href="https://formsubmit.co" target="_blank" rel="noopener noreferrer" style="color:#9C7A3C;">FormSubmit</a>. See our <a href="/privacy" style="color:#9C7A3C;">Privacy Policy</a>.</p>
+          <div style="margin-top:18px;"><label for="inquiry-message" style="display:block;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#74726A;margin-bottom:8px;">What prompts this? <span style="text-transform:none;letter-spacing:0;">(optional)</span></label><textarea id="inquiry-message" name="message" rows="3" placeholder="A few words on what you're hoping for." style="width:100%;font-size:15px;color:#1C1C1A;background:#FBFAF7;border:1px solid #E4E2DA;border-radius:10px;padding:13px 14px;transition:border-color .2s;box-sizing:border-box;resize:vertical;"></textarea></div>
+          <p style="margin:18px 0 0;font-size:12px;line-height:1.55;color:#74726A;">By submitting, you agree we may use your details to respond to this inquiry. See our <a href="/privacy" style="color:#9C7A3C;">Privacy Policy</a>.</p>
           <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:20px;">
             <span style="font-size:12.5px;color:#74726A;max-width:38ch;">Your details are private. This is a conversation, not a medical intake.</span>
             <button type="submit" style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;background:#9C7A3C;color:#fff;padding:15px 34px;border:0;border-radius:999px;cursor:pointer;transition:background .2s,transform .2s;" style-hover="background:#876a33;transform:translateY(-2px);">Submit</button>
@@ -115,8 +115,8 @@
           </form>
           <script>
             (function () {
-              var next = document.getElementById('inquiry-next');
-              if (next) next.value = window.location.origin + '/ThankYou.dc.html';
+              var redirect = document.getElementById('inquiry-redirect');
+              if (redirect) redirect.value = window.location.origin + '/ThankYou.dc.html';
             })();
           </script>
         </div>

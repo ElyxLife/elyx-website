@@ -108,9 +108,9 @@ curl -sI https://elyx.life
 curl -sI https://www.elyx.life
 ```
 
-### FormSubmit
+### Web3Forms
 
-First live Inquiry submission emails `business@elyx.life` a one-time FormSubmit activation link.
+Inquiry form posts to Web3Forms (`https://api.web3forms.com/submit`). After submit, users are redirected to `/ThankYou.dc.html` on the same origin (free same-domain redirect). Confirm the access key’s notification email in the Web3Forms dashboard.
 
 ## Staging
 
