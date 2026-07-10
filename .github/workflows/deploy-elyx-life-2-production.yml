@@ -1,0 +1,53 @@
+name: Deploy Elyx Life 2 (Production)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+defaults:
+  run:
+    working-directory: elyx-life-2
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: prod
+    env:
+      AWS_REGION: ap-southeast-1
+      S3_BUCKET: ${{ vars.ELYX_LIFE_2_S3_BUCKET }}
+      CLOUDFRONT_DIST_ID: ${{ vars.ELYX_LIFE_2_CLOUDFRONT_DIST_ID }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials via OIDC
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ vars.ELYX_LIFE_2_AWS_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Sync static assets (long cache)
+        run: |
+          aws s3 sync assets/ s3://${{ env.S3_BUCKET }}/assets/ \
+            --delete \
+            --cache-control "public, max-age=31536000, immutable" \
+            --exclude ".DS_Store"
+
+      - name: Sync site files (short cache)
+        run: |
+          aws s3 sync . s3://${{ env.S3_BUCKET }}/ \
+            --delete \
+            --cache-control "public, max-age=3600" \
+            --exclude ".git/*" \
+            --exclude ".DS_Store" \
+            --exclude "assets/*" \
+            --exclude "README.md"
+
+      - name: Invalidate CloudFront cache
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id ${{ env.CLOUDFRONT_DIST_ID }} \
+            --paths "/*"
