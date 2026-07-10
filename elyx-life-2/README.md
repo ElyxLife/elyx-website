@@ -34,13 +34,27 @@ Deployments are **manual** via GitHub Actions (no push trigger):
 | Deploy Elyx Life 2 (Staging) | `staging` | https://www.elyx.dev |
 | Deploy Elyx Life 2 (Production) | `prod` | https://elyx.life |
 
-Required GitHub environment secrets (per environment):
+Required GitHub **environment variables** (per environment — not secrets; these are deploy targets, not credentials):
 
-- `AWS_ROLE_ARN`
-- `S3_BUCKET`
-- `CLOUDFRONT_DIST_ID`
+| Variable | Staging value (after Terraform apply) |
+|----------|---------------------------------------|
+| `AWS_ROLE_ARN` | `terraform output -raw elyx_life_ci_role_arn` |
+| `S3_BUCKET` | `terraform output -raw elyx_life_frontend_bucket_name` |
+| `CLOUDFRONT_DIST_ID` | `terraform output -raw elyx_life_cloudfront_distribution_id` |
 
-Values come from `elyx-infra` Terraform outputs after apply.
+Set under **Settings → Environments → {staging\|prod} → Environment variables**.
+
+```bash
+# Example: staging (create the "staging" environment first if missing)
+gh variable set AWS_ROLE_ARN --env staging --repo ElyxLife/elyx-website \
+  --body "arn:aws:iam::791096174481:role/github-ci-elyx-life-staging"
+gh variable set S3_BUCKET --env staging --repo ElyxLife/elyx-website \
+  --body "elyx-life-staging-frontend"
+gh variable set CLOUDFRONT_DIST_ID --env staging --repo ElyxLife/elyx-website \
+  --body "E3KAS59MJ9788G"
+```
+
+Auth uses GitHub OIDC (no AWS access keys in GitHub). The role ARN is an identifier, not a secret.
 
 ## Production DNS (Namecheap)
 
