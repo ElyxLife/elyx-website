@@ -46,9 +46,14 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://elyx.life/Privacy.dc.html</loc>
+    <loc>https://elyx.life/privacy</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://elyx.life/support</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://elyx.life/Journal-Price-of-Staying-Capable.dc.html</loc>

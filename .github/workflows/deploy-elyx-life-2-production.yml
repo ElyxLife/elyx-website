@@ -44,7 +44,19 @@ jobs:
             --exclude ".git/*" \
             --exclude ".DS_Store" \
             --exclude "assets/*" \
-            --exclude "README.md"
+            --exclude "README.md" \
+            --exclude "support" \
+            --exclude "privacy"
+
+      - name: Publish clean URL aliases
+        run: |
+          # Reuse Support.dc.html / Privacy.dc.html at /support and /privacy (no duplicated source)
+          aws s3 cp Support.dc.html s3://${{ env.S3_BUCKET }}/support \
+            --cache-control "public, max-age=3600" \
+            --content-type "text/html; charset=utf-8"
+          aws s3 cp Privacy.dc.html s3://${{ env.S3_BUCKET }}/privacy \
+            --cache-control "public, max-age=3600" \
+            --content-type "text/html; charset=utf-8"
 
       - name: Invalidate CloudFront cache
         run: |
