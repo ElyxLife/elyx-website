@@ -108,9 +108,9 @@ curl -sI https://elyx.life
 curl -sI https://www.elyx.life
 ```
 
-### Formspree
+### Web3Forms
 
-Inquiry form posts to Formspree (`https://formspree.io/f/xnjkedyw`). Confirm the form is active in the Formspree dashboard and that notification email is set to the right inbox. Optionally set a Thank You redirect there as a fallback; the page also redirects to `/ThankYou.dc.html` via AJAX after a successful submit.
+Inquiry form posts to Web3Forms (`https://api.web3forms.com/submit`). After submit, users are redirected to `/ThankYou.dc.html` on the same origin (free same-domain redirect). Confirm the access key’s notification email in the Web3Forms dashboard.
 
 ## Staging
 
