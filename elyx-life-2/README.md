@@ -18,12 +18,16 @@ Open http://localhost:8080 — pages require JavaScript (React loads from unpkg 
 elyx-life-2/
   index.html          # Home (CloudFront default root)
   *.dc.html           # Site pages (keep filenames — internal links depend on them)
+  support -> Support.dc.html   # Local clean-URL alias (/support)
+  privacy -> Privacy.dc.html   # Local clean-URL alias (/privacy)
   support.js          # DC runtime (generated bundle)
   image-slot.js
   assets/             # Local images
   robots.txt
   sitemap.xml
 ```
+
+Clean URLs `/support` and `/privacy` reuse `Support.dc.html` and `Privacy.dc.html` (symlinks locally; deploy uploads the same files to those S3 keys).
 
 ## Deploy
 
