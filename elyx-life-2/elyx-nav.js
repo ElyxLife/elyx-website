@@ -218,6 +218,11 @@
     e.preventDefault();
     try { history.replaceState(null, '', url.hash); } catch (_) {}
     scrollToHash(true);
+    // On a mouse click we preventDefault (no navigation), so the link keeps
+    // focus and :focus-within would hold the desktop dropdown open even after
+    // the pointer leaves. Blur it so hovering away closes the menu. (Keyboard
+    // activation has e.detail === 0 — leave focus put for accessibility.)
+    if (e.detail > 0 && typeof a.blur === 'function') a.blur();
   });
 
   function bootAria() {
