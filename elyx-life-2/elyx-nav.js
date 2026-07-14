@@ -128,8 +128,60 @@
     }
   });
 
+  // Scroll to a #section target, accounting for the fixed header.
+  // Used for cross-page links like /the-team#s-medical: the DC runtime
+  // renders content after the browser's initial anchor jump, so the target
+  // element doesn't exist yet at load — poll briefly until it appears.
+  var HEADER_OFFSET = 96;
+  function hashTargetId() {
+    if (!location.hash || location.hash === '#') return '';
+    try { return decodeURIComponent(location.hash.slice(1)); }
+    catch (e) { return location.hash.slice(1); }
+  }
+  function scrollToHash(smooth) {
+    var id = hashTargetId();
+    if (!id) return false;
+    var el = document.getElementById(id);
+    if (!el) return false;
+    var y = el.getBoundingClientRect().top + window.pageYOffset - HEADER_OFFSET;
+    if (smooth) {
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    } else {
+      // Force instant on cross-page load (the page sets scroll-behavior:smooth,
+      // which would otherwise animate from the top — jarring on arrival).
+      var de = document.documentElement;
+      var prev = de.style.scrollBehavior;
+      de.style.scrollBehavior = 'auto';
+      window.scrollTo(0, y);
+      de.style.scrollBehavior = prev;
+    }
+    return true;
+  }
+  function scrollToHashWhenReady() {
+    if (!hashTargetId()) return;
+    // The DC runtime renders/rehydrates after load and can reset scroll to
+    // the top, so keep re-asserting the target until it holds (or we time out).
+    var tries = 0, stable = 0;
+    var iv = setInterval(function () {
+      tries++;
+      var id = hashTargetId();
+      var el = id && document.getElementById(id);
+      if (el) {
+        var y = el.getBoundingClientRect().top + window.pageYOffset - HEADER_OFFSET;
+        if (Math.abs(window.pageYOffset - y) <= 6) {
+          if (++stable >= 2) { clearInterval(iv); return; }
+        } else {
+          stable = 0;
+          scrollToHash(false);
+        }
+      }
+      if (tries > 50) clearInterval(iv);
+    }, 80);
+  }
+
   function bootAria() {
     applyState();
+    scrollToHashWhenReady();
   }
 
   if (document.readyState === 'loading') {

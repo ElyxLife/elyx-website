@@ -32,6 +32,13 @@
   @media (max-width:900px){ .elyx-desktop-nav{display:none !important;} #elyx-burger{display:flex !important;flex-direction:column;} }
   @media (min-width:901px){ #elyx-mobile-menu{display:none !important;} }
   body.elyx-menu-open{overflow:hidden;}
+
+  .elyx-nav-item{position:relative;display:flex;align-items:center;}
+  .elyx-submenu{position:absolute;top:100%;left:0;min-width:220px;background:#17150E;border:1px solid rgba(200,168,106,.22);border-radius:12px;padding:8px;display:flex;flex-direction:column;gap:2px;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .18s ease,transform .18s ease,visibility .18s;box-shadow:0 24px 48px rgba(0,0,0,.45);z-index:130;}
+  .elyx-nav-item:hover>.elyx-submenu,.elyx-nav-item:focus-within>.elyx-submenu{opacity:1;visibility:visible;transform:none;}
+  .elyx-submenu a{font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#C9C2B2 !important;padding:9px 12px;border-radius:8px;white-space:nowrap;transition:background .15s,color .15s;}
+  .elyx-submenu a:hover{background:rgba(200,168,106,.16);color:#F2EEE3 !important;}
+  section[id]{scroll-margin-top:96px;}
 </style>
 </helmet>
 
@@ -42,11 +49,11 @@
     <div style="max-width:1320px;margin:0 auto;padding:18px clamp(22px,5vw,56px);display:flex;align-items:center;gap:24px;">
       <a href="/" data-wm style="font-family:'Schibsted Grotesk',sans-serif;font-weight:700;font-size:23px;letter-spacing:.16em;line-height:1;color:#FFFFFF;transition:color .4s ease;"><img src="/assets/elyx-logo-gold.png" alt="Elyx" style="height:26px;width:auto;display:block;"></a>
       <nav class="elyx-desktop-nav" style="margin-left:auto;display:flex;align-items:center;gap:4px;">
-        <a href="/" style="font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.82);padding:8px 13px;transition:color .4s ease,opacity .2s;" style-hover="opacity:.6;">What We Do</a>
-        <a href="/how-we-work" data-nav style="font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.82);padding:8px 13px;transition:color .4s ease,opacity .2s;" style-hover="opacity:.6;">How We Work</a>
-        <a href="/the-team" data-nav style="font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.82);padding:8px 13px;transition:color .4s ease,opacity .2s;" style-hover="opacity:.6;">The Team</a>
-        <a href="/perspectives" data-nav style="font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.82);padding:8px 13px;transition:color .4s ease,opacity .2s;" style-hover="opacity:.6;">Explore</a>
-        <a href="/membership" data-nav style="font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.82);padding:8px 13px;border-bottom:1.5px solid #C8A86A;transition:color .4s ease,opacity .2s;">Programs</a>
+        <div class="elyx-nav-item"><a href="/" style="font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.82);padding:8px 13px;transition:color .4s ease,opacity .2s;" style-hover="opacity:.6;">What We Do</a><div class="elyx-submenu"><a href="#s-healthspan">Healthspan Done Right</a><a href="#s-ambition">Your Ambition</a><a href="#s-you">The Truth About You</a><a href="#s-world">The Truth About the World</a><a href="#s-science">The Science</a><a href="#s-make">Making It Happen</a></div></div>
+        <div class="elyx-nav-item"><a href="/how-we-work" data-nav style="font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.82);padding:8px 13px;transition:color .4s ease,opacity .2s;" style-hover="opacity:.6;">How We Work</a><div class="elyx-submenu"><a href="/how-we-work#s-totality">Working in Totality</a><a href="/how-we-work#s-arc">The Long Arc</a><a href="/how-we-work#s-cascade">The Cascade</a><a href="/how-we-work#s-independent">Independent by Design</a></div></div>
+        <div class="elyx-nav-item"><a href="/the-team" data-nav style="font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.82);padding:8px 13px;transition:color .4s ease,opacity .2s;" style-hover="opacity:.6;">The Team</a><div class="elyx-submenu"><a href="/the-team#s-medical">Medical Command</a><a href="/the-team#s-wellness">Wellness Command</a><a href="/the-team#s-leadership">Leadership</a></div></div>
+        <div class="elyx-nav-item"><a href="/perspectives" data-nav style="font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.82);padding:8px 13px;transition:color .4s ease,opacity .2s;" style-hover="opacity:.6;">Explore</a><div class="elyx-submenu"><a href="/perspectives#s-journal">Journal</a><a href="/perspectives#s-events">Presence & Events</a><a href="/perspectives#s-network">Network</a></div></div>
+        <div class="elyx-nav-item"><a href="/membership" data-nav style="font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.82);padding:8px 13px;border-bottom:1.5px solid #C8A86A;transition:color .4s ease,opacity .2s;">Programs</a><div class="elyx-submenu"><a href="/membership#s-memberships">Memberships</a><a href="/membership#s-atelier">The Atelier</a></div></div>
         <a href="/enquire" data-cta style="margin-left:10px;font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:#191710;background:#C8A86A;padding:11px 20px;border-radius:999px;font-weight:700;transition:background .2s,transform .2s;" style-hover="background:#d9bd84;transform:translateY(-1px);">Join Now</a>
       </nav>
       <button id="elyx-burger" aria-label="Open menu" style="display:none;margin-left:auto;background:none;border:0;padding:8px;cursor:pointer;color:#fff;">
@@ -82,7 +89,7 @@
   </section>
 
   <!-- MEMBERSHIPS: INDIVIDUALS / COUPLES / FAMILY -->
-  <section style="background:linear-gradient(168deg,#FAF7F0 0%,#F2EEE3 55%,#ECE7DA 100%);padding:clamp(80px,10vw,140px) 0;">
+  <section id="s-memberships" style="background:linear-gradient(168deg,#FAF7F0 0%,#F2EEE3 55%,#ECE7DA 100%);padding:clamp(80px,10vw,140px) 0;">
     <div style="max-width:1320px;margin:0 auto;padding:0 clamp(22px,5vw,56px);">
       <div style="margin-bottom:clamp(36px,4vw,52px);">
         <div>
@@ -146,7 +153,7 @@
   </section>
 
   <!-- THE ATELIER -->
-  <section style="background:#F4F3EF;padding:clamp(80px,10vw,140px) 0;">
+  <section id="s-atelier" style="background:#F4F3EF;padding:clamp(80px,10vw,140px) 0;">
     <div style="max-width:1320px;margin:0 auto;padding:0 clamp(22px,5vw,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:clamp(40px,6vw,84px);align-items:center;">
       <div>
         <div style="display:flex;align-items:center;gap:12px;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:#9C7A3C;margin-bottom:22px;"><span style="width:26px;height:1px;background:#9C7A3C;display:inline-block;"></span><span>02 — The Atelier</span></div>
