@@ -53,6 +53,7 @@
   .elyx-nav-item{position:relative;display:flex;align-items:center;}
   .elyx-submenu{position:absolute;top:100%;left:0;min-width:220px;background:#17150E;border:1px solid rgba(200,168,106,.22);border-radius:12px;padding:8px;display:flex;flex-direction:column;gap:2px;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .18s ease,transform .18s ease,visibility .18s;box-shadow:0 24px 48px rgba(0,0,0,.45);z-index:130;}
   .elyx-nav-item:hover>.elyx-submenu,.elyx-nav-item:focus-within>.elyx-submenu{opacity:1;visibility:visible;transform:none;}
+  .elyx-nav-item.elyx-collapsed>.elyx-submenu{opacity:0 !important;visibility:hidden !important;transform:translateY(6px) !important;}
   .elyx-submenu a{font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#C9C2B2 !important;padding:9px 12px;border-radius:8px;white-space:nowrap;transition:background .15s,color .15s;}
   .elyx-submenu a:hover{background:rgba(200,168,106,.16);color:#F2EEE3 !important;}
   section[id]{scroll-margin-top:96px;}

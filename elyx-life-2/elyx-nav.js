@@ -210,6 +210,17 @@
   document.addEventListener('click', function (e) {
     var a = e.target && e.target.closest && e.target.closest('.elyx-submenu a[href], .elyx-m-sub a[href]');
     if (!a) return;
+    // Desktop: close the dropdown as soon as an item is clicked, even if the
+    // pointer is still over the nav item. Force it shut (overrides :hover) and
+    // clear the state when the pointer leaves so the next hover reopens it.
+    var navItem = a.closest('.elyx-nav-item');
+    if (navItem && e.detail > 0) {
+      navItem.classList.add('elyx-collapsed');
+      navItem.addEventListener('mouseleave', function off() {
+        navItem.classList.remove('elyx-collapsed');
+        navItem.removeEventListener('mouseleave', off);
+      });
+    }
     var url;
     try { url = new URL(a.getAttribute('href'), location.href); } catch (_) { return; }
     if (url.pathname !== location.pathname || !url.hash) return;
