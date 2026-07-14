@@ -100,6 +100,18 @@
       window.__elyxToggleMenu(false);
       return;
     }
+    // Mobile accordion toggle: expand/collapse a group's section links.
+    var acc = e.target.closest('[data-elyx-acc]');
+    if (acc) {
+      e.preventDefault();
+      var group = acc.closest('.elyx-m-group');
+      if (group) {
+        var open = group.classList.toggle('is-open');
+        acc.textContent = open ? '–' : '+';
+        acc.setAttribute('aria-expanded', open ? 'true' : 'false');
+      }
+      return;
+    }
     if (isOpen && e.target.closest('#elyx-mobile-menu a')) {
       window.__elyxToggleMenu(false);
     }
@@ -184,7 +196,7 @@
   // hashchange fires, so native anchor scrolling would do nothing). Cross-page
   // links fall through to default navigation; the on-load handler scrolls there.
   document.addEventListener('click', function (e) {
-    var a = e.target && e.target.closest && e.target.closest('.elyx-submenu a[href]');
+    var a = e.target && e.target.closest && e.target.closest('.elyx-submenu a[href], .elyx-m-sub a[href]');
     if (!a) return;
     var url;
     try { url = new URL(a.getAttribute('href'), location.href); } catch (_) { return; }
