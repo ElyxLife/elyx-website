@@ -1,18 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" type="image/png" href="/assets/favicon.png">
 <script src="/support.js"></script>
-<script src="/elyx-nav.js"></script>
+<script src="/elyx-nav.js" defer></script>
+
+<title>Elyx — Healthspan Done Right</title>
+<meta name="description" content="Elyx Life is Singapore's first concierge longevity service — an always-on intelligence layer that turns healthspan ambition into measurable progress.">
+<meta name="keywords" content="longevity, longevity clinic, longevity service, healthspan, lifespan, live longer, living longer, preventive care, preventive medicine, health coaching, health coaches, concierge medicine, precision medicine, medical diagnostics, biomarkers, healthy aging, wellness, Singapore">
+<link rel="canonical" href="https://elyx.life/">
+<meta name="theme-color" content="#141209">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Elyx">
+<meta property="og:locale" content="en_SG">
+<meta property="og:title" content="Elyx — Healthspan Done Right">
+<meta property="og:description" content="Elyx Life is Singapore's first concierge longevity service — an always-on intelligence layer that turns healthspan ambition into measurable progress.">
+<meta property="og:url" content="https://elyx.life/">
+<meta property="og:image" content="https://elyx.life/assets/home-page-hero-10e231.webp">
+<meta property="og:image:alt" content="Elyx — Healthspan Done Right">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Elyx — Healthspan Done Right">
+<meta name="twitter:description" content="Elyx Life is Singapore's first concierge longevity service — an always-on intelligence layer that turns healthspan ambition into measurable progress.">
+<meta name="twitter:image" content="https://elyx.life/assets/home-page-hero-10e231.webp">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://elyx.life/#org","name":"Elyx","legalName":"Elyx Life","url":"https://elyx.life/","logo":"https://elyx.life/assets/elyx-logo-gold.png","description":"Elyx Life is Singapore's first concierge longevity service — an always-on intelligence layer that turns healthspan ambition into measurable progress.","email":"business@elyx.life","address":{"@type":"PostalAddress","streetAddress":"Raffles Hotel Arcade, 328 North Bridge Road","addressLocality":"Singapore","postalCode":"188719","addressCountry":"SG"},"sameAs":["https://www.linkedin.com/company/elyxlife/","https://www.instagram.com/elyxlife.official/"],"alternateName":["Elyx Life","Elyx Longevity"],"slogan":"Healthspan, done right.","knowsAbout":["Longevity","Longevity medicine","Healthspan","Lifespan","Preventive medicine","Preventive care","Health coaching","Precision medicine","Concierge medicine","Medical diagnostics","Biomarkers","Healthy aging"],"keywords":"longevity, longevity clinic, longevity service, healthspan, lifespan, live longer, living longer, preventive care, preventive medicine, health coaching, health coaches, concierge medicine, precision medicine, medical diagnostics, biomarkers, healthy aging, wellness, Singapore","areaServed":{"@type":"Country","name":"Singapore"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"Elyx longevity services","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Concierge longevity membership"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Preventive health assessment"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Health coaching"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Advanced medical diagnostics"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Healthspan optimization"}}]}},{"@type":"WebSite","@id":"https://elyx.life/#website","name":"Elyx","url":"https://elyx.life/","publisher":{"@id":"https://elyx.life/#org"}},{"@type":"WebPage","@id":"https://elyx.life/#webpage","url":"https://elyx.life/","name":"Elyx — Healthspan Done Right","isPartOf":{"@id":"https://elyx.life/#website"},"about":{"@id":"https://elyx.life/#org"},"description":"Elyx Life is Singapore's first concierge longevity service — an always-on intelligence layer that turns healthspan ambition into measurable progress.","primaryImageOfPage":"https://elyx.life/assets/home-page-hero-10e231.webp","keywords":"longevity, longevity clinic, longevity service, healthspan, lifespan, live longer, living longer, preventive care, preventive medicine, health coaching, health coaches, concierge medicine, precision medicine, medical diagnostics, biomarkers, healthy aging, wellness, Singapore"}]}</script>
+<link rel="preload" as="image" href="/assets/home-page-hero-10e231.webp" fetchpriority="high">
 </head>
 <body>
 <x-dc>
 <helmet>
-<link rel="icon" type="image/png" href="/assets/favicon.png">
-<link rel="canonical" href="https://elyx.life/">
-<title>Elyx — Healthspan Done Right</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500;1,600&family=Work+Sans:wght@400;500;600;700&family=Schibsted+Grotesk:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -41,6 +58,17 @@
   .elyx-submenu a{font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#C9C2B2 !important;padding:9px 12px;border-radius:8px;white-space:nowrap;transition:background .15s,color .15s;}
   .elyx-submenu a:hover{background:rgba(200,168,106,.16);color:#F2EEE3 !important;}
   section[id]{scroll-margin-top:96px;}
+
+  #elyx-mobile-menu{justify-content:flex-start !important;overflow-y:auto;}
+  .elyx-m-group{border-bottom:1px solid rgba(226,201,143,.14);}
+  .elyx-m-row{display:flex;align-items:center;gap:12px;}
+  .elyx-m-link{flex:1;font-family:'Schibsted Grotesk',sans-serif;font-weight:600;font-size:clamp(24px,6.5vw,34px);letter-spacing:-.01em;color:#F4F3EF;padding:15px 0;}
+  .elyx-m-toggle{flex:0 0 auto;width:38px;height:38px;background:none;border:1px solid rgba(226,201,143,.3);border-radius:50%;color:#E2C98F;font-size:20px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s;}
+  .elyx-m-toggle:hover{background:rgba(226,201,143,.12);}
+  .elyx-m-sub{display:none;flex-direction:column;padding:0 0 14px 2px;}
+  .elyx-m-group.is-open .elyx-m-sub{display:flex;}
+  .elyx-m-sub a{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#C9C2B2;padding:11px 2px;}
+  .elyx-m-sub a:hover{color:#F2EEE3;}
 </style>
 </helmet>
 
@@ -69,11 +97,11 @@
     <button id="elyx-menu-close" aria-label="Close menu" style="position:absolute;top:24px;right:clamp(20px,6vw,48px);background:none;border:0;color:#E2C98F;font-size:34px;line-height:1;cursor:pointer;padding:6px;">&times;</button>
     <div style="display:flex;align-items:center;gap:10px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#9C7A3C;margin-bottom:20px;"><span style="width:24px;height:1px;background:#9C7A3C;display:inline-block;"></span>Menu</div>
     <nav style="display:flex;flex-direction:column;">
-      <a href="/" style="font-family:'Schibsted Grotesk',sans-serif;font-weight:600;font-size:clamp(26px,7vw,38px);letter-spacing:-.01em;color:#F4F3EF;padding:16px 0;border-bottom:1px solid rgba(226,201,143,.14);">What We Do</a>
-      <a href="/how-we-work" style="font-family:'Schibsted Grotesk',sans-serif;font-weight:600;font-size:clamp(26px,7vw,38px);letter-spacing:-.01em;color:#F4F3EF;padding:16px 0;border-bottom:1px solid rgba(226,201,143,.14);">How We Work</a>
-      <a href="/the-team" style="font-family:'Schibsted Grotesk',sans-serif;font-weight:600;font-size:clamp(26px,7vw,38px);letter-spacing:-.01em;color:#F4F3EF;padding:16px 0;border-bottom:1px solid rgba(226,201,143,.14);">The Team</a>
-      <a href="/perspectives" style="font-family:'Schibsted Grotesk',sans-serif;font-weight:600;font-size:clamp(26px,7vw,38px);letter-spacing:-.01em;color:#F4F3EF;padding:16px 0;border-bottom:1px solid rgba(226,201,143,.14);">Explore</a>
-      <a href="/membership" style="font-family:'Schibsted Grotesk',sans-serif;font-weight:600;font-size:clamp(26px,7vw,38px);letter-spacing:-.01em;color:#F4F3EF;padding:16px 0;border-bottom:1px solid rgba(226,201,143,.14);">Programs</a>
+      <div class="elyx-m-group"><div class="elyx-m-row"><a href="/" class="elyx-m-link">What We Do</a><button class="elyx-m-toggle" data-elyx-acc aria-label="Show What We Do sections" aria-expanded="false">+</button></div><div class="elyx-m-sub"><a href="/#s-healthspan">Healthspan Done Right</a><a href="/#s-ambition">Your Ambition</a><a href="/#s-you">The Truth About You</a><a href="/#s-world">The Truth About Your World</a><a href="/#s-science">The Science</a><a href="/#s-make">Making It Happen</a></div></div>
+      <div class="elyx-m-group"><div class="elyx-m-row"><a href="/how-we-work" class="elyx-m-link">How We Work</a><button class="elyx-m-toggle" data-elyx-acc aria-label="Show How We Work sections" aria-expanded="false">+</button></div><div class="elyx-m-sub"><a href="/how-we-work#s-totality">Working in Totality</a><a href="/how-we-work#s-arc">The Long Arc</a><a href="/how-we-work#s-cascade">The Cascade</a><a href="/how-we-work#s-independent">Independent by Design</a></div></div>
+      <div class="elyx-m-group"><div class="elyx-m-row"><a href="/the-team" class="elyx-m-link">The Team</a><button class="elyx-m-toggle" data-elyx-acc aria-label="Show The Team sections" aria-expanded="false">+</button></div><div class="elyx-m-sub"><a href="/the-team#s-medical">Medical Command</a><a href="/the-team#s-wellness">Wellness Command</a><a href="/the-team#s-leadership">Leadership</a><a href="/careers">Careers</a></div></div>
+      <div class="elyx-m-group"><div class="elyx-m-row"><a href="/perspectives" class="elyx-m-link">Explore</a><button class="elyx-m-toggle" data-elyx-acc aria-label="Show Explore sections" aria-expanded="false">+</button></div><div class="elyx-m-sub"><a href="/perspectives#s-journal">Journal</a><a href="/perspectives#s-events">Presence & Events</a><a href="/perspectives#s-network">Network</a></div></div>
+      <div class="elyx-m-group"><div class="elyx-m-row"><a href="/membership" class="elyx-m-link">Programs</a><button class="elyx-m-toggle" data-elyx-acc aria-label="Show Programs sections" aria-expanded="false">+</button></div><div class="elyx-m-sub"><a href="/membership#s-memberships">Memberships</a><a href="/membership#s-atelier">The Atelier</a></div></div>
     </nav>
     <a href="/enquire" style="margin-top:34px;align-self:flex-start;font-family:'Space Mono',monospace;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#191710;background:#C8A86A;padding:15px 30px;border-radius:999px;font-weight:700;">Join Now</a>
   </div>
@@ -81,7 +109,7 @@
   <!-- HERO -->
   <section id="top" style="position:relative;min-height:100vh;display:flex;align-items:flex-end;overflow:hidden;background:#141209;">
     <div id="hero" style="position:absolute;inset:0;z-index:0;overflow:hidden;">
-      <img src="https://images.squarespace-cdn.com/content/v1/68d24af5fc6a2d3ce44f3853/10e2317d-1cee-4be1-9bd6-04abf37704f1/Home+Page+Hero.png?format=2500w" alt="A figure at a mountain summit at dawn" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:elyx-kenburns 14s ease-out both;">
+      <img fetchpriority="high" src="/assets/home-page-hero-10e231.webp" alt="A figure at a mountain summit at dawn" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:elyx-kenburns 14s ease-out both;">
     </div>
     <div style="position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(20,18,9,.55) 0%,rgba(20,18,9,.12) 32%,rgba(20,18,9,.40) 68%,rgba(20,18,9,.86) 100%);"></div>
     <div style="position:relative;z-index:2;width:100%;max-width:1320px;margin:0 auto;padding:96px clamp(22px,5vw,56px) clamp(72px,9vw,120px);">
@@ -137,7 +165,7 @@
         </div>
       </div>
       <div style="position:relative;border-radius:18px;overflow:hidden;box-shadow:0 30px 70px rgba(28,26,18,.16);">
-        <img src="/assets/ski-clean.png" alt="Powder morning in the mountains" style="display:block;width:100%;height:clamp(380px,42vw,500px);object-fit:cover;object-position:52% 100%;">
+        <img loading="lazy" decoding="async" src="/assets/ski-clean.webp" alt="Powder morning in the mountains" style="display:block;width:100%;height:clamp(380px,42vw,500px);object-fit:cover;object-position:52% 100%;">
         <div style="position:absolute;left:18px;bottom:18px;display:inline-flex;align-items:center;gap:13px;background:rgba(20,18,9,.5);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:12px 16px;">
           <div style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#CFC8B7;line-height:1.5;">Biomarkers<br>optimal</div>
           <div style="display:flex;align-items:baseline;gap:3px;"><span style="font-family:'Schibsted Grotesk',sans-serif;font-weight:700;font-size:27px;color:#fff;line-height:1;">48</span><span style="font-family:'Space Mono',monospace;font-size:12px;color:#E2C98F;">/52</span></div>
@@ -166,7 +194,7 @@
 
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;">
         <a href="#" style="position:relative;border-radius:16px;overflow:hidden;height:clamp(360px,42vw,460px);display:block;transition:transform .4s cubic-bezier(.16,.84,.44,1);box-shadow:0 18px 42px rgba(0,0,0,.3);" style-hover="transform:translateY(-6px);">
-          <img src="/assets/cognitive-strength.png" alt="A serene, mature man smiling in warm natural light" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%;">
+          <img loading="lazy" decoding="async" src="/assets/cognitive-strength.webp" alt="A serene, mature man smiling in warm natural light" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%;">
           <span style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(20,18,9,.5) 0%,rgba(20,18,9,.05) 24%,rgba(20,18,9,.12) 46%,rgba(20,18,9,.92) 100%);"></span>
           <span style="position:absolute;left:16px;right:16px;top:16px;z-index:2;display:flex;align-items:flex-start;justify-content:space-between;gap:8px;">
             <span style="font-family:'Space Mono',monospace;font-size:12px;color:#E2C98F;">01</span>
@@ -342,7 +370,7 @@
 
   <!-- 06 MAKING IT HAPPEN -->
   <section id="s-make" style="position:relative;min-height:clamp(620px,88vh,840px);display:flex;align-items:center;overflow:hidden;background:#141209;scroll-margin-top:70px;">
-    <img src="/assets/raffles-courtyard.webp" alt="The Raffles Hotel courtyard" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 50%;">
+    <img loading="lazy" decoding="async" src="/assets/raffles-courtyard.webp" alt="The Raffles Hotel courtyard" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 50%;">
     <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(96deg,rgba(20,18,9,.94) 0%,rgba(20,18,9,.8) 32%,rgba(20,18,9,.34) 62%,rgba(20,18,9,.4) 100%);"></div>
     <div style="position:relative;z-index:2;width:100%;max-width:1320px;margin:0 auto;padding:clamp(70px,9vw,110px) clamp(22px,5vw,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:clamp(40px,6vw,84px);align-items:center;">
       <div>
@@ -378,7 +406,7 @@
 
   <!-- CLOSING BAND -->
   <section style="position:relative;min-height:clamp(560px,82vh,760px);display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;background:#141209;">
-    <img src="https://images.squarespace-cdn.com/content/v1/68d24af5fc6a2d3ce44f3853/10e2317d-1cee-4be1-9bd6-04abf37704f1/Home+Page+Hero.png?format=2500w" alt="A summit at dawn" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 18%;">
+    <img fetchpriority="high" src="/assets/home-page-hero-10e231.webp" alt="A summit at dawn" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 18%;">
     <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(20,18,9,.62),rgba(20,18,9,.78));"></div>
     <div style="position:relative;z-index:2;max-width:760px;padding:0 clamp(22px,5vw,56px);">
       <div style="display:inline-flex;align-items:center;gap:12px;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:#E2C98F;margin-bottom:26px;">

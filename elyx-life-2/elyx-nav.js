@@ -59,6 +59,16 @@
     setBackgroundInert(menu, isOpen);
   }
 
+  // Collapse all mobile accordion groups (so the menu reopens in a clean state).
+  function resetAccordions(menu) {
+    if (!menu) return;
+    menu.querySelectorAll('.elyx-m-group.is-open').forEach(function (g) {
+      g.classList.remove('is-open');
+      var t = g.querySelector('.elyx-m-toggle');
+      if (t) { t.textContent = '+'; t.setAttribute('aria-expanded', 'false'); }
+    });
+  }
+
   window.__elyxToggleMenu = function (open) {
     const nodes = els();
     if (!nodes.menu) return;
@@ -66,6 +76,8 @@
     if (open) lastFocus = document.activeElement;
     isOpen = !!open;
     applyState();
+
+    if (!open) resetAccordions(nodes.menu);
 
     if (open) {
       const focusTarget = nodes.closeBtn || focusables(nodes.menu, nodes.closeBtn)[0] || nodes.menu;
@@ -98,6 +110,18 @@
     if (e.target.closest('#elyx-menu-close')) {
       e.preventDefault();
       window.__elyxToggleMenu(false);
+      return;
+    }
+    // Mobile accordion toggle: expand/collapse a group's section links.
+    var acc = e.target.closest('[data-elyx-acc]');
+    if (acc) {
+      e.preventDefault();
+      var group = acc.closest('.elyx-m-group');
+      if (group) {
+        var open = group.classList.toggle('is-open');
+        acc.textContent = open ? '–' : '+';
+        acc.setAttribute('aria-expanded', open ? 'true' : 'false');
+      }
       return;
     }
     if (isOpen && e.target.closest('#elyx-mobile-menu a')) {
@@ -184,7 +208,7 @@
   // hashchange fires, so native anchor scrolling would do nothing). Cross-page
   // links fall through to default navigation; the on-load handler scrolls there.
   document.addEventListener('click', function (e) {
-    var a = e.target && e.target.closest && e.target.closest('.elyx-submenu a[href]');
+    var a = e.target && e.target.closest && e.target.closest('.elyx-submenu a[href], .elyx-m-sub a[href]');
     if (!a) return;
     var url;
     try { url = new URL(a.getAttribute('href'), location.href); } catch (_) { return; }
