@@ -47,18 +47,41 @@ jobs:
             --exclude "README.md" \
             --exclude "robots.txt" \
             --exclude "robots.staging.txt" \
+            --exclude "how-we-work" \
+            --exclude "the-team" \
+            --exclude "perspectives" \
+            --exclude "membership" \
+            --exclude "media-center" \
+            --exclude "location" \
+            --exclude "enquire" \
+            --exclude "careers" \
+            --exclude "thank-you" \
+            --exclude "journal/*" \
             --exclude "support" \
             --exclude "privacy"
 
       - name: Publish clean URL aliases
         run: |
-          # Reuse Support.dc.html / Privacy.dc.html at /support and /privacy (no duplicated source)
-          aws s3 cp Support.dc.html s3://${{ env.S3_BUCKET }}/support \
-            --cache-control "public, max-age=3600" \
-            --content-type "text/html; charset=utf-8"
-          aws s3 cp Privacy.dc.html s3://${{ env.S3_BUCKET }}/privacy \
-            --cache-control "public, max-age=3600" \
-            --content-type "text/html; charset=utf-8"
+          # Serve each page at a clean, extensionless URL (no duplicated source files).
+          publish() {
+            aws s3 cp "$1" "s3://${{ env.S3_BUCKET }}/$2" \
+              --cache-control "public, max-age=3600" \
+              --content-type "text/html; charset=utf-8"
+          }
+          publish Intelligence.dc.html how-we-work
+          publish WhoWeAre.dc.html the-team
+          publish Perspectives.dc.html perspectives
+          publish Membership.dc.html membership
+          publish MediaCenter.dc.html media-center
+          publish Location.dc.html location
+          publish Inquiry.dc.html enquire
+          publish Careers.dc.html careers
+          publish ThankYou.dc.html thank-you
+          publish Journal-Price-of-Staying-Capable.dc.html journal/the-price-of-staying-capable
+          publish Journal-Signal-and-Noise.dc.html journal/signal-and-noise
+          publish Journal-Stop-Romanticizing-Death.dc.html journal/stop-romanticizing-death
+          publish Support.dc.html support
+          publish Privacy.dc.html privacy
 
       - name: Upload staging robots.txt
         run: |
