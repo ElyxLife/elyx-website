@@ -3,13 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
-<script src="./elyx-nav.js"></script>
+<script src="/support.js"></script>
+<script src="/elyx-nav.js"></script>
 </head>
 <body>
 <x-dc>
 <helmet>
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="canonical" href="https://elyx.life/journal/stop-romanticizing-death">
 <title>Stop Romanticizing Death — Elyx Journal</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -44,14 +45,14 @@
   <!-- NAV -->
   <header id="elyx-header" style="position:fixed;top:0;left:0;right:0;z-index:90;background:transparent;border-bottom:1px solid transparent;transition:background .4s ease,border-color .4s ease;">
     <div style="max-width:1320px;margin:0 auto;padding:18px clamp(22px,5vw,56px);display:flex;align-items:center;gap:24px;">
-      <a href="Home.dc.html" data-wm style="line-height:1;"><img src="assets/elyx-logo-gold.png" alt="Elyx" style="height:26px;width:auto;display:block;"></a>
+      <a href="/" data-wm style="line-height:1;"><img src="/assets/elyx-logo-gold.png" alt="Elyx" style="height:26px;width:auto;display:block;"></a>
       <nav class="elyx-desktop-nav" style="margin-left:auto;display:flex;align-items:center;gap:4px;">
-        <a href="Home.dc.html" style="font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.82);padding:8px 13px;transition:color .4s ease,opacity .2s;" style-hover="opacity:.6;">What We Do</a>
-        <a href="Intelligence.dc.html" data-nav style="font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.82);padding:8px 13px;transition:color .4s ease,opacity .2s;" style-hover="opacity:.6;">How We Work</a>
-        <a href="WhoWeAre.dc.html" data-nav style="font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.82);padding:8px 13px;transition:color .4s ease,opacity .2s;" style-hover="opacity:.6;">The Team</a>
-        <a href="Perspectives.dc.html" data-nav style="font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.82);padding:8px 13px;border-bottom:1.5px solid #C8A86A;transition:color .4s ease,opacity .2s;">Explore</a>
-        <a href="Membership.dc.html" data-nav style="font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.82);padding:8px 13px;transition:color .4s ease,opacity .2s;" style-hover="opacity:.6;">Programs</a>
-        <a href="Inquiry.dc.html" data-cta style="margin-left:10px;font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:#191710;background:#C8A86A;padding:11px 20px;border-radius:999px;font-weight:700;transition:background .2s,transform .2s;" style-hover="background:#d9bd84;transform:translateY(-1px);">Join Now</a>
+        <a href="/" style="font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.82);padding:8px 13px;transition:color .4s ease,opacity .2s;" style-hover="opacity:.6;">What We Do</a>
+        <a href="/how-we-work" data-nav style="font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.82);padding:8px 13px;transition:color .4s ease,opacity .2s;" style-hover="opacity:.6;">How We Work</a>
+        <a href="/the-team" data-nav style="font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.82);padding:8px 13px;transition:color .4s ease,opacity .2s;" style-hover="opacity:.6;">The Team</a>
+        <a href="/perspectives" data-nav style="font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.82);padding:8px 13px;border-bottom:1.5px solid #C8A86A;transition:color .4s ease,opacity .2s;">Explore</a>
+        <a href="/membership" data-nav style="font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.82);padding:8px 13px;transition:color .4s ease,opacity .2s;" style-hover="opacity:.6;">Programs</a>
+        <a href="/enquire" data-cta style="margin-left:10px;font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:#191710;background:#C8A86A;padding:11px 20px;border-radius:999px;font-weight:700;transition:background .2s,transform .2s;" style-hover="background:#d9bd84;transform:translateY(-1px);">Join Now</a>
       </nav>
       <button id="elyx-burger" aria-label="Open menu" style="display:none;margin-left:auto;background:none;border:0;padding:8px;cursor:pointer;color:#fff;">
         <span style="display:block;width:26px;height:2px;background:currentColor;margin:5px 0;border-radius:2px;"></span>
@@ -64,20 +65,20 @@
     <button id="elyx-menu-close" aria-label="Close menu" style="position:absolute;top:24px;right:clamp(20px,6vw,48px);background:none;border:0;color:#E2C98F;font-size:34px;line-height:1;cursor:pointer;padding:6px;">&times;</button>
     <div style="display:flex;align-items:center;gap:10px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#9C7A3C;margin-bottom:20px;"><span style="width:24px;height:1px;background:#9C7A3C;display:inline-block;"></span>Menu</div>
     <nav style="display:flex;flex-direction:column;">
-      <a href="Home.dc.html" style="font-family:'Schibsted Grotesk',sans-serif;font-weight:600;font-size:clamp(26px,7vw,38px);letter-spacing:-.01em;color:#F4F3EF;padding:16px 0;border-bottom:1px solid rgba(226,201,143,.14);">What We Do</a>
-      <a href="Intelligence.dc.html" style="font-family:'Schibsted Grotesk',sans-serif;font-weight:600;font-size:clamp(26px,7vw,38px);letter-spacing:-.01em;color:#F4F3EF;padding:16px 0;border-bottom:1px solid rgba(226,201,143,.14);">How We Work</a>
-      <a href="WhoWeAre.dc.html" style="font-family:'Schibsted Grotesk',sans-serif;font-weight:600;font-size:clamp(26px,7vw,38px);letter-spacing:-.01em;color:#F4F3EF;padding:16px 0;border-bottom:1px solid rgba(226,201,143,.14);">The Team</a>
-      <a href="Perspectives.dc.html" style="font-family:'Schibsted Grotesk',sans-serif;font-weight:600;font-size:clamp(26px,7vw,38px);letter-spacing:-.01em;color:#F4F3EF;padding:16px 0;border-bottom:1px solid rgba(226,201,143,.14);">Explore</a>
-      <a href="Membership.dc.html" style="font-family:'Schibsted Grotesk',sans-serif;font-weight:600;font-size:clamp(26px,7vw,38px);letter-spacing:-.01em;color:#F4F3EF;padding:16px 0;border-bottom:1px solid rgba(226,201,143,.14);">Programs</a>
+      <a href="/" style="font-family:'Schibsted Grotesk',sans-serif;font-weight:600;font-size:clamp(26px,7vw,38px);letter-spacing:-.01em;color:#F4F3EF;padding:16px 0;border-bottom:1px solid rgba(226,201,143,.14);">What We Do</a>
+      <a href="/how-we-work" style="font-family:'Schibsted Grotesk',sans-serif;font-weight:600;font-size:clamp(26px,7vw,38px);letter-spacing:-.01em;color:#F4F3EF;padding:16px 0;border-bottom:1px solid rgba(226,201,143,.14);">How We Work</a>
+      <a href="/the-team" style="font-family:'Schibsted Grotesk',sans-serif;font-weight:600;font-size:clamp(26px,7vw,38px);letter-spacing:-.01em;color:#F4F3EF;padding:16px 0;border-bottom:1px solid rgba(226,201,143,.14);">The Team</a>
+      <a href="/perspectives" style="font-family:'Schibsted Grotesk',sans-serif;font-weight:600;font-size:clamp(26px,7vw,38px);letter-spacing:-.01em;color:#F4F3EF;padding:16px 0;border-bottom:1px solid rgba(226,201,143,.14);">Explore</a>
+      <a href="/membership" style="font-family:'Schibsted Grotesk',sans-serif;font-weight:600;font-size:clamp(26px,7vw,38px);letter-spacing:-.01em;color:#F4F3EF;padding:16px 0;border-bottom:1px solid rgba(226,201,143,.14);">Programs</a>
     </nav>
-    <a href="Inquiry.dc.html" style="margin-top:34px;align-self:flex-start;font-family:'Space Mono',monospace;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#191710;background:#C8A86A;padding:15px 30px;border-radius:999px;font-weight:700;">Join Now</a>
+    <a href="/enquire" style="margin-top:34px;align-self:flex-start;font-family:'Space Mono',monospace;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#191710;background:#C8A86A;padding:15px 30px;border-radius:999px;font-weight:700;">Join Now</a>
   </div>
 
   <!-- HERO -->
   <section id="top" style="position:relative;min-height:56vh;display:flex;align-items:flex-end;overflow:hidden;background:radial-gradient(125% 120% at 50% 20%,#262318 0%,#191710 55%,#120F08 100%);color:#F2EEE3;">
     <div style="position:absolute;inset:0;z-index:0;opacity:.4;background-image:linear-gradient(rgba(200,168,106,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(200,168,106,.06) 1px,transparent 1px);background-size:54px 54px;"></div>
     <div style="position:relative;z-index:2;width:100%;max-width:900px;margin:0 auto;padding:130px clamp(22px,5vw,56px) 52px;">
-      <a href="Perspectives.dc.html" style="display:inline-flex;align-items:center;gap:8px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#E2C98F;margin-bottom:24px;" style-hover="color:#fff;">&larr; The Journal</a>
+      <a href="/perspectives" style="display:inline-flex;align-items:center;gap:8px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#E2C98F;margin-bottom:24px;" style-hover="color:#fff;">&larr; The Journal</a>
       <h1 style="font-family:'Schibsted Grotesk',sans-serif;font-weight:600;font-size:clamp(28px,4vw,52px);line-height:1.06;letter-spacing:-.024em;margin:0 0 16px;color:#FFFFFF;">Stop Romanticizing Death</h1>
       <p style="font-family:'Cormorant Garamond',serif;font-size:1.15em;font-style:italic;font-size:clamp(17px,1.9vw,22px);line-height:1.45;color:#E2C98F;margin:0 0 18px;">A healthspan response to Time&rsquo;s &ldquo;What Can We Learn From Death?&rdquo;</p>
       <div style="font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:#A9A496;">Ashish Chordia &middot; Mar 5, 2026</div>
@@ -137,8 +138,8 @@
 <p style="margin:0 0 18px;font-size:14px;line-height:1.65;color:#56544B;">Singapore Ministry of Health. Statistics on life expectancy and health outcomes. Accessed 2026.</p>
 <p style="margin:0 0 18px;"><em>Ashish Chordia is the Co-founder and CEO of Elyx, leading the vision and day-to-day operations of Singapore&rsquo;s first concierge longevity service.</em></p>
       <div style="display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;border-top:1px solid #E4E2DA;margin-top:44px;padding-top:22px;">
-        <a href="Journal-Signal-and-Noise.dc.html" style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#9C7A3C;" style-hover="color:#7C5F2C;">&larr; Signal and Noise</a>
-        <a href="Journal-Price-of-Staying-Capable.dc.html" style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#9C7A3C;text-align:right;" style-hover="color:#7C5F2C;">The Price of Staying Capable &rarr;</a>
+        <a href="/journal/signal-and-noise" style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#9C7A3C;" style-hover="color:#7C5F2C;">&larr; Signal and Noise</a>
+        <a href="/journal/the-price-of-staying-capable" style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#9C7A3C;text-align:right;" style-hover="color:#7C5F2C;">The Price of Staying Capable &rarr;</a>
       </div>
     </div>
   </section>
@@ -148,7 +149,7 @@
     <div style="max-width:1320px;margin:0 auto;padding:0 clamp(22px,5vw,56px);">
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:clamp(28px,4vw,56px);padding-bottom:46px;border-bottom:1px solid rgba(200,168,106,.16);">
         <div>
-          <div style="font-family:'Schibsted Grotesk',sans-serif;font-weight:700;font-size:22px;letter-spacing:.14em;color:#F2EEE3;margin-bottom:14px;"><img src="assets/elyx-logo-gold.png" alt="Elyx" style="height:30px;width:auto;display:block;margin-bottom:2px;"></div>
+          <div style="font-family:'Schibsted Grotesk',sans-serif;font-weight:700;font-size:22px;letter-spacing:.14em;color:#F2EEE3;margin-bottom:14px;"><img src="/assets/elyx-logo-gold.png" alt="Elyx" style="height:30px;width:auto;display:block;margin-bottom:2px;"></div>
           <p style="font-size:13.5px;line-height:1.6;margin:0;max-width:30ch;">Engineering healthspan, one human at a time.</p>
           <div style="display:flex;gap:10px;margin-top:18px;">
             <a href="https://www.linkedin.com/company/elyxlife/" target="_blank" rel="noopener" aria-label="Elyx on LinkedIn" style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border:1px solid rgba(200,168,106,.32);border-radius:50%;color:#C8A86A;transition:border-color .2s,color .2s,background .2s;" style-hover="background:#C8A86A;border-color:#C8A86A;color:#141209;"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M7.12 20.45H3.56V9h3.56v11.45zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.86-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29z"/></svg></a>
@@ -160,18 +161,18 @@
         <div>
           <div style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:#7E7866;margin-bottom:16px;">Explore</div>
           <div style="display:flex;flex-direction:column;gap:11px;font-size:14px;">
-            <a href="Intelligence.dc.html" style="transition:color .2s;" style-hover="color:#F2EEE3;">How We Work</a>
-            <a href="WhoWeAre.dc.html" style="transition:color .2s;" style-hover="color:#F2EEE3;">Who We Are</a>
-            <a href="Perspectives.dc.html" style="transition:color .2s;" style-hover="color:#F2EEE3;">Explore</a>
-            <a href="Membership.dc.html" style="transition:color .2s;" style-hover="color:#F2EEE3;">Programs</a>
+            <a href="/how-we-work" style="transition:color .2s;" style-hover="color:#F2EEE3;">How We Work</a>
+            <a href="/the-team" style="transition:color .2s;" style-hover="color:#F2EEE3;">Who We Are</a>
+            <a href="/perspectives" style="transition:color .2s;" style-hover="color:#F2EEE3;">Explore</a>
+            <a href="/membership" style="transition:color .2s;" style-hover="color:#F2EEE3;">Programs</a>
           </div>
         </div>
         <div>
           <div style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:#7E7866;margin-bottom:16px;">Company</div>
           <div style="display:flex;flex-direction:column;gap:11px;font-size:14px;">
-            <a href="Careers.dc.html" style="transition:color .2s;" style-hover="color:#F2EEE3;">Careers</a>
-            <a href="MediaCenter.dc.html" style="transition:color .2s;" style-hover="color:#F2EEE3;">Media Center</a>
-            <a href="MediaCenter.dc.html#news" style="transition:color .2s;" style-hover="color:#F2EEE3;">In the News</a>
+            <a href="/careers" style="transition:color .2s;" style-hover="color:#F2EEE3;">Careers</a>
+            <a href="/media-center" style="transition:color .2s;" style-hover="color:#F2EEE3;">Media Center</a>
+            <a href="/media-center#news" style="transition:color .2s;" style-hover="color:#F2EEE3;">In the News</a>
             <a href="mailto:business@elyx.life?subject=Exploring%20a%20potential%20partnership%20with%20Elyx&body=I%E2%80%99d%20like%20to%20enquire%20about%20a%20potential%20partnership%20with%20Elyx.%0A%0AWe%20believe%20there%20may%20be%20an%20opportunity%20to%20collaborate%20and%20would%20welcome%20a%20conversation%20to%20explore%20alignment%2C%20scope%2C%20and%20next%20steps.%0A%0APlease%20let%20me%20know%20the%20best%20way%20to%20proceed." style="transition:color .2s;" style-hover="color:#F2EEE3;">Partner with Us</a>
             <a href="/support" style="transition:color .2s;" style-hover="color:#F2EEE3;">Support</a>
             <a href="/privacy" style="transition:color .2s;" style-hover="color:#F2EEE3;">Privacy Policy</a>
