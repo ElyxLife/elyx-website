@@ -179,6 +179,23 @@
     }, 80);
   }
 
+  // Submenu clicks: for a section link on the CURRENT page, always scroll to
+  // it — even on a repeat click where the hash is unchanged (no navigation or
+  // hashchange fires, so native anchor scrolling would do nothing). Cross-page
+  // links fall through to default navigation; the on-load handler scrolls there.
+  document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest && e.target.closest('.elyx-submenu a[href]');
+    if (!a) return;
+    var url;
+    try { url = new URL(a.getAttribute('href'), location.href); } catch (_) { return; }
+    if (url.pathname !== location.pathname || !url.hash) return;
+    var el = document.getElementById(decodeURIComponent(url.hash.slice(1)));
+    if (!el) return;
+    e.preventDefault();
+    try { history.replaceState(null, '', url.hash); } catch (_) {}
+    scrollToHash(true);
+  });
+
   function bootAria() {
     applyState();
     scrollToHashWhenReady();
