@@ -59,6 +59,16 @@
     setBackgroundInert(menu, isOpen);
   }
 
+  // Collapse all mobile accordion groups (so the menu reopens in a clean state).
+  function resetAccordions(menu) {
+    if (!menu) return;
+    menu.querySelectorAll('.elyx-m-group.is-open').forEach(function (g) {
+      g.classList.remove('is-open');
+      var t = g.querySelector('.elyx-m-toggle');
+      if (t) { t.textContent = '+'; t.setAttribute('aria-expanded', 'false'); }
+    });
+  }
+
   window.__elyxToggleMenu = function (open) {
     const nodes = els();
     if (!nodes.menu) return;
@@ -66,6 +76,8 @@
     if (open) lastFocus = document.activeElement;
     isOpen = !!open;
     applyState();
+
+    if (!open) resetAccordions(nodes.menu);
 
     if (open) {
       const focusTarget = nodes.closeBtn || focusables(nodes.menu, nodes.closeBtn)[0] || nodes.menu;
