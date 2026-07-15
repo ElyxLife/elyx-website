@@ -55,6 +55,7 @@ jobs:
             --exclude "careers" \
             --exclude "thank-you" \
             --exclude "journal/*" \
+            --exclude "journal" \
             --exclude "support" \
             --exclude "privacy"
 
@@ -78,6 +79,7 @@ jobs:
           publish Journal-Price-of-Staying-Capable.dc.html journal/the-price-of-staying-capable
           publish Journal-Signal-and-Noise.dc.html journal/signal-and-noise
           publish Journal-L-Theanine.dc.html journal/l-theanine
+          publish Journal-Index.dc.html journal
           publish Journal-Stop-Romanticizing-Death.dc.html journal/stop-romanticizing-death
           publish Support.dc.html support
           publish Privacy.dc.html privacy
