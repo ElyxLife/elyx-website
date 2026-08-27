@@ -125,7 +125,7 @@
 
       <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#9C7A3C;margin:0 0 6px;">Engineering</div>
       <div style="border-top:1px solid #E4E2DA;margin-bottom:clamp(30px,4vw,44px);">
-        <details data-role style="border-bottom:1px solid #E4E2DA;">
+        <details data-role id="head-of-engineering" style="border-bottom:1px solid #E4E2DA;">
           <summary style="cursor:pointer;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;padding:22px 6px;"><span style="font-family:'Schibsted Grotesk',sans-serif;font-weight:600;font-size:clamp(17px,2vw,21px);letter-spacing:-.01em;">Head of Engineering</span><span data-chev style="font-family:'Space Mono',monospace;font-size:16px;color:#9C7A3C;transition:transform .3s;">+</span></summary>
           <div style="padding:0 6px 26px;">
             <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;color:#74726A;margin:0 0 22px;">Location: Singapore &middot; Reports to: COO &middot; Compensation: [base + equity] &middot; Type: Full-time</div>
@@ -171,7 +171,7 @@
             </div>
           </div>
         </details>
-        <details data-role style="border-bottom:1px solid #E4E2DA;">
+        <details data-role id="full-stack-engineer" style="border-bottom:1px solid #E4E2DA;">
           <summary style="cursor:pointer;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;padding:22px 6px;"><span style="font-family:'Schibsted Grotesk',sans-serif;font-weight:600;font-size:clamp(17px,2vw,21px);letter-spacing:-.01em;">Full-Stack Engineer</span><span data-chev style="font-family:'Space Mono',monospace;font-size:16px;color:#9C7A3C;transition:transform .3s;">+</span></summary>
           <div style="padding:0 6px 26px;">
             <p style="font-size:15px;line-height:1.65;color:#56544B;margin:0 0 16px;max-width:74ch;">We are seeking a Full-Stack Engineer to own the entire development loop end to end &mdash; from the internal platforms used by our medical experts to the client-facing interfaces that guide daily health decisions. You will move fluidly across the stack, designing and shipping both front-end and back-end, and refuse to be boxed into one layer. You will bridge the digital and physical worlds, integrating wearable data, medical labs, and physical health spaces into a single cohesive experience.</p>
@@ -185,7 +185,7 @@
 
       <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#9C7A3C;margin:0 0 6px;">Product</div>
       <div style="border-top:1px solid #E4E2DA;margin-bottom:clamp(30px,4vw,44px);">
-        <details data-role style="border-bottom:1px solid #E4E2DA;">
+        <details data-role id="healthspan-product-manager" style="border-bottom:1px solid #E4E2DA;">
           <summary style="cursor:pointer;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;padding:22px 6px;"><span style="font-family:'Schibsted Grotesk',sans-serif;font-weight:600;font-size:clamp(17px,2vw,21px);letter-spacing:-.01em;">Healthspan Product Manager</span><span data-chev style="font-family:'Space Mono',monospace;font-size:16px;color:#9C7A3C;transition:transform .3s;">+</span></summary>
           <div style="padding:0 6px 26px;">
             <p style="font-size:15px;line-height:1.65;color:#56544B;margin:0 0 16px;max-width:74ch;">A founding-stage product role, central to building the Elyx product. The role owns the value, usability, and viability of what the team builds, and is accountable for the member&rsquo;s experience — across both the tech layer (member app, provider app, internal tooling) and the service layer (the integrated work of the human bench), brought together into a single experience the member perceives as one thing.</p>
@@ -201,7 +201,7 @@
 
       <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#9C7A3C;margin:0 0 6px;">Lifestyle</div>
       <div style="border-top:1px solid #E4E2DA;">
-        <details data-role style="border-bottom:1px solid #E4E2DA;">
+        <details data-role id="executive-healthspan-concierge" style="border-bottom:1px solid #E4E2DA;">
           <summary style="cursor:pointer;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;padding:22px 6px;"><span style="font-family:'Schibsted Grotesk',sans-serif;font-weight:600;font-size:clamp(17px,2vw,21px);letter-spacing:-.01em;">Executive Healthspan Concierge</span><span data-chev style="font-family:'Space Mono',monospace;font-size:16px;color:#9C7A3C;transition:transform .3s;">+</span></summary>
           <div style="padding:0 6px 26px;">
             <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;color:#74726A;margin:0 0 22px;">Location: Raffles Hotel Arcade, Singapore &middot; Reports to: COO &middot; Type: Full-time</div>
@@ -349,6 +349,38 @@ class Component extends DCLogic {
         const chev = d.querySelector('[data-chev]');
         if (chev) chev.style.transform = d.open ? 'rotate(45deg)' : 'none';
       });
+    });
+
+    // Deep links: /careers#<role-id> opens that role and scrolls to it.
+    const openRole = (id) => {
+      const el = id && document.getElementById(id);
+      if (!el || !el.hasAttribute || !el.hasAttribute('data-role')) return null;
+      if (!el.open) {
+        el.open = true;
+        const chev = el.querySelector('[data-chev]');
+        if (chev) chev.style.transform = 'rotate(45deg)';
+      }
+      return el;
+    };
+    const roleHash = () => (location.hash || '').replace(/^#/, '');
+    if (roleHash()) {
+      // The runtime and hero animation can shift layout after mount, so
+      // re-assert the scroll target until it holds (or we time out).
+      let tries = 0, stable = 0;
+      const iv = setInterval(() => {
+        tries++;
+        const el = openRole(roleHash());
+        if (el) {
+          const y = el.getBoundingClientRect().top + window.pageYOffset - 96;
+          if (Math.abs(window.pageYOffset - y) <= 4) { if (++stable >= 3) { clearInterval(iv); return; } }
+          else { stable = 0; window.scrollTo(0, y); }
+        }
+        if (tries > 60) clearInterval(iv);
+      }, 50);
+    }
+    window.addEventListener('hashchange', () => {
+      const el = openRole(roleHash());
+      if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.pageYOffset - 96, behavior: 'smooth' });
     });
 
     const header = document.getElementById('elyx-header');
