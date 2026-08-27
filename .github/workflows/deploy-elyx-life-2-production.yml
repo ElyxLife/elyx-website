@@ -53,6 +53,7 @@ jobs:
             --exclude "location" \
             --exclude "enquire" \
             --exclude "careers" \
+            --exclude "careers/*" \
             --exclude "thank-you" \
             --exclude "journal/*" \
             --exclude "journal" \
@@ -75,6 +76,10 @@ jobs:
           publish Location.dc.html location
           publish Inquiry.dc.html enquire
           publish Careers.dc.html careers
+          publish Job-HeadOfEngineering.dc.html careers/head-of-engineering
+          publish Job-FullStackEngineer.dc.html careers/full-stack-engineer
+          publish Job-HealthspanProductManager.dc.html careers/healthspan-product-manager
+          publish Job-ExecutiveHealthspanConcierge.dc.html careers/executive-healthspan-concierge
           publish ThankYou.dc.html thank-you
           publish Journal-Price-of-Staying-Capable.dc.html journal/the-price-of-staying-capable
           publish Journal-Signal-and-Noise.dc.html journal/signal-and-noise
