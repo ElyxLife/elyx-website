@@ -58,7 +58,8 @@ jobs:
             --exclude "journal/*" \
             --exclude "journal" \
             --exclude "support" \
-            --exclude "privacy"
+            --exclude "privacy" \
+            --exclude "pengtong"
 
       - name: Publish clean URL aliases
         run: |
@@ -88,6 +89,7 @@ jobs:
           publish Journal-Stop-Romanticizing-Death.dc.html journal/stop-romanticizing-death
           publish Support.dc.html support
           publish Privacy.dc.html privacy
+          publish Pengtong.dc.html pengtong
 
       - name: Invalidate CloudFront cache
         run: |
