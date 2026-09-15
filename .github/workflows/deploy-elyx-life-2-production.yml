@@ -54,6 +54,8 @@ jobs:
             --exclude "health-maximization-system/*" \
             --exclude "science-for-the-life-you-want" \
             --exclude "science-for-the-life-you-want/*" \
+            --exclude "the-science" \
+            --exclude "the-science/*" \
             --exclude "research" \
             --exclude "research/*" \
             --exclude "media-center" \
@@ -81,8 +83,9 @@ jobs:
           publish WhoWeAre.dc.html the-team
           publish Perspectives.dc.html perspectives
           publish Membership.dc.html membership
-          publish HealthMaximizationSystem.dc.html science-for-the-life-you-want
-          publish ScienceForLifeWhitePaper.dc.html research/science-for-the-life-you-want
+          publish HealthMaximizationSystem.dc.html the-science
+          publish ScienceForLifeWhitePaper.dc.html science-for-the-life-you-want
+          publish HealthMaximizationSystemRedirect.dc.html research/science-for-the-life-you-want
           publish HealthMaximizationSystemRedirect.dc.html health-maximization-system
           publish MediaCenter.dc.html media-center
           publish Location.dc.html location

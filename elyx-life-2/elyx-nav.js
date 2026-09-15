@@ -19,8 +19,8 @@
   }
 
   function ensureEvidenceNav() {
-    var href = '/science-for-the-life-you-want';
-    var isCurrent = location.pathname === href || location.pathname === '/research/science-for-the-life-you-want';
+    var href = '/the-science';
+    var isCurrent = location.pathname === href || location.pathname === '/science-for-the-life-you-want';
 
     document.querySelectorAll('.elyx-desktop-nav').forEach(function (nav) {
       if (nav.querySelector('[data-evidence-nav]')) return;

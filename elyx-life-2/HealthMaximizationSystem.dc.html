@@ -9,20 +9,20 @@
 
 <title>Science for the Life You Want | Elyx</title>
 <meta name="description" content="How Elyx connects the world's evidence with what we know about you to identify what deserves your attention now.">
-<link rel="canonical" href="https://elyx.life/science-for-the-life-you-want">
+<link rel="canonical" href="https://elyx.life/the-science">
 <meta name="theme-color" content="#141209">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Elyx">
 <meta property="og:locale" content="en_SG">
 <meta property="og:title" content="Science for the Life You Want | Elyx">
 <meta property="og:description" content="From everything that could improve your health to what matters for you now.">
-<meta property="og:url" content="https://elyx.life/science-for-the-life-you-want">
+<meta property="og:url" content="https://elyx.life/the-science">
 <meta property="og:image" content="https://elyx.life/assets/cognitive-strength.webp">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Science for the Life You Want | Elyx">
 <meta name="twitter:description" content="From everything that could improve your health to what matters for you now.">
 <meta name="twitter:image" content="https://elyx.life/assets/cognitive-strength.webp">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://elyx.life/#org","name":"Elyx","legalName":"Elyx Life","url":"https://elyx.life/","logo":"https://elyx.life/assets/elyx-logo-gold.png"},{"@type":"WebPage","@id":"https://elyx.life/science-for-the-life-you-want#webpage","name":"Science for the Life You Want | Elyx","url":"https://elyx.life/science-for-the-life-you-want","description":"How Elyx connects the world's evidence with what we know about you to identify what deserves your attention now.","isPartOf":{"@type":"WebSite","name":"Elyx","url":"https://elyx.life/"},"mainEntity":{"@id":"https://elyx.life/research/science-for-the-life-you-want#article"}},{"@type":"ScholarlyArticle","@id":"https://elyx.life/research/science-for-the-life-you-want#article","headline":"Science for the Life You Want","alternativeHeadline":"An Architecture for Turning the World’s Evidence into Personal Action","description":"The architecture, scientific foundations and decision principles behind the Elyx Health Maximization System.","url":"https://elyx.life/research/science-for-the-life-you-want","mainEntityOfPage":{"@id":"https://elyx.life/research/science-for-the-life-you-want#webpage"},"datePublished":"2026-09-10","dateModified":"2026-09-15","version":"1.1","author":[{"@type":"Person","name":"Peng Ong"},{"@type":"Person","name":"Jade Ngoc Le-Cascarino"}],"publisher":{"@id":"https://elyx.life/#org"},"image":"https://elyx.life/assets/cognitive-strength.webp","inLanguage":"en"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://elyx.life/the-science#webpage","name":"The Science | Elyx","url":"https://elyx.life/the-science","description":"How Elyx connects the world's evidence with what we know about you to identify what deserves your attention now.","isPartOf":{"@type":"WebSite","name":"Elyx","url":"https://elyx.life/"}}</script>
 </head>
 <body>
 <x-dc>
@@ -183,12 +183,7 @@
           return response.json();
         }).then(function (result) {
           if (!result.success) throw new Error('Submission failed');
-          var currentForm = document.getElementById('white-paper-access-form');
-          var success = document.getElementById('white-paper-access-success');
-          if (currentForm) currentForm.style.display = 'none';
-          success.innerHTML = '<a href="/research/science-for-the-life-you-want" class="button button-gold">Continue to the white paper →</a>';
-          success.style.display = 'block';
-          success.querySelector('a').focus();
+          window.location.assign('/science-for-the-life-you-want');
         }).catch(function () {
           var currentButton = document.getElementById('white-paper-submit');
           var currentStatus = document.getElementById('white-paper-form-status');
