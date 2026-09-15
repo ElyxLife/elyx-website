@@ -141,7 +141,7 @@
         <div class="eyebrow" style="justify-content:center;color:#C8A86A">White paper</div>
         <h2 class="display" style="font-size:clamp(32px,4vw,50px);margin:0 auto 14px;color:#fff">Read the research.</h2>
         <p style="font-size:15px;line-height:1.6;color:#C9C2B2;max-width:48ch;margin:0 auto 28px">Enter your name and email to continue to the complete paper.</p>
-        <form id="white-paper-access-form" style="max-width:700px;margin:0 auto;text-align:left">
+        <form id="white-paper-access-form" action="https://api.web3forms.com/submit" method="POST" style="max-width:700px;margin:0 auto;text-align:left">
           <input type="hidden" name="access_key" value="bde66eb3-7256-442f-9e8e-eccc775b1e0b">
           <input type="hidden" name="subject" value="White Paper Access — Science for the Life You Want">
           <input type="hidden" name="from_name" value="Elyx White Paper">
@@ -163,13 +163,14 @@
 
   <script>
     (function () {
-      var form = document.getElementById('white-paper-access-form');
-      var button = document.getElementById('white-paper-submit');
-      var status = document.getElementById('white-paper-form-status');
-      var success = document.getElementById('white-paper-access-success');
-      if (!form) return;
-      form.addEventListener('submit', function (event) {
+      if (window.__elyxWhitePaperFormBound) return;
+      window.__elyxWhitePaperFormBound = true;
+      document.addEventListener('submit', function (event) {
+        var form = event.target;
+        if (!form || form.id !== 'white-paper-access-form') return;
         event.preventDefault();
+        var button = form.querySelector('#white-paper-submit');
+        var status = form.querySelector('#white-paper-form-status');
         button.disabled = true;
         status.textContent = 'Submitting…';
         var data = Object.fromEntries(new FormData(form));
@@ -182,13 +183,17 @@
           return response.json();
         }).then(function (result) {
           if (!result.success) throw new Error('Submission failed');
-          form.style.display = 'none';
+          var currentForm = document.getElementById('white-paper-access-form');
+          var success = document.getElementById('white-paper-access-success');
+          if (currentForm) currentForm.style.display = 'none';
           success.innerHTML = '<a href="/research/science-for-the-life-you-want" class="button button-gold">Continue to the white paper →</a>';
           success.style.display = 'block';
           success.querySelector('a').focus();
         }).catch(function () {
-          status.textContent = 'Something went wrong. Please try again.';
-          button.disabled = false;
+          var currentButton = document.getElementById('white-paper-submit');
+          var currentStatus = document.getElementById('white-paper-form-status');
+          if (currentStatus) currentStatus.textContent = 'Something went wrong. Please try again.';
+          if (currentButton) currentButton.disabled = false;
         });
       });
     })();
