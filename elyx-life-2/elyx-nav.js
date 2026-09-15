@@ -26,7 +26,7 @@
       if (nav.querySelector('[data-evidence-nav]')) return;
       var link = document.createElement('a');
       link.href = href;
-      link.textContent = 'Evidence Over Eminence';
+      link.textContent = 'The Science';
       link.setAttribute('data-evidence-nav', '');
       link.style.cssText = "font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.82);padding:8px 10px;white-space:nowrap;transition:color .4s ease,opacity .2s;" + (isCurrent ? 'border-bottom:1.5px solid #C8A86A;' : '');
       var teamItem = Array.from(nav.children).find(function (child) {
@@ -41,7 +41,7 @@
       var group = document.createElement('div');
       group.className = 'elyx-m-group';
       group.setAttribute('data-evidence-nav', '');
-      group.innerHTML = '<div class="elyx-m-row"><a href="' + href + '" class="elyx-m-link">Evidence Over Eminence</a></div>';
+      group.innerHTML = '<div class="elyx-m-row"><a href="' + href + '" class="elyx-m-link">The Science</a></div>';
       var teamGroup = Array.from(nav.children).find(function (child) {
         return !!(child.querySelector && child.querySelector('a[href="/the-team"]'));
       });
