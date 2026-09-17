@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="780" viewBox="0 0 1400 780" role="img" aria-labelledby="title desc">
+  <title id="title">Shifting the odds—not choosing the outcome</title>
+  <desc id="desc">Two substantially overlapping probability distributions. The selected portfolio distribution is shifted modestly toward more favorable outcomes compared with the current outlook.</desc>
+  <rect width="1400" height="780" rx="28" fill="#FAFAF7"/>
+  <text x="100" y="92" fill="#172A3A" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="650">Shifting the odds—not choosing the outcome</text>
+  <text x="100" y="137" fill="#536574" font-family="Inter, Arial, sans-serif" font-size="22">A selected action portfolio aims to make more favorable outcomes more likely.</text>
+  <g font-family="Inter, Arial, sans-serif" font-size="20"><line x1="100" y1="610" x2="1300" y2="610" stroke="#8B989F" stroke-width="2"/><path d="M100 610 L116 601 L116 619 Z" fill="#8B989F"/><path d="M1300 610 L1284 601 L1284 619 Z" fill="#8B989F"/><text x="100" y="654" fill="#536574">Less favorable outcomes</text><text x="1300" y="654" text-anchor="end" fill="#536574">More favorable outcomes</text><text x="42" y="390" transform="rotate(-90 42 390)" text-anchor="middle" fill="#71808A">Relative likelihood</text></g>
+  <path d="M170 610 C280 604 340 548 395 438 C446 336 500 274 575 274 C650 274 704 336 755 438 C810 548 870 604 980 610 Z" fill="#708394" fill-opacity="0.26" stroke="#647989" stroke-width="4"/>
+  <path d="M380 610 C490 604 550 548 605 438 C656 336 710 274 785 274 C860 274 914 336 965 438 C1020 548 1080 604 1190 610 Z" fill="#14A896" fill-opacity="0.26" stroke="#0A8E7E" stroke-width="4"/>
+  <line x1="575" y1="274" x2="575" y2="610" stroke="#647989" stroke-width="2" stroke-dasharray="7 9" opacity="0.7"/><line x1="785" y1="274" x2="785" y2="610" stroke="#0A8E7E" stroke-width="2" stroke-dasharray="7 9" opacity="0.7"/>
+  <line x1="595" y1="220" x2="765" y2="220" stroke="#172A3A" stroke-width="3"/><path d="M765 220 L747 210 L747 230 Z" fill="#172A3A"/><text x="680" y="196" text-anchor="middle" fill="#172A3A" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="600">Expected shift</text>
+  <g font-family="Inter, Arial, sans-serif" font-size="20"><line x1="1010" y1="186" x2="1058" y2="186" stroke="#647989" stroke-width="5"/><text x="1074" y="193" fill="#364B59">Current outlook</text><line x1="1010" y1="224" x2="1058" y2="224" stroke="#0A8E7E" stroke-width="5"/><text x="1074" y="231" fill="#364B59">With selected portfolio</text></g>
+  <line x1="100" y1="700" x2="1300" y2="700" stroke="#D9DFE1" stroke-width="1"/><text x="100" y="742" fill="#65757F" font-family="Inter, Arial, sans-serif" font-size="18">Conceptual illustration—not a forecast or guarantee. The distributions overlap because outcomes remain uncertain.</text>
+</svg>
