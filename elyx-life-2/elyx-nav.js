@@ -18,6 +18,37 @@
     };
   }
 
+  function ensureEvidenceNav() {
+    var href = '/the-science';
+    var isCurrent = location.pathname === href || location.pathname === '/science-for-the-life-you-want';
+
+    document.querySelectorAll('.elyx-desktop-nav').forEach(function (nav) {
+      if (nav.querySelector('[data-evidence-nav]')) return;
+      var link = document.createElement('a');
+      link.href = href;
+      link.textContent = 'The Science';
+      link.setAttribute('data-evidence-nav', '');
+      link.style.cssText = "font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.82);padding:8px 10px;white-space:nowrap;transition:color .4s ease,opacity .2s;" + (isCurrent ? 'border-bottom:1.5px solid #C8A86A;' : '');
+      var teamItem = Array.from(nav.children).find(function (child) {
+        var teamLink = child.querySelector && child.querySelector('a[href="/the-team"]');
+        return !!teamLink;
+      });
+      nav.insertBefore(link, teamItem || nav.querySelector('[data-cta]') || null);
+    });
+
+    document.querySelectorAll('#elyx-mobile-menu nav').forEach(function (nav) {
+      if (nav.querySelector('[data-evidence-nav]')) return;
+      var group = document.createElement('div');
+      group.className = 'elyx-m-group';
+      group.setAttribute('data-evidence-nav', '');
+      group.innerHTML = '<div class="elyx-m-row"><a href="' + href + '" class="elyx-m-link">The Science</a></div>';
+      var teamGroup = Array.from(nav.children).find(function (child) {
+        return !!(child.querySelector && child.querySelector('a[href="/the-team"]'));
+      });
+      nav.insertBefore(group, teamGroup || null);
+    });
+  }
+
   function focusables(menu, closeBtn) {
     return Array.from(menu.querySelectorAll(
       'a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
@@ -40,6 +71,7 @@
   }
 
   function applyState() {
+    ensureEvidenceNav();
     const nodes = els();
     const menu = nodes.menu;
     const burger = nodes.burger;
@@ -91,6 +123,7 @@
 
   // Re-apply after React/DC re-renders wipe inline styles / classes
   const mo = new MutationObserver(function () {
+    ensureEvidenceNav();
     const nodes = els();
     if (!nodes.menu) return;
     if (isOpen && !nodes.menu.classList.contains('is-open')) applyState();
