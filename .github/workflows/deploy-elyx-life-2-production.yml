@@ -94,7 +94,8 @@ jobs:
           publish Job-HeadOfEngineering.dc.html careers/head-of-engineering
           publish Job-FullStackEngineer.dc.html careers/full-stack-engineer
           publish Job-HealthspanProductManager.dc.html careers/healthspan-product-manager
-          publish Job-ExecutiveHealthspanConcierge.dc.html careers/executive-healthspan-concierge
+          # Retire removed role pages (safe no-op once the key is gone)
+          aws s3 rm "s3://${{ env.S3_BUCKET }}/careers/executive-healthspan-concierge" || true
           publish ThankYou.dc.html thank-you
           publish Journal-Price-of-Staying-Capable.dc.html journal/the-price-of-staying-capable
           publish Journal-Signal-and-Noise.dc.html journal/signal-and-noise
