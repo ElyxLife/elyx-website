@@ -1,0 +1,12 @@
+{
+  "name": "elyx-life",
+  "private": true,
+  "scripts": {
+    "build": "bash ./build.sh",
+    "deploy": "npm run build && wrangler deploy",
+    "preview": "npm run build && wrangler dev"
+  },
+  "devDependencies": {
+    "wrangler": "^4.42.0"
+  }
+}
